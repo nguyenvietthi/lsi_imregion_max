@@ -2,8 +2,8 @@ import numpy as np
 import global_params
 import base_functions
 
-f = open("error_case_6x6.txt", "w")
-f_r = open("correct_case_6x6.txt", "w")
+f = open("test_result/error_case_6x6.txt", "w")
+f_r = open("test_result/correct_case_6x6.txt", "w")
 for i in range(0,int(10e100)):
     # Input image
     # input_image = np.array([[0, 0, 0, 1, 2, 3],
