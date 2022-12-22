@@ -19,7 +19,7 @@ def compare(iter, input_image_flatten, strobe, last_extend_idx, mark_iter):
 
     for i in range(0, strobe.shape[0]):
         if (strobe[i] == 1):
-            if ((input_image_flatten[i] == input_image_flatten[iter]) & (i not in last_extend_idx) & (i != 0)):
+            if ((input_image_flatten[i] == input_image_flatten[iter]) & (i not in last_extend_idx) & (i != iter)):
                 extend = True
                 extend_idx.append(i)
                 mark_iter_copy[i] = 1
