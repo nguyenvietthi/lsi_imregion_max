@@ -2,8 +2,8 @@ import numpy as np
 import global_params
 import base_functions
 
-f = open("error_case_30x30.txt", "w")
-f_r = open("correct_case_30x30.txt", "w")
+f = open("error_case_6x6.txt", "w")
+f_r = open("correct_case_6x6.txt", "w")
 for i in range(0,int(10e100)):
     # Input image
     # input_image = np.array([[0, 0, 0, 1, 2, 3],
@@ -12,7 +12,7 @@ for i in range(0,int(10e100)):
     #                         [1, 3, 1, 5, 4, 5],
     #                         [0, 0, 0, 3, 2, 4],
     #                         [2, 1, 0, 1, 2, 3]])
-    input_image = np.random.randint(30000, size=(30,30))
+    input_image = np.random.randint(30000, size=(6,6))
 
     # ORIGINAL
     size_input_x = input_image.shape[0]
@@ -269,9 +269,12 @@ for i in range(0,int(10e100)):
 
     # print(new_algorithm_output_reshape)   
     # print(output)
-
-    if((sum(sum(new_algorithm_output_reshape != new_algorithm_output_reshape)) != 0)):
-        print("ERROR\n")
+    comparison = output == new_algorithm_output_reshape
+    equal_arrays = comparison.all()
+    
+    print(equal_arrays)
+    
+    if(~equal_arrays):
         f.write("Input: \n")
         f.write(np.array2string(input_image))
         f.write("\nOriginal algorithm output: \n")
