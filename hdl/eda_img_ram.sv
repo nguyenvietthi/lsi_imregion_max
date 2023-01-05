@@ -6,15 +6,15 @@ module eda_img_ram #(
   parameter ADDR_WIDTH       = $clog2(M*N)                    ,
   parameter NEIGH_ADDR_WIDTH = ADDR_WIDTH * (WINDOW_WIDTH - 1)
 )(
-  input                                     clk             ,
-  input                                     reset_n         ,
-  input                                     write_en        ,
-  input  [ADDR_WIDTH - 1:0]                 wr_addr         ,
-  input  [PIXEL_WIDTH- 1:0]                 pixel_in        ,
-  input  [ADDR_WIDTH - 1:0]                 center_addr     ,
-  output [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values   ,
-  output [WINDOW_WIDTH - 1:0]               neigh_addr_valid,
-  output [NEIGH_ADDR_WIDTH - 1:0]           neigh_addr       
+  input                                           clk             ,
+  input                                           reset_n         ,
+  input                                           write_en        ,
+  input        [ADDR_WIDTH - 1:0]                 wr_addr         ,
+  input        [PIXEL_WIDTH- 1:0]                 pixel_in        ,
+  input        [ADDR_WIDTH - 1:0]                 center_addr     ,
+  output       [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values   ,
+  output logic [WINDOW_WIDTH - 2:0]               neigh_addr_valid,
+  output       [NEIGH_ADDR_WIDTH - 1:0]           neigh_addr       
 );
 
   logic [PIXEL_WIDTH - 1:0] img_memory [ADDR_WIDTH - 1:0];
@@ -56,10 +56,13 @@ module eda_img_ram #(
   assign neigh_addr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
 
   // Assign window values
-
   assign window_values = {img_memory[upleft_addr], img_memory[up_addr], img_memory[upright_addr],
                           img_memory[left_addr], img_memory[center_addr], img_memory[right_addr], 
                           img_memory[downleft_addr], img_memory[down_addr], img_memory[downright_addr]};
+
+  // Generate neighborhood address valid
+
+
 
 
 
