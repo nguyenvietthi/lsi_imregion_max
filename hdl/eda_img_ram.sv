@@ -75,7 +75,6 @@ module eda_img_ram #(
                           img_memory[i_center + 1][j_center - 1], img_memory[i_center + 1][j_center    ], img_memory[i_center + 1][j_center + 1]}
 
   // Generate neighborhood address valid
-
   always_comb begin
     if(i_center == 0) begin 
       if(j_center == 0) begin 
@@ -93,8 +92,13 @@ module eda_img_ram #(
       end else begin 
         neigh_addr_valid = 8'b11111000;
       end
+    end else if(j_center == 0) begin 
+      neigh_addr_valid = 8'b01101011;
+    end else if(j_center == M - 1) begin 
+      neigh_addr_valid = 8'b11010110;
+    end else begin 
+      neigh_addr_valid = 8'b11111111;
     end
-  
   end
 
 endmodule
