@@ -6,7 +6,6 @@ module eda_img_ram #(
   parameter ADDR_WIDTH       = $clog2(M*N)                    ,
   parameter I_WIDTH          = $clog2(M)                      ,
   parameter J_WIDTH          = $clog2(M)                      ,
-  parameter NEIGH_ADDR_WIDTH = ADDR_WIDTH * (WINDOW_WIDTH - 1)
 )(
   input                                           clk             ,
   input                                           reset_n         ,
@@ -23,7 +22,7 @@ module eda_img_ram #(
   output       [ADDR_WIDTH - 1:0]                 right_addr      ,
   output       [ADDR_WIDTH - 1:0]                 downleft_addr   ,
   output       [ADDR_WIDTH - 1:0]                 down_addr       ,
-  output       [ADDR_WIDTH - 1:0]                 downright_addr     
+  output       [ADDR_WIDTH - 1:0]                 downright_addr   
 );
 
   logic [PIXEL_WIDTH - 1:0] img_memory [I_WIDTH - 1:0] [J_WIDTH - 1:0];
@@ -35,7 +34,6 @@ module eda_img_ram #(
   //|----------|--------|-----------|
   //| downleft | down   | downright |
   //|----------|--------|-----------|
-
 
 
   // Write pixel into memory
