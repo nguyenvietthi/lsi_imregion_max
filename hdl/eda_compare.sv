@@ -3,9 +3,7 @@ module eda_compare #(
   parameter N                = 16                             ,
   parameter PIXEL_WIDTH      = 8                              ,
   parameter WINDOW_WIDTH     = 9                              ,
-  parameter ADDR_WIDTH       = $clog2(M*N)                    ,
-  parameter I_WIDTH          = $clog2(M)                      ,
-  parameter J_WIDTH          = $clog2(M)                      
+  parameter ADDR_WIDTH       = $clog2(M*N)                    
 )(
   input                                           clk             ,
   input                                           reset_n         ,
