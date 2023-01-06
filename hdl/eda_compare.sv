@@ -91,7 +91,6 @@ module eda_compare #(
   assign equal_positions = equal_positions_tmp & neigh_addr_valid;
 
   // Generate push positions
-
   logic [WINDOW_WIDTH - 2:0] index_push_fifo    ;
   logic [WINDOW_WIDTH - 2:0] index_push_fifo_reg;
 
