@@ -16,7 +16,14 @@ module eda_img_ram #(
   input        [ADDR_WIDTH - 1:0]                 center_addr     , //{i, j}
   output       [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values   ,
   output logic [WINDOW_WIDTH - 2:0]               neigh_addr_valid,
-  output       [NEIGH_ADDR_WIDTH - 1:0]           neigh_addr       
+  output       [ADDR_WIDTH - 1:0]                 upleft_addr     ,
+  output       [ADDR_WIDTH - 1:0]                 up_addr         ,
+  output       [ADDR_WIDTH - 1:0]                 upright_addr    ,
+  output       [ADDR_WIDTH - 1:0]                 left_addr       ,
+  output       [ADDR_WIDTH - 1:0]                 right_addr      ,
+  output       [ADDR_WIDTH - 1:0]                 downleft_addr   ,
+  output       [ADDR_WIDTH - 1:0]                 down_addr       ,
+  output       [ADDR_WIDTH - 1:0]                 downright_addr     
 );
 
   logic [PIXEL_WIDTH - 1:0] img_memory [I_WIDTH - 1:0] [J_WIDTH - 1:0];
@@ -29,14 +36,7 @@ module eda_img_ram #(
   //| downleft | down   | downright |
   //|----------|--------|-----------|
 
-  logic upleft_addr   ;
-  logic up_addr       ;
-  logic upright_addr  ;
-  logic left_addr     ;
-  logic right_addr    ;
-  logic downleft_addr ;
-  logic down_addr     ;
-  logic downright_addr;
+
 
   // Write pixel into memory
   logic [I_WIDTH - 1] i_pixel;
@@ -67,7 +67,7 @@ module eda_img_ram #(
   assign down_addr      = {i_center + 1, j_center    };
   assign downright_addr = {i_center + 1, j_center + 1};
 
-  assign neigh_addr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
+  // assign neigh_addr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
 
   // Assign window values
   assign window_values = {img_memory[i_center - 1][j_center - 1], img_memory[i_center - 1][j_center    ], img_memory[i_center - 1][j_center + 1], 
