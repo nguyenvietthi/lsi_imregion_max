@@ -9,11 +9,12 @@ module eda_compare #(
 )(
   input                                           clk             ,
   input                                           reset_n         ,
+  input                                           new_pixel       ,
   input        [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values   ,
   input        [WINDOW_WIDTH - 2:0]               neigh_addr_valid,
   input        [WINDOW_WIDTH - 2:0]               iterated_idx    ,
   output logic                                    compare_out     ,
-  output       [WINDOW_WIDTH - 2:0]               equal_positions ,
+  output logic [WINDOW_WIDTH - 2:0]               equal_positions ,
   output       [WINDOW_WIDTH - 2:0]               push_positions   
 );
 	//Find max value in 9 pixels
@@ -87,8 +88,18 @@ module eda_compare #(
       end
   	end
   endgenerate
-  
-  assign equal_positions = equal_positions_tmp & neigh_addr_valid;
+
+  always_ff @(posedge clk or negedge reset_n) begin
+  	if(~reset_n) begin
+  		equal_positions <= 0;
+  	end else begin
+  		if(new_pixel) begin
+  			equal_positions <= equal_positions_tmp & neigh_addr_valid;
+  		end else if(push_positions) begin
+  			equal_positions <= 0;
+  		end
+  	end
+  end
 
   // Generate push positions
   logic [WINDOW_WIDTH - 2:0] index_push_fifo    ;
