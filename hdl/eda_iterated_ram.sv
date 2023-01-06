@@ -53,12 +53,23 @@ module eda_iterated_ram  #(
 		end
 	end
 
-	// Interate ouput
+	// Update interate
 	generate
 		for (int i = 0; i < WINDOW_WIDTH - 1; i++) begin
 			always_ff @(posedge clk or negedge reset_n) begin
 				if(push_positions[i]) begin
 					iterated_memory[[addr_arr[i][I_WIDTH - 1:J_WIDTH]]][[addr_arr[i][J_WIDTH - 1:0]]] <= 1;
+				end
+			end
+		end
+	endgenerate
+
+	// Interate ouput
+	generate
+		for (int i = 0; i < WINDOW_WIDTH - 1; i++) begin
+			always_comb begin
+				if(equal_positions[i]) begin
+					iterated_idx = iterated_memory[[addr_arr[i][I_WIDTH - 1:J_WIDTH]]][[addr_arr[i][J_WIDTH - 1:0]]];
 				end
 			end
 		end
