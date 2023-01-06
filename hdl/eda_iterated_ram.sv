@@ -24,7 +24,7 @@ module eda_iterated_ram  #(
   output [WINDOW_WIDTH - 2:0] iterated_idx    
 );
 
-	logic                    iterated_memory [I_WIDTH - 1:0] [J_WIDTH - 1:0];'
+	logic                    iterated_memory [I_WIDTH - 1:0] [J_WIDTH - 1:0];
 	logic [ADDR_WIDTH - 1:0] addr_arr        [WINDOW_WIDTH - 2:0];
 
 	assign addr_arr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
