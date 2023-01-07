@@ -33,7 +33,7 @@ module eda_iterated_ram  #(
 	generate
 		for (int i = 0; i < I_WIDTH; i++) begin
 			for (int j = 0; j < J_WIDTH; j++) begin
-				always_ff @(posedge clk or negedge reset_n) begin : proc_
+				always_ff @(posedge clk or negedge reset_n) begin
 					if(~reset_n) begin
 						iterated_memory[i][j] <= 0;
 					end else begin
