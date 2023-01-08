@@ -71,7 +71,7 @@ module eda_compare #(
   	for (genvar i = 0; i < WINDOW_WIDTH; i++) begin
   		if(i < 4) begin
   			always_comb begin
-  				if(window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH] == max_value) begin
+  				if(window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH] == window_values[4 * PIXEL_WIDTH + 7 -: PIXEL_WIDTH]) begin
   					equal_positions_tmp[i] = 1;
   				end else begin
   					equal_positions_tmp[i] = 0;
@@ -79,7 +79,7 @@ module eda_compare #(
   			end
       end else if(i > 4) begin
   			always_comb begin
-  				if(window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH] == max_value) begin
+  				if(window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH] == window_values[4 * PIXEL_WIDTH + 7 -: PIXEL_WIDTH]) begin
   					equal_positions_tmp[i - 1] = 1;
   				end else begin
   					equal_positions_tmp[i - 1] = 0;
