@@ -57,7 +57,7 @@ module eda_regional_max_tb ();
 
     @(negedge clk) begin 
       i_center = 0;
-      j_center = 0;
+      j_center = 2;
     end 
     @(negedge clk) new_pixel = 1;
     @(negedge clk) new_pixel = 0;
