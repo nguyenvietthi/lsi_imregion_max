@@ -13,7 +13,7 @@ module eda_img_ram #(
   input        [ADDR_WIDTH - 1:0]                 wr_addr         ,
   input        [PIXEL_WIDTH- 1:0]                 pixel_in        ,
   input        [ADDR_WIDTH - 1:0]                 center_addr     , //{i, j}
-  output       [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values   ,
+  output logic [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values   ,
   output logic [WINDOW_WIDTH - 2:0]               neigh_addr_valid,
   output       [ADDR_WIDTH - 1:0]                 upleft_addr     ,
   output       [ADDR_WIDTH - 1:0]                 up_addr         ,
@@ -77,11 +77,6 @@ module eda_img_ram #(
 
   // assign neigh_addr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
 
-  // Assign window values
-  assign window_values = {img_memory[i_center_minus][j_center_minus], img_memory[i_center_minus][j_center    ], img_memory[i_center_minus][j_center_plus], 
-                          img_memory[i_center      ][j_center_minus], img_memory[i_center      ][j_center    ], img_memory[i_center      ][j_center_plus], 
-                          img_memory[i_center_plus ][j_center_minus], img_memory[i_center_plus ][j_center    ], img_memory[i_center_plus ][j_center_plus]};
-
   // Generate neighborhood address valid
   always_comb begin
     if(i_center == 0) begin 
@@ -109,4 +104,23 @@ module eda_img_ram #(
     end
   end
 
+  // Assign window values
+  logic  [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values_real;
+  logic  [WINDOW_WIDTH :0]                  addr_valid        ;
+
+  assign addr_valid = {neigh_addr_valid[7:4], 1'b1, neigh_addr_valid[3:0]};
+  assign window_values_real = {img_memory[i_center_minus][j_center_minus], img_memory[i_center_minus][j_center    ], img_memory[i_center_minus][j_center_plus], 
+                               img_memory[i_center      ][j_center_minus], img_memory[i_center      ][j_center    ], img_memory[i_center      ][j_center_plus], 
+                               img_memory[i_center_plus ][j_center_minus], img_memory[i_center_plus ][j_center    ], img_memory[i_center_plus ][j_center_plus]};
+  generate
+    for (genvar i = 0; i < WINDOW_WIDTH; i++) begin
+      always_comb begin 
+        if(addr_valid[i]) begin 
+          window_values[i * PIXEL_WIDTH + 7 -: 8] = window_values_real[i * PIXEL_WIDTH + 7 -: 8];
+        end else begin 
+          window_values[i * PIXEL_WIDTH + 7 -: 8] = 0;
+        end
+      end
+    end
+  endgenerate
 endmodule
