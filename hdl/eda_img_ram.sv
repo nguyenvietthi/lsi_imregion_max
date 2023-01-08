@@ -79,8 +79,8 @@ module eda_img_ram #(
 
   // Assign window values
   assign window_values = {img_memory[i_center_minus][j_center_minus], img_memory[i_center_minus][j_center    ], img_memory[i_center_minus][j_center_plus], 
-                          img_memory[i_center    ][j_center_minus], img_memory[i_center    ][j_center    ], img_memory[i_center    ][j_center_plus], 
-                          img_memory[i_center_plus][j_center_minus], img_memory[i_center_plus][j_center    ], img_memory[i_center_plus][j_center_plus]};
+                          img_memory[i_center      ][j_center_minus], img_memory[i_center      ][j_center    ], img_memory[i_center      ][j_center_plus], 
+                          img_memory[i_center_plus ][j_center_minus], img_memory[i_center_plus ][j_center    ], img_memory[i_center_plus ][j_center_plus]};
 
   // Generate neighborhood address valid
   always_comb begin

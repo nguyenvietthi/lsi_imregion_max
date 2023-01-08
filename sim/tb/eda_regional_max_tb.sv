@@ -28,14 +28,15 @@ module eda_regional_max_tb ();
     .clear      (clear      )
   );
   logic [PIXEL_WIDTH - 1:0] img_memory [0:M - 1] [0:N - 1];
-
+  logic [I_WIDTH - 1:0] i_center;
+  logic [J_WIDTH - 1:0] j_center;
   initial begin
     $readmemh("../tb/image_input", img_memory);
     $display("img_memory: %p\n", img_memory);
   end
 
   always #10 clk = ~clk;
-
+  assign center_addr = {i_center, j_center};
   initial begin
     clk = 0;
     reset_n = 0;
@@ -53,7 +54,10 @@ module eda_regional_max_tb ();
       end
     end
 
-    @(negedge clk) center_addr = 0;
+    @(negedge clk) begin 
+      i_center = 1;
+      j_center = 1;
+    end 
     repeat (30) begin 
       @(negedge clk);
     end
