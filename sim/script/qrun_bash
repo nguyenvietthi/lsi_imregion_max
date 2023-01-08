@@ -1,5 +1,3 @@
-#!/bin/bash
-reset
 # UVMLIB=../uvm_code/uvm-1.1d #path lib of UVM
 TOP_TB=eda_regional_max_tb # name top testbench
 # prepare workspace

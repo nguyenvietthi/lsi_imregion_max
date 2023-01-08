@@ -16,10 +16,10 @@ module eda_compare #(
   output       [WINDOW_WIDTH - 2:0]               push_positions   
 );
 	//Find max value in 9 pixels
-	logic [PIXEL_WIDTH - 1]   max_value    ;
+	logic [PIXEL_WIDTH - 1:0] max_value    ;
   logic [PIXEL_WIDTH - 1:0] value_l1[0:3];
   generate
-    for (int i = 0; i < 8; i = i + 2) begin
+    for (genvar i = 0; i < 8; i = i + 2) begin
       eda_max cl1 (
 				.a   (window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH]            ),
 				.b   (window_values[(i + 1) * PIXEL_WIDTH + 7 : (i + 1) * PIXEL_WIDTH]),
@@ -30,7 +30,7 @@ module eda_compare #(
 
   logic [PIXEL_WIDTH - 1:0] value_l2[0:1];
   generate
-    for (int i = 0; i < 4; i = i + 2) begin 
+    for (genvar i = 0; i < 4; i = i + 2) begin 
       eda_max cl2 (
 				.a   (value_l1[i]    ),
 				.b   (value_l1[i + 1]),
@@ -42,7 +42,7 @@ module eda_compare #(
   logic [PIXEL_WIDTH - 1:0] value_l3[0:0];
 
   generate
-    for (int i = 0; i < 2; i = i + 2) begin 
+    for (genvar i = 0; i < 2; i = i + 2) begin 
       eda_max cl3 (
 				.a   (value_l2[i]    ),
 				.b   (value_l2[i + 1]),
@@ -60,13 +60,15 @@ module eda_compare #(
   always_comb begin
   	if (max_value > window_values[4 * PIXEL_WIDTH + 7 -: PIXEL_WIDTH]) begin
   		compare_out = 0;
-  	end
+  	end else begin 
+      compare_out = 1;
+    end
   end
 
   // Generate equal_positions
   logic [WINDOW_WIDTH - 2:0] equal_positions_tmp ;
   generate
-  	for (int i = 0; i < WINDOW_WIDTH; i++) begin
+  	for (genvar i = 0; i < WINDOW_WIDTH; i++) begin
   		if(i < 4) begin
   			always_comb begin
   				if(window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH] == max_value) begin

@@ -25,7 +25,7 @@ module eda_img_ram #(
   output       [ADDR_WIDTH - 1:0]                 downright_addr   
 );
 
-  logic [PIXEL_WIDTH - 1:0] img_memory [I_WIDTH - 1:0] [J_WIDTH - 1:0];
+  logic [PIXEL_WIDTH - 1:0] img_memory [M - 1:0] [N - 1:0];
 
   //|----------|--------|-----------|
   //| upleft   |   up   | upright   |
@@ -37,10 +37,10 @@ module eda_img_ram #(
 
 
   // Write pixel into memory
-  logic [I_WIDTH - 1] i_pixel;
-  logic [J_WIDTH - 1] j_pixel;
+  logic [I_WIDTH - 1:0] i_pixel;
+  logic [J_WIDTH - 1:0] j_pixel;
 
-  assign i_pixel = wr_addr[I_WIDTH - 1:J_WIDTH];
+  assign i_pixel = wr_addr[ADDR_WIDTH - 1:J_WIDTH];
   assign j_pixel = wr_addr[J_WIDTH - 1:0]      ;
 
   always_ff @(posedge clk or negedge reset_n) begin
@@ -50,27 +50,37 @@ module eda_img_ram #(
   end
 
   // Generate neighborhood address of center address
-  logic [I_WIDTH - 1] i_center;
-  logic [J_WIDTH - 1] j_center;
+  logic [I_WIDTH - 1:0] i_center;
+  logic [J_WIDTH - 1:0] j_center;
 
-  assign i_center = center_addr[I_WIDTH - 1:J_WIDTH];
-  assign j_center = center_addr[J_WIDTH - 1:0]      ;
+  logic [I_WIDTH - 1:0] i_center_minus;
+  logic [I_WIDTH - 1:0] i_center_plus ;
+  logic [J_WIDTH - 1:0] j_center_plus ;
+  logic [J_WIDTH - 1:0] j_center_minus;
 
-  assign upleft_addr    = {i_center - 1, j_center - 1};
-  assign up_addr        = {i_center - 1, j_center    };
-  assign upright_addr   = {i_center - 1, j_center + 1};
-  assign left_addr      = {i_center    , j_center - 1};
-  assign right_addr     = {i_center    , j_center + 1};
-  assign downleft_addr  = {i_center + 1, j_center - 1};
-  assign down_addr      = {i_center + 1, j_center    };
-  assign downright_addr = {i_center + 1, j_center + 1};
+  assign i_center = center_addr[ADDR_WIDTH - 1:J_WIDTH];
+  assign j_center = center_addr[J_WIDTH - 1:0]         ;
+
+  assign i_center_minus = i_center - 1;
+  assign i_center_plus  = i_center + 1;
+  assign j_center_plus  = j_center + 1;
+  assign j_center_minus = j_center - 1;
+
+  assign upleft_addr    = {i_center_minus, j_center_minus};
+  assign up_addr        = {i_center_minus, j_center      };
+  assign upright_addr   = {i_center_minus, j_center_plus };
+  assign left_addr      = {i_center      , j_center_minus};
+  assign right_addr     = {i_center      , j_center_plus };
+  assign downleft_addr  = {i_center_plus , j_center_minus};
+  assign down_addr      = {i_center_plus , j_center      };
+  assign downright_addr = {i_center_plus , j_center_plus };
 
   // assign neigh_addr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
 
   // Assign window values
-  assign window_values = {img_memory[i_center - 1][j_center - 1], img_memory[i_center - 1][j_center    ], img_memory[i_center - 1][j_center + 1], 
-                          img_memory[i_center    ][j_center - 1], img_memory[i_center    ][j_center ], img_memory[i_center    ][j_center + 1], 
-                          img_memory[i_center + 1][j_center - 1], img_memory[i_center + 1][j_center    ], img_memory[i_center + 1][j_center + 1]}
+  assign window_values = {img_memory[i_center_minus][j_center_minus], img_memory[i_center_minus][j_center    ], img_memory[i_center_minus][j_center_plus], 
+                          img_memory[i_center    ][j_center_minus], img_memory[i_center    ][j_center    ], img_memory[i_center    ][j_center_plus], 
+                          img_memory[i_center_plus][j_center_minus], img_memory[i_center_plus][j_center    ], img_memory[i_center_plus][j_center_plus]};
 
   // Generate neighborhood address valid
   always_comb begin
