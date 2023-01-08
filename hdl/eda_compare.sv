@@ -21,9 +21,9 @@ module eda_compare #(
   generate
     for (genvar i = 0; i < 8; i = i + 2) begin
       eda_max cl1 (
-				.a   (window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH]            ),
-				.b   (window_values[(i + 1) * PIXEL_WIDTH + 7 : (i + 1) * PIXEL_WIDTH]),
-				.out (value_l1[i / 2]                                                 )
+				.a   (window_values[i * PIXEL_WIDTH + 7 -: PIXEL_WIDTH]      ),
+				.b   (window_values[(i + 1) * PIXEL_WIDTH + 7 -: PIXEL_WIDTH]),
+				.out (value_l1[i / 2]                                        )
       );
     end
   endgenerate
