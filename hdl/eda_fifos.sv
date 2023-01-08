@@ -1,13 +1,13 @@
 `include "eda_global_define.vh"
 
 module eda_fifos #(
-  parameter M                = CFG_M                            ,
-  parameter N                = CFG_N                            ,
-  parameter PIXEL_WIDTH      = CFG_PIXEL_WIDTH                  ,
-  parameter WINDOW_WIDTH     = CFG_WINDOW_WIDTH                 ,
-  parameter ADDR_WIDTH       = CFG_ADDR_WIDTH                   ,
-  parameter I_WIDTH          = CFG_I_WIDTH                      ,
-  parameter J_WIDTH          = CFG_J_WIDTH                      
+  parameter M                = `CFG_M                            ,
+  parameter N                = `CFG_N                            ,
+  parameter PIXEL_WIDTH      = `CFG_PIXEL_WIDTH                  ,
+  parameter WINDOW_WIDTH     = `CFG_WINDOW_WIDTH                 ,
+  parameter ADDR_WIDTH       = `CFG_ADDR_WIDTH                   ,
+  parameter I_WIDTH          = `CFG_I_WIDTH                      ,
+  parameter J_WIDTH          = `CFG_J_WIDTH                      
 )(
   input                                          clk             ,
   input                                          reset_n         ,
