@@ -73,7 +73,6 @@ module eda_regional_max #(
     .neigh_addr_valid(neigh_addr_valid),
     .iterated_idx    (iterated_idx    ),
     .compare_out     (compare_out     ),
-    .equal_positions (equal_positions ),
     .push_positions  (push_positions  )
   );
 
@@ -98,7 +97,6 @@ module eda_regional_max #(
     .downleft_addr  (downleft_addr  ),
     .down_addr      (down_addr      ),
     .downright_addr (downright_addr ),
-    .equal_positions(equal_positions),
     .push_positions (push_positions ),
     .iterated_idx   (iterated_idx   )
   );

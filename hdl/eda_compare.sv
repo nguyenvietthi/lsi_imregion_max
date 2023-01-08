@@ -12,9 +12,9 @@ module eda_compare #(
   input        [WINDOW_WIDTH - 2:0]               neigh_addr_valid,
   input        [WINDOW_WIDTH - 2:0]               iterated_idx    ,
   output logic                                    compare_out     ,
-  output logic [WINDOW_WIDTH - 2:0]               equal_positions ,
   output       [WINDOW_WIDTH - 2:0]               push_positions   
 );
+  logic [WINDOW_WIDTH - 2:0]               equal_positions; 
 	//Find max value in 9 pixels
 	logic [PIXEL_WIDTH - 1:0] max_value    ;
   logic [PIXEL_WIDTH - 1:0] value_l1[0:3];
@@ -102,19 +102,19 @@ module eda_compare #(
   end
 
   // Generate push positions
-  logic [WINDOW_WIDTH - 2:0] index_push_fifo    ;
-  logic [WINDOW_WIDTH - 2:0] index_push_fifo_reg;
+  // logic [WINDOW_WIDTH - 2:0] index_push_fifo    ;
+  // logic [WINDOW_WIDTH - 2:0] index_push_fifo_reg;
 
-  assign index_push_fifo = equal_positions & ~iterated_idx;
+  assign push_positions = equal_positions & ~iterated_idx;
 
-  always_ff @(posedge clk or negedge reset_n) begin : proc_
-  	if(~reset_n) begin
-  		index_push_fifo_reg <= 0;
-  	end else begin
-  		index_push_fifo_reg <= index_push_fifo;
-  	end
-  end
+  // always_ff @(posedge clk or negedge reset_n) begin : proc_
+  // 	if(~reset_n) begin
+  // 		index_push_fifo_reg <= 0;
+  // 	end else begin
+  // 		index_push_fifo_reg <= index_push_fifo;
+  // 	end
+  // end
 
-  assign push_positions = index_push_fifo & (index_push_fifo ^ index_push_fifo_reg); // active 1 cycle
+  // assign push_positions = index_push_fifo & (index_push_fifo ^ index_push_fifo_reg); // active 1 cycle
 
 endmodule

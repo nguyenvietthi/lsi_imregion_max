@@ -19,7 +19,6 @@ module eda_iterated_ram  #(
   input        [ADDR_WIDTH - 1:0]   downleft_addr   ,
   input        [ADDR_WIDTH - 1:0]   down_addr       ,
   input        [ADDR_WIDTH - 1:0]   downright_addr  ,
-  input        [WINDOW_WIDTH - 2:0] equal_positions ,
   input        [WINDOW_WIDTH - 2:0] push_positions  ,
   output logic [WINDOW_WIDTH - 2:0] iterated_idx    
 );
@@ -68,11 +67,7 @@ module eda_iterated_ram  #(
 	generate
 		for (genvar i = 0; i < WINDOW_WIDTH - 1; i++) begin
 			always_comb begin
-				if(equal_positions[i]) begin
-					iterated_idx[i] = iterated_memory[addr_arr[i][ADDR_WIDTH - 1:J_WIDTH]][addr_arr[i][J_WIDTH - 1:0]];
-				end else begin 
-          iterated_idx[i] = 0;
-        end
+				iterated_idx[i] = iterated_memory[addr_arr[i][ADDR_WIDTH - 1:J_WIDTH]][addr_arr[i][J_WIDTH - 1:0]];
 			end
 		end
 	endgenerate
