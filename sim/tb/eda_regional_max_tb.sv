@@ -56,7 +56,7 @@ module eda_regional_max_tb ();
     end
 
     @(negedge clk) begin 
-      i_center = 0;
+      i_center = 3;
       j_center = 2;
     end 
     @(negedge clk) new_pixel = 1;
@@ -68,7 +68,14 @@ module eda_regional_max_tb ();
   end
 
   always_comb begin
-    $display("iterated_memory: %p\n", eda_regional_max_inst.eda_iterated_ram_inst.iterated_memory);
+    $display("iterated_memory @ %4d ns", $realtime());
+    for (int i = 0; i < M; i++) begin
+      for (int j = 0; j < N; j++) begin
+        $write("%p ", eda_regional_max_inst.eda_iterated_ram_inst.iterated_memory[i][j]); 
+      end
+      $write("\n");
+    end
+    
   end
 
 
