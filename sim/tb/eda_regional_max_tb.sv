@@ -79,7 +79,7 @@ module eda_regional_max_tb ();
       j_center = 2;
     end
 
-    repeat (300) begin 
+    repeat (3000) begin 
       @(negedge clk);
     end
     $finish;
@@ -100,7 +100,7 @@ module eda_regional_max_tb ();
   always_ff @(posedge clk) begin
     if (start_check == 1) begin
       $display("addr_arr @ %4d ns", $realtime());
-      for (int i = M - 1; i >= 0; i--) begin
+      for (int i = WINDOW_WIDTH - 2; i >= 0; i--) begin
         $write("%b ", eda_regional_max_inst.eda_iterated_ram.addr_arr[i]); 
         $write("\n");
       end

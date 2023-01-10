@@ -18,7 +18,7 @@ module comparator #(
 	output reg              o_full           , // FIFO full flag
 	output reg              o_valid_m        , // Status read data from FIFO (if FIFO not empty then o_valid_m = 1)
 	output reg              o_almostempty    , // FIFO almostempty flag (determined by i_almostempty_lvl)
-	output reg              o_empty            // FIFO empty flag
+	output                  o_empty            // FIFO empty flag
 );
 
 	//============================================
@@ -79,16 +79,18 @@ module comparator #(
 	// Flag FIFO empty
 	always @(posedge clk or negedge reset_n) begin : proc_o_empty
 		if(~reset_n) begin
-			o_empty <= 1;
+			// o_empty <= 1;
 			o_valid_m <= 0;
 		end else if ((((num_elements == 1) & i_ready_m) | (num_elements == 0)) & (!i_valid_s)) begin
-			o_empty <= 1;
+			// o_empty <= 1;
 			o_valid_m <= 0;
 		end
 		else begin
-			o_empty <= 0;
+			// o_empty <= 0;
 			o_valid_m <= 1;
 		end
 	end
+  
+  assign o_empty = (num_elements == 0);
 
 endmodule
