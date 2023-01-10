@@ -1,4 +1,4 @@
-`include "eda_global_define.vh"
+`include "eda_global_define.svh"
 
 module read_control #(
 	parameter MEM_DEPTH  = `CFG_FIFO_DEPTH      , // Memory depth
@@ -26,9 +26,15 @@ module read_control #(
 	always @(posedge clk or negedge reset_n) begin : proc_rd_addr
 		if(~reset_n) begin
 			rd_addr <= 0;
-		end else if (rd_en) begin
-			rd_addr <= rd_addr + 1;
-		end
+		end 
+    else begin
+      if (rd_en & (rd_addr == ADDR_WIDTH'(MEM_DEPTH-1))) begin
+        rd_addr <= 0;
+      end
+      else if (rd_en) begin
+  			rd_addr <= rd_addr + 1;
+  		end
+    end
 	end
 
 	//============================================

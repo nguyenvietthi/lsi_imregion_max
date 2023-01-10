@@ -1,4 +1,4 @@
-`include "eda_global_define.vh"
+`include "eda_global_define.svh"
 
 module write_control #(
 	parameter MEM_DEPTH  = `CFG_FIFO_DEPTH      , // Memory depth
@@ -21,9 +21,15 @@ module write_control #(
 	always @(posedge clk or negedge reset_n) begin : proc_wr_addr
 		if(~reset_n) begin
 			wr_addr <= 0;
-		end else if (wr_en) begin
-			wr_addr <= wr_addr + 1;
-		end
+		end 
+    else begin
+      if (wr_en & (wr_addr == ADDR_WIDTH'(MEM_DEPTH-1))) begin
+        wr_addr <= '0;
+      end
+      else if (wr_en) begin
+  			wr_addr <= wr_addr + 1;
+  		end
+    end
 	end
 
 	//============================================

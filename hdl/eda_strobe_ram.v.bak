@@ -1,0 +1,69 @@
+`include "eda_global_define.svh"
+
+module eda_strobe_ram #(
+  parameter M                = `CFG_M                         ,
+  parameter N                = `CFG_N                         ,
+  parameter WINDOW_WIDTH     = `CFG_WINDOW_WIDTH              ,
+  parameter ADDR_WIDTH       = `CFG_ADDR_WIDTH                 
+) (
+  input                       clk             ,
+  input                       reset_n         ,
+  input                       clear_strb      ,
+  input  [WINDOW_WIDTH - 2:0] push_positions  ,
+  input  [ADDR_WIDTH - 1:0]   center_addr     ,
+  input  [ADDR_WIDTH - 1:0]   upleft_addr     ,
+  input  [ADDR_WIDTH - 1:0]   up_addr         ,
+  input  [ADDR_WIDTH - 1:0]   upright_addr    ,
+  input  [ADDR_WIDTH - 1:0]   left_addr       ,
+  input  [ADDR_WIDTH - 1:0]   right_addr      ,
+  input  [ADDR_WIDTH - 1:0]   downleft_addr   ,
+  input  [ADDR_WIDTH - 1:0]   down_addr       ,
+  input  [ADDR_WIDTH - 1:0]   downright_addr  ,
+  input  [WINDOW_WIDTH - 2:0] neigh_addr_valid,
+  output [M-1:0][N-1:0]       strb_value       
+);
+
+  logic                     strb_memory [M - 1:0] [N - 1:0];
+  logic [ADDR_WIDTH - 1:0]  addr_arr    [WINDOW_WIDTH - 2:0];
+
+  //|----------|--------|-----------|
+  //| upleft   |   up   | upright   |
+  //|----------|--------|-----------|
+  //| left     | center |   right   |
+  //|----------|--------|-----------|
+  //| downleft | down   | downright |
+  //|----------|--------|-----------|
+
+  assign addr_arr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
+
+  always @(posedge clk or negedge reset_n) begin : proc_strb_memory_center_addr
+    if(~reset_n) begin
+      strb_memory[center_addr[ADDR_WIDTH-1:J_WIDTH]][center_addr[J_WIDTH-1:0]] <= 0;
+    end else begin
+      strb_memory[center_addr[ADDR_WIDTH-1:J_WIDTH]][center_addr[J_WIDTH-1:0]] <= 1;
+    end
+  end
+
+  generate
+    for (genvar i = 0; i < WINDOW_WIDTH - 1; i++) begin
+      always @(posedge clk or negedge reset_n) begin : proc_strb_memory
+        if(~reset_n) begin
+          strb_memory[i] <= 0;
+        end else begin
+          if (neigh_addr_valid[i]) begin
+            strb_memory[addr_arr[i][ADDR_WIDTH-1:J_WIDTH]][addr_arr[i][J_WIDTH-1:0]] <= 1;
+          end
+        end
+      end
+    end
+  endgenerate
+
+  generate
+    for (genvar i = 0; i < M; i++) begin
+      for (genvar j = 0; j < N; j++) begin
+        assign strb_value[i][j] = strb_memory[i][j];
+      end
+    end
+  endgenerate
+
+endmodule

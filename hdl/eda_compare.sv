@@ -1,9 +1,11 @@
+`include "eda_global_define.svh"
+
 module eda_compare #(
-  parameter M                = 16                             ,
-  parameter N                = 16                             ,
-  parameter PIXEL_WIDTH      = 8                              ,
-  parameter WINDOW_WIDTH     = 9                              ,
-  parameter ADDR_WIDTH       = $clog2(M*N)                    
+  parameter M                = `CFG_M                         ,
+  parameter N                = `CFG_N                         ,
+  parameter PIXEL_WIDTH      = `CFG_PIXEL_WIDTH               ,
+  parameter WINDOW_WIDTH     = `CFG_WINDOW_WIDTH              ,
+  parameter ADDR_WIDTH       = `CFG_ADDR_WIDTH                 
 )(
   input                                           clk             ,
   input                                           reset_n         ,
@@ -66,55 +68,28 @@ module eda_compare #(
   end
 
   // Generate equal_positions
-  logic [WINDOW_WIDTH - 2:0] equal_positions_tmp ;
   generate
   	for (genvar i = 0; i < WINDOW_WIDTH; i++) begin
   		if(i < 4) begin
   			always_comb begin
   				if(window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH] == window_values[4 * PIXEL_WIDTH + 7 -: PIXEL_WIDTH]) begin
-  					equal_positions_tmp[i] = 1;
+  					equal_positions[i] = new_pixel;
   				end else begin
-  					equal_positions_tmp[i] = 0;
-  				end
+            equal_positions[i] = 0;
+          end
   			end
       end else if(i > 4) begin
   			always_comb begin
   				if(window_values[i * PIXEL_WIDTH + 7 : i * PIXEL_WIDTH] == window_values[4 * PIXEL_WIDTH + 7 -: PIXEL_WIDTH]) begin
-  					equal_positions_tmp[i - 1] = 1;
+  					equal_positions[i - 1] = new_pixel;
   				end else begin
-  					equal_positions_tmp[i - 1] = 0;
-  				end
+            equal_positions[i - 1] = 0;
+          end
   			end
       end
   	end
   endgenerate
 
-  always_ff @(posedge clk or negedge reset_n) begin
-  	if(~reset_n) begin
-  		equal_positions <= 0;
-  	end else begin
-  		if(new_pixel) begin
-  			equal_positions <= equal_positions_tmp & neigh_addr_valid;
-  		end else if(push_positions) begin
-  			equal_positions <= 0;
-  		end
-  	end
-  end
-
-  // Generate push positions
-  // logic [WINDOW_WIDTH - 2:0] index_push_fifo    ;
-  // logic [WINDOW_WIDTH - 2:0] index_push_fifo_reg;
-
-  assign push_positions = equal_positions & ~iterated_idx;
-
-  // always_ff @(posedge clk or negedge reset_n) begin : proc_
-  // 	if(~reset_n) begin
-  // 		index_push_fifo_reg <= 0;
-  // 	end else begin
-  // 		index_push_fifo_reg <= index_push_fifo;
-  // 	end
-  // end
-
-  // assign push_positions = index_push_fifo & (index_push_fifo ^ index_push_fifo_reg); // active 1 cycle
+  assign push_positions = equal_positions & ~iterated_idx & neigh_addr_valid;
 
 endmodule

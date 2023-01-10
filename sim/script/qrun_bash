@@ -12,6 +12,8 @@ alias vlg='vlgr; vlgt'
 # run simulation without UVM lib
 alias vsm='vsim -c ${TOP_TB} -wlf vsim.wlf -coverage -voptargs=+acc -l vsim.log -do "coverage save -onexit -code bcefs -directive -cvg coverage.ucdb; add wave -r /${TOP_TB}/*; run -all; quit"'
 
+alias run='vlb; vlg; vsm'
+
 # view wave form
 alias viw='vsim -view vsim.wlf -do wave.do &'
 

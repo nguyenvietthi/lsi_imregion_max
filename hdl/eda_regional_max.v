@@ -1,5 +1,17 @@
-`include "eda_global_define.svh"
+//-----------------------------------------------------------------------------------------------------------
+//    Copyright (C) 2022 by Dolphin Technology
+//    All right reserved.
+//
+//    Copyright Notification
+//    No part may be reproduced except as authorized by written permission.
+//
+//    Module: eda_regional_max_lib.eda_regional_max
+//    Company: Dolphin Technology
+//    Author: anhpq0
+//    Date: 14:27:07 01/10/23
+//-----------------------------------------------------------------------------------------------------------
 
+`include "eda_global_define.svh"
 module eda_regional_max #(
   // synopsys template
   parameter M            = `CFG_M,
@@ -20,7 +32,7 @@ module eda_regional_max #(
   input   wire    [ADDR_WIDTH - 1:0]  wr_addr, 
   input   wire                        write_en, 
   output  wire                        done, 
-  output  wire    [M - 1:0][N - 1:0]  matrix_output 
+  output  wire                        matrix_output
 );
 
 
@@ -32,13 +44,14 @@ module eda_regional_max #(
 // Internal signal declarations
 wire  [ADDR_WIDTH - 1:0]                 center_addr;
 wire                                     clear;
-wire                                     update_strb;        // Update strobe
+wire                                     clear_ram;          // Clear all RAMs
+wire                                     clear_strb;         // Clear strobe
 wire                                     compare_out;
 wire  [ADDR_WIDTH-1:0]                   data_out;           // Data out from FIFO
 wire  [ADDR_WIDTH - 1:0]                 down_addr;
 wire  [ADDR_WIDTH - 1:0]                 downleft_addr;
 wire  [ADDR_WIDTH - 1:0]                 downright_addr;
-wire  [WINDOW_WIDTH - 2:0]               fifo_empty;         // FIFO empty
+wire  [WINDOW_WIDTH-2:0]                 fifo_empty;         // FIFO empty
 wire                                     iterated_all;
 wire  [WINDOW_WIDTH - 2:0]               iterated_idx;
 wire  [ADDR_WIDTH - 1:0]                 left_addr;
@@ -51,13 +64,10 @@ wire  [WINDOW_WIDTH - 2:0]               read_en;
 wire  [ADDR_WIDTH - 1:0]                 right_addr;
 wire  [M - 1:0][N - 1:0]                 strb_value;
 wire  [ADDR_WIDTH - 1:0]                 up_addr;
+wire                                     update_output;      // Update output
 wire  [ADDR_WIDTH - 1:0]                 upleft_addr;
 wire  [ADDR_WIDTH - 1:0]                 upright_addr;
 wire  [PIXEL_WIDTH * WINDOW_WIDTH - 1:0] window_values;
-wire  [ADDR_WIDTH-1:0]                   pre_center_addr;     // Center address
-wire  [M - 1:0]                          sel_row;
-wire  [M - 1:0][N - 1:0]                 sel_col;
-
 
 
 // Instances 
@@ -73,22 +83,21 @@ eda_compare eda_compare(
 ); 
 
 eda_controller eda_controller( 
-  .clk             (clk), 
-  .reset_n         (reset_n), 
-  .start           (start), 
-  .iterated_all    (iterated_all), 
-  .fifo_empty      (fifo_empty), 
-  .push_positions  (push_positions), 
-  .data_out        (data_out), 
-  .next_row        (next_row), 
-  .next_col        (next_col), 
-  .new_pixel       (new_pixel), 
-  .clear           (clear), 
-  .center_addr     (center_addr), 
-  .pre_center_addr (pre_center_addr), 
-  .update_strb     (update_strb), 
-  .done            (done), 
-  .read_en         (read_en) 
+  .clk            (clk), 
+  .reset_n        (reset_n), 
+  .start          (start), 
+  .fifo_empty     (fifo_empty), 
+  .data_out       (data_out), 
+  .new_pixel      (new_pixel), 
+  .clear_ram      (clear_ram), 
+  .center_addr    (center_addr), 
+  .clear_strb     (clear_strb), 
+  .done           (done), 
+  .update_output  (update_output), 
+  .push_positions (push_positions), 
+  .next_row       (next_row), 
+  .next_col       (next_col), 
+  .iterated_all   (iterated_all)
 ); 
 
 eda_fifos eda_fifos( 
@@ -128,10 +137,41 @@ eda_img_ram eda_img_ram(
 ); 
 
 eda_iterated_ram eda_iterated_ram( 
+  .clk            (clk), 
+  .reset_n        (reset_n), 
+  .clear          (clear), 
+  .new_pixel      (new_pixel), 
+  .center_addr    (center_addr), 
+  .upleft_addr    (upleft_addr), 
+  .up_addr        (up_addr), 
+  .upright_addr   (upright_addr), 
+  .left_addr      (left_addr), 
+  .right_addr     (right_addr), 
+  .downleft_addr  (downleft_addr), 
+  .down_addr      (down_addr), 
+  .downright_addr (downright_addr), 
+  .push_positions (push_positions), 
+  .iterated_idx   (iterated_idx), 
+  .next_row       (next_row), 
+  .next_col       (next_col), 
+  .iterated_all   (iterated_all)
+); 
+
+eda_output_ram eda_output_ram( 
+  .clk           (clk), 
+  .reset_n       (reset_n), 
+  .clear         (clear), 
+  .update_output (update_output), 
+  .compare_out   (compare_out), 
+  .strb_value    (strb_value), 
+  .matrix_output (matrix_output)
+); 
+
+eda_strobe_ram eda_strobe_ram( 
   .clk              (clk), 
   .reset_n          (reset_n), 
-  .clear            (clear), 
-  .new_pixel        (new_pixel), 
+  .clear_strb       (clear_strb), 
+  .push_positions   (push_positions), 
   .center_addr      (center_addr), 
   .upleft_addr      (upleft_addr), 
   .up_addr          (up_addr), 
@@ -141,43 +181,7 @@ eda_iterated_ram eda_iterated_ram(
   .downleft_addr    (downleft_addr), 
   .down_addr        (down_addr), 
   .downright_addr   (downright_addr), 
-  .neigh_addr_valid (neigh_addr_valid),
-  .push_positions   (push_positions), 
-  .iterated_idx     (iterated_idx), 
-  .next_row         (next_row), 
-  .next_col         (next_col), 
-  .sel_row          (sel_row), 
-  .sel_col          (sel_col), 
-  .iterated_all     (iterated_all)
-); 
-
-eda_output_ram eda_output_ram( 
-  .clk           (clk), 
-  .reset_n       (reset_n), 
-  .clear         (clear), 
-  .new_pixel     (new_pixel), 
-  .update_strb   (update_strb), 
-  .compare_out   (compare_out), 
-  .strb_value    (strb_value), 
-  .matrix_output (matrix_output)
-); 
-
-eda_strobe_ram eda_strobe_ram( 
-  .clk              (clk), 
-  .reset_n          (reset_n), 
-  .update_strb      (update_strb), 
-  .new_pixel        (new_pixel), 
-  .pre_center_addr  (pre_center_addr), 
-  .upleft_addr      (upleft_addr), 
-  .up_addr          (up_addr), 
-  .upright_addr     (upright_addr), 
-  .left_addr        (left_addr), 
-  .right_addr       (right_addr), 
-  .downleft_addr    (downleft_addr), 
-  .down_addr        (down_addr), 
-  .downright_addr   (downright_addr), 
-  .sel_row          (sel_row), 
-  .sel_col          (sel_col), 
+  .neigh_addr_valid (neigh_addr_valid), 
   .strb_value       (strb_value)
 ); 
 

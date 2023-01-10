@@ -1,5 +1,7 @@
+`include "eda_global_define.svh"
+
 module eda_max #(
-  parameter PIXEL_WIDTH = 8
+  parameter PIXEL_WIDTH = `CFG_PIXEL_WIDTH
 )(
   input        [PIXEL_WIDTH - 1:0] a  , 
   input        [PIXEL_WIDTH - 1:0] b  , 

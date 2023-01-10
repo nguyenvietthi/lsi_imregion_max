@@ -1,4 +1,4 @@
-`include "eda_global_define.vh"
+`include "eda_global_define.svh"
 
 module comparator #(
 	parameter FIFO_DEPTH = `CFG_FIFO_DEPTH       , // FIFO depth

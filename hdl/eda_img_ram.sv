@@ -1,11 +1,13 @@
+`include "eda_global_define.svh"
+
 module eda_img_ram #(
-  parameter M                = 16                             ,
-  parameter N                = 16                             ,
-  parameter PIXEL_WIDTH      = 8                              ,
-  parameter WINDOW_WIDTH     = 9                              ,
-  parameter ADDR_WIDTH       = $clog2(M*N)                    ,
-  parameter I_WIDTH          = $clog2(M)                      ,
-  parameter J_WIDTH          = $clog2(M)                      
+  parameter M                = `CFG_M                         ,
+  parameter N                = `CFG_N                         ,
+  parameter PIXEL_WIDTH      = `CFG_PIXEL_WIDTH               ,
+  parameter WINDOW_WIDTH     = `CFG_WINDOW_WIDTH              ,
+  parameter ADDR_WIDTH       = `CFG_ADDR_WIDTH                ,
+  parameter I_WIDTH          = `CFG_I_WIDTH                   ,
+  parameter J_WIDTH          = `CFG_J_WIDTH                    
 )(
   input                                           clk             ,
   input                                           reset_n         ,
@@ -25,7 +27,7 @@ module eda_img_ram #(
   output       [ADDR_WIDTH - 1:0]                 downright_addr   
 );
 
-  logic [PIXEL_WIDTH - 1:0] img_memory [M - 1:0] [N - 1:0];
+  logic [M - 1:0][N - 1:0][PIXEL_WIDTH - 1:0] img_memory;
 
   //|----------|--------|-----------|
   //| upleft   |   up   | upright   |
@@ -41,7 +43,7 @@ module eda_img_ram #(
   logic [J_WIDTH - 1:0] j_pixel;
 
   assign i_pixel = wr_addr[ADDR_WIDTH - 1:J_WIDTH];
-  assign j_pixel = wr_addr[J_WIDTH - 1:0]      ;
+  assign j_pixel = wr_addr[J_WIDTH - 1:0]         ;
 
   always_ff @(posedge clk or negedge reset_n) begin
     if(write_en) begin 
