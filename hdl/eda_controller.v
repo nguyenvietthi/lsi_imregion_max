@@ -1,16 +1,5 @@
-//-----------------------------------------------------------------------------------------------------------
-//    Copyright (C) 2022 by Dolphin Technology
-//    All right reserved.
-//
-//    Copyright Notification
-//    No part may be reproduced except as authorized by written permission.
-//
-//    Module: eda_regional_max_lib.eda_controller
-//    Company: Dolphin Technology
-//    Author: anhpq0
-//    Date: 14:43:56 01/11/23
-//-----------------------------------------------------------------------------------------------------------
 `include "eda_global_define.svh"
+
 module eda_controller #(
   // synopsys template
   parameter PIXEL_WIDTH  = `CFG_PIXEL_WIDTH,
