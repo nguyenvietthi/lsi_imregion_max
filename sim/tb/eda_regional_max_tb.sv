@@ -33,8 +33,6 @@ module eda_regional_max_tb ();
   );
 
   logic [PIXEL_WIDTH - 1:0] img_memory [0:M - 1] [0:N - 1];
-  logic [I_WIDTH - 1:0] i_center;
-  logic [J_WIDTH - 1:0] j_center;
   int                   start_check;
   initial begin
     $readmemh("../tb/image_input", img_memory);
@@ -42,7 +40,6 @@ module eda_regional_max_tb ();
   end
 
   always #10 clk = ~clk;
-  assign center_addr = {i_center, j_center};
   initial begin
     clk = 0;
     reset_n = 0;
@@ -74,18 +71,13 @@ module eda_regional_max_tb ();
     @(negedge clk);
     start = 0;
 
-    @(negedge clk) begin 
-      i_center = 3;
-      j_center = 2;
-    end
-
-    repeat (3000) begin 
+    repeat (1000) begin 
       @(negedge clk);
     end
     $finish;
   end
 
-  always_ff @(posedge clk) begin
+  always_comb begin
     if (start_check == 1) begin
       $display("iterated_memory @ %4d ns", $realtime());
       for (int i = 0; i < M; i++) begin
@@ -97,13 +89,26 @@ module eda_regional_max_tb ();
     end
   end
 
-  always_ff @(posedge clk) begin
+  always_comb begin
     if (start_check == 1) begin
       $display("addr_arr @ %4d ns", $realtime());
       for (int i = WINDOW_WIDTH - 2; i >= 0; i--) begin
         $write("%b ", eda_regional_max_inst.eda_iterated_ram.addr_arr[i]); 
         $write("\n");
       end
+    end
+  end
+
+  always_comb begin
+    if(done) begin
+      $display("RESULT:");
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin
+            $write("%p ", eda_regional_max_inst.eda_output_ram.matrix_output[i][j]); 
+        end
+        $write("\n");
+      end
+      
     end
   end
 
