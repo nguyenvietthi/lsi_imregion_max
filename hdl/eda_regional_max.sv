@@ -14,7 +14,6 @@ module eda_regional_max #(
   // Port Declarations
   input   wire                        clk, 
   input   wire    [PIXEL_WIDTH- 1:0]  pixel_in, 
-  input   wire    [ADDR_WIDTH - 1:0]  rd_addr, 
   input   wire                        reset_n, 
   input   wire                        start, 
   input   wire    [ADDR_WIDTH - 1:0]  wr_addr, 
@@ -132,6 +131,7 @@ eda_iterated_ram eda_iterated_ram(
   .reset_n          (reset_n), 
   .clear            (clear), 
   .new_pixel        (new_pixel), 
+  .done             (done), 
   .center_addr      (center_addr), 
   .upleft_addr      (upleft_addr), 
   .up_addr          (up_addr), 
@@ -166,6 +166,7 @@ eda_strobe_ram eda_strobe_ram(
   .clk              (clk), 
   .reset_n          (reset_n), 
   .update_strb      (update_strb), 
+  .clear            (clear), 
   .new_pixel        (new_pixel), 
   .pre_center_addr  (pre_center_addr), 
   .upleft_addr      (upleft_addr), 

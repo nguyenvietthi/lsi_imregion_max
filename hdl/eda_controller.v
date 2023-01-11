@@ -1,5 +1,16 @@
+//-----------------------------------------------------------------------------------------------------------
+//    Copyright (C) 2022 by Dolphin Technology
+//    All right reserved.
+//
+//    Copyright Notification
+//    No part may be reproduced except as authorized by written permission.
+//
+//    Module: eda_regional_max_lib.eda_controller
+//    Company: Dolphin Technology
+//    Author: anhpq0
+//    Date: 10:40:57 01/12/23
+//-----------------------------------------------------------------------------------------------------------
 `include "eda_global_define.svh"
-
 module eda_controller #(
   // synopsys template
   parameter PIXEL_WIDTH  = `CFG_PIXEL_WIDTH,
@@ -32,12 +43,17 @@ module eda_controller #(
 // Internal Declarations
 
 
+// Declare any pre-registered internal signals
+reg                    new_pixel_cld;
+reg [ADDR_WIDTH-1:0]   center_addr_cld;
+
 // Module Declarations
-wire check_next;  // Check when can jump to {next_row, next_col}
 reg update_addr;  // Update address
 reg extend_addr;  
 wire [WINDOW_WIDTH-2:0] rev_fifo_empty;  
 wire [WINDOW_WIDTH-2:0] rev_read_en;  
+wire check_next;  // Check when can jump to {next_row, next_col}
+reg pre_new_pixel;  
 
 // State encoding
 parameter 
@@ -59,45 +75,46 @@ always @(
   start
 )
 begin : next_state_block_proc
-  if (iterated_all) begin
-    next_state = ST_DONE;
-  end
-  else begin
-    case (current_state) 
-      ST_IDLE: begin
-        if (start)
-          next_state = ST_START;
-        else
-          next_state = ST_IDLE;
-      end
-      ST_START: begin
-        if (check_next)
-          next_state = ST_NEXT;
-        else
-          next_state = ST_EXTEND;
-      end
-      ST_NEXT: begin
-        if (!check_next)
-          next_state = ST_EXTEND;
-        else
-          next_state = ST_START;
-      end
-      ST_DONE: begin
-        if (start)
-          next_state = ST_START;
-        else
-          next_state = ST_DONE;
-      end
-      ST_EXTEND: begin
-        if (check_next)
-          next_state = ST_NEXT;
-        else
-          next_state = ST_START;
-      end
-      default: 
+  case (current_state) 
+    ST_IDLE: begin
+      if (start)
+        next_state = ST_START;
+      else
         next_state = ST_IDLE;
-    endcase
-  end
+    end
+    ST_START: begin
+      if (check_next)
+        next_state = ST_NEXT;
+      else if (iterated_all)
+        next_state = ST_DONE;
+      else
+        next_state = ST_EXTEND;
+    end
+    ST_NEXT: begin
+      if (!check_next)
+        next_state = ST_EXTEND;
+      else if (iterated_all)
+        next_state = ST_DONE;
+      else
+        next_state = ST_START;
+    end
+    ST_DONE: begin
+      if (start)
+        next_state = ST_START;
+      else
+        next_state = ST_DONE;
+    end
+    ST_EXTEND: begin
+      if (check_next)
+        next_state = ST_NEXT;
+      else if (iterated_all)
+        next_state = ST_DONE;
+      else
+        next_state = ST_START;
+    end
+    default: 
+      next_state = ST_IDLE;
+  endcase
 end // Next State Block
 
 //-----------------------------------------------------------------
@@ -107,63 +124,61 @@ always @(
   check_next, 
   current_state, 
   done, 
-  iterated_all
+  iterated_all, 
+  start
 )
 begin : output_block_proc
   // Default Assignment
-  new_pixel = 0;
   clear = 0;
   update_strb = 0;
   done = 0;
   // Default Assignment To Internals
   update_addr = 0;
   extend_addr = 0;
+  pre_new_pixel = 0;
 
-  // Interrupts
-  if (iterated_all) 
-    clear = 1;
-  else begin
-
-    // Combined Actions
-    case (current_state) 
-      ST_START: begin
-        if (check_next) begin
-          new_pixel = (!done);
-          update_addr = 1;
-          update_strb = 1;
-        end
-        else begin
-          new_pixel = (!done);
-          extend_addr = 1;
-        end
-      end
-      ST_NEXT: begin
-        new_pixel = (!done);
+  // Combined Actions
+  case (current_state) 
+    ST_START: begin
+      if (check_next) begin
+        pre_new_pixel = (!done);
         update_addr = 1;
         update_strb = 1;
-        if (!check_next) begin
-          extend_addr = 1;
-          new_pixel = (!done);
-          update_strb = 0;
-          update_addr = 0;
-        end
       end
-      ST_DONE: begin
-        done = 1;
-        clear = 0;
+      else if (iterated_all) begin
       end
-      ST_EXTEND: begin
-        new_pixel = (!done);
+      else begin
+        pre_new_pixel = (!done);
         extend_addr = 1;
-        if (check_next) begin
-          extend_addr = 0;
-          new_pixel = (!done);
-          update_strb = 1;
-          update_addr = 1;
-        end
       end
-    endcase
-  end
+    end
+    ST_NEXT: begin
+      pre_new_pixel = (!done);
+      update_addr = 1;
+      update_strb = 1;
+      if (!check_next) begin
+        extend_addr = 1;
+        pre_new_pixel = (!done);
+        update_strb = 0;
+        update_addr = 0;
+      end
+    end
+    ST_DONE: begin
+      done = 1;
+      if (start)
+        clear = 1;
+    end
+    ST_EXTEND: begin
+      pre_new_pixel = (!done);
+      extend_addr = 1;
+      if (check_next) begin
+        extend_addr = 0;
+        pre_new_pixel = (!done);
+        update_strb = 1;
+        update_addr = 1;
+      end
+    end
+  endcase
 end // Output Block
 
 //-----------------------------------------------------------------
@@ -176,6 +191,9 @@ always @(
 begin : clocked_block_proc
   if (!reset_n) begin
     current_state <= ST_IDLE;
+    // Reset Values
+    new_pixel_cld <= 0;
+    center_addr_cld <= 0;
   end
   else 
   begin
@@ -184,6 +202,15 @@ begin : clocked_block_proc
 end // Clocked Block
 
 // Concurrent Statements
+// Clocked output assignments
+always @(
+  new_pixel_cld, 
+  center_addr_cld
+)
+begin : clocked_output_proc
+  new_pixel = new_pixel_cld;
+  center_addr = center_addr_cld;
+end
 // pre_center_addr
 always @(*) begin : proc_pre_center_addr
   pre_center_addr = 0;
@@ -195,12 +222,12 @@ always @(*) begin : proc_pre_center_addr
   end
 end
 
-// center_addr
+// center_addr_cld
 always @(posedge clk or negedge reset_n) begin : proc_center_addr
   if(~reset_n) begin
-    center_addr <= 0;
+    center_addr_cld <= 0;
   end else begin
-    center_addr <= pre_center_addr;
+    center_addr_cld <= pre_center_addr;
   end
 end
 
@@ -224,4 +251,13 @@ endgenerate
 
 // check_next
 assign check_next = ((push_positions == 0) & (fifo_empty == {(WINDOW_WIDTH-1){1'b1}}));
+
+// new_pixel_cld
+always @(posedge clk or negedge reset_n) begin : proc_new_pixel_cld
+  if(~reset_n) begin
+    new_pixel_cld <= 0;
+  end else begin
+    new_pixel_cld <= pre_new_pixel;
+  end
+end
 endmodule // eda_controller

@@ -12,6 +12,7 @@ module eda_iterated_ram  #(
   input                             reset_n         ,
   input                             clear           ,
   input                             new_pixel       ,
+  input                             done            ,
   input        [ADDR_WIDTH - 1:0]   center_addr     , //{i, j}
   input        [ADDR_WIDTH - 1:0]   upleft_addr     ,
   input        [ADDR_WIDTH - 1:0]   up_addr         ,
@@ -32,6 +33,7 @@ module eda_iterated_ram  #(
 );
 
   logic                                         inv_clk        ;
+  logic                                         have_done      ;
 	logic [M - 1:0][N - 1:0]                      iterated_memory;
 	logic [WINDOW_WIDTH - 2:0][ADDR_WIDTH - 1:0]  addr_arr       ;
   logic [M - 1:0][N - 1:0]                      current_row    ; // Get data from all rows of iterated RAM
@@ -101,45 +103,23 @@ module eda_iterated_ram  #(
 
 	assign addr_arr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
 
-	// clear data in inerated memory
-	// generate
-	// 	for (genvar i = 0; i < M; i++) begin
-	// 		for (genvar j = 0; j < N; j++) begin
-	// 			always_ff @(posedge inv_clk or negedge reset_n) begin
-	// 				if(~reset_n) begin
-	// 					iterated_memory[i][j] <= 0;
-	// 				end else begin
-	// 					if(clear) begin
-	// 						iterated_memory[i][j] <= 0;
-	// 					end
-	// 				end
-	// 			end
-	// 		end
-	// 	end
-	// endgenerate
-
-	// // Update genvarerate of center pixel
-	// always_ff @(posedge inv_clk or negedge reset_n) begin
-	// 	if(new_pixel) begin
-	// 		iterated_memory[center_addr[ADDR_WIDTH - 1:J_WIDTH]][center_addr[J_WIDTH - 1:0]] <= 1;
-	// 	end
-	// end
-
-	// // Update genvarerate
-	// generate
-	// 	for (genvar i = 0; i < WINDOW_WIDTH - 1; i++) begin
-	// 		always_ff @(posedge inv_clk or negedge reset_n) begin
-	// 			if(push_positions[i]) begin
-	// 				iterated_memory[addr_arr[i][ADDR_WIDTH - 1:J_WIDTH]][addr_arr[i][J_WIDTH - 1:0]] <= 1;
-	// 			end
-	// 		end
-	// 	end
-	// endgenerate
+  always_ff @(posedge clk or negedge reset_n) begin : proc_have_done
+    if(~reset_n) begin
+      have_done <= 0;
+    end else begin
+      if (!have_done) begin
+        have_done <= done;
+      end
+      else begin
+        have_done <= 0;
+      end
+    end
+  end
 
 	always_ff @(posedge inv_clk or negedge reset_n) begin
 		if(~reset_n) begin
 			iterated_memory <= 0;
-		end else if(clear) begin
+		end else if(have_done) begin
 			iterated_memory <= 0;
 		end else begin
 			for (int i = 0; i < WINDOW_WIDTH - 1; i++) begin

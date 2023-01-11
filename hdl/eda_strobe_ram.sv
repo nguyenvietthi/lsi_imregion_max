@@ -11,6 +11,7 @@ module eda_strobe_ram #(
   input                       clk             ,
   input                       reset_n         ,
   input                       update_strb     ,
+  input                       clear           ,
   input                       new_pixel       ,
   input  [ADDR_WIDTH - 1:0]   pre_center_addr ,
   input  [ADDR_WIDTH - 1:0]   upleft_addr     ,
@@ -80,6 +81,7 @@ module eda_strobe_ram #(
   //   end
   // endgenerate
   // genvar i, j;
+
   generate
     for (genvar i = 0; i < M; i = i + 1) begin
       for (genvar j = 0; j < N; j = j + 1) begin
@@ -90,6 +92,16 @@ module eda_strobe_ram #(
 
   always_ff @(posedge clk or negedge reset_n) begin
     if(~reset_n) begin
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin
+          if ((i == 0) & (j == 0)) begin
+            strb_memory[i][j] <= 1;
+          end else begin
+            strb_memory[i][j] <= 0;
+          end
+        end
+      end
+    end else if (clear) begin
       for (int i = 0; i < M; i++) begin
         for (int j = 0; j < N; j++) begin
           if ((i == 0) & (j == 0)) begin
