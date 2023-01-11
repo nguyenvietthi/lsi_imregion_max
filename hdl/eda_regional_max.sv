@@ -168,6 +168,7 @@ eda_strobe_ram eda_strobe_ram(
   .update_strb      (update_strb), 
   .clear            (clear), 
   .new_pixel        (new_pixel), 
+  .iterated_all     (iterated_all), 
   .pre_center_addr  (pre_center_addr), 
   .upleft_addr      (upleft_addr), 
   .up_addr          (up_addr), 
