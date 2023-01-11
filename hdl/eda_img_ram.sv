@@ -84,22 +84,22 @@ module eda_img_ram #(
     if(i_center == 0) begin 
       if(j_center == 0) begin 
         neigh_addr_valid = 8'b00001011;
-      end else if(j_center == M - 1) begin 
+      end else if(j_center == N - 1) begin 
         neigh_addr_valid = 8'b00010110;
       end else begin 
         neigh_addr_valid = 8'b00011111;
       end
-    end else if(i_center == N - 1) begin 
+    end else if(i_center == M - 1) begin 
       if(j_center == 0) begin 
         neigh_addr_valid = 8'b01101000;
-      end else if(j_center == M - 1) begin 
+      end else if(j_center == N - 1) begin 
         neigh_addr_valid = 8'b11010000;
       end else begin 
         neigh_addr_valid = 8'b11111000;
       end
     end else if(j_center == 0) begin 
       neigh_addr_valid = 8'b01101011;
-    end else if(j_center == M - 1) begin 
+    end else if(j_center == N - 1) begin 
       neigh_addr_valid = 8'b11010110;
     end else begin 
       neigh_addr_valid = 8'b11111111;
