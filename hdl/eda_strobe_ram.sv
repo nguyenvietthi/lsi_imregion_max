@@ -39,53 +39,84 @@ module eda_strobe_ram #(
 
   assign addr_arr = {upleft_addr, up_addr, upright_addr, left_addr, right_addr, downleft_addr, down_addr, downright_addr};
 
-  always_ff @(posedge clk or negedge reset_n) begin : proc_strb_memory_pre_center_addr
-    if ((!update_strb) & new_pixel) begin
-      strb_memory[pre_center_addr[ADDR_WIDTH-1:J_WIDTH]][pre_center_addr[J_WIDTH-1:0]] <= 1;
-    end
-  end
+  // always_ff @(posedge clk or negedge reset_n) begin : proc_strb_memory_pre_center_addr
+  //   if ((!update_strb) & new_pixel) begin
+  //     strb_memory[pre_center_addr[ADDR_WIDTH-1:J_WIDTH]][pre_center_addr[J_WIDTH-1:0]] <= 1;
+  //   end
+  // end
 
-  genvar i, j;
+  // genvar i, j;
+  // generate
+  //   for (i = 0; i < M; i++) begin
+  //     for (j = 0; j < N; j++) begin
+  //       if ((i == 0) & (j == 0)) begin
+  //         always_ff @(posedge clk or negedge reset_n) begin : proc_strb_memory
+  //           if(~reset_n) begin
+  //             strb_memory[i][j] <= 1;
+  //           end else begin
+  //             if (update_strb & new_pixel) begin
+  //               strb_memory[i][j] <= 0;
+  //             end
+  //           end
+  //         end
+  //       end
+  //       else begin
+  //         always_ff @(posedge clk or negedge reset_n) begin : proc_strb_memory
+  //           if(~reset_n) begin
+  //             strb_memory[i][j] <= 0;
+  //           end else begin
+  //             if (update_strb & new_pixel) begin
+  //               if (sel_row[i] & sel_col[i][j]) begin
+  //                 strb_memory[i][j] <= 1;
+  //               end
+  //               else begin
+  //                 strb_memory[i][j] <= 0;
+  //               end
+  //             end
+  //           end
+  //         end
+  //       end
+  //     end
+  //   end
+  // endgenerate
+  // genvar i, j;
   generate
-    for (i = 0; i < M; i++) begin
-      for (j = 0; j < N; j++) begin
-        if ((i == 0) & (j == 0)) begin
-          always_ff @(posedge clk or negedge reset_n) begin : proc_strb_memory
-            if(~reset_n) begin
-              strb_memory[i][j] <= 1;
-            end else begin
-              if (update_strb & new_pixel) begin
-                strb_memory[i][j] <= 0;
-              end
-            end
-          end
-        end
-        else begin
-          always_ff @(posedge clk or negedge reset_n) begin : proc_strb_memory
-            if(~reset_n) begin
-              strb_memory[i][j] <= 0;
-            end else begin
-              if (update_strb & new_pixel) begin
-                if (sel_row[i] & sel_col[i][j]) begin
-                  strb_memory[i][j] <= 1;
-                end
-                else begin
-                  strb_memory[i][j] <= 0;
-                end
-              end
-            end
-          end
-        end
-      end
-    end
-  endgenerate
-
-  generate
-    for (i = 0; i < M; i = i + 1) begin
-      for (j = 0; j < N; j = j + 1) begin
+    for (genvar i = 0; i < M; i = i + 1) begin
+      for (genvar j = 0; j < N; j = j + 1) begin
         assign strb_value[i][j] = strb_memory[i][j];
       end
     end
   endgenerate
+
+  always_ff @(posedge clk or negedge reset_n) begin
+    if(~reset_n) begin
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin
+          if ((i == 0) & (j == 0)) begin
+            strb_memory[i][j] <= 1;
+          end else begin
+            strb_memory[i][j] <= 0;
+          end
+        end
+      end
+    end else if (update_strb & new_pixel) begin
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin
+          if ((i == 0) & (j == 0)) begin
+            strb_memory[i][j] <= 0;
+          end else begin
+            if (sel_row[i] & sel_col[i][j]) begin
+              strb_memory[i][j] <= 1;
+            end
+            else begin
+              strb_memory[i][j] <= 0;
+            end
+          end
+        end
+      end
+    end else if ((!update_strb) & new_pixel) begin
+      strb_memory[pre_center_addr[ADDR_WIDTH-1:J_WIDTH]][pre_center_addr[J_WIDTH-1:0]] <= 1;
+    end
+  end
 
 endmodule

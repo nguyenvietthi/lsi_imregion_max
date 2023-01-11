@@ -46,7 +46,9 @@ module eda_img_ram #(
   assign j_pixel = wr_addr[J_WIDTH - 1:0]         ;
 
   always_ff @(posedge clk or negedge reset_n) begin
-    if(write_en) begin 
+    if(~reset_n) begin
+      img_memory <= 0;
+    end else if(write_en) begin 
       img_memory[i_pixel][j_pixel] <= pixel_in;
     end
   end
