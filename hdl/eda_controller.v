@@ -8,7 +8,7 @@
 //    Module: eda_regional_max_lib.eda_controller
 //    Company: Dolphin Technology
 //    Author: anhpq0
-//    Date: 10:40:57 01/12/23
+//    Date: 10:59:17 01/12/23
 //-----------------------------------------------------------------------------------------------------------
 `include "eda_global_define.svh"
 module eda_controller #(
@@ -42,10 +42,6 @@ module eda_controller #(
 
 // Internal Declarations
 
-
-// Declare any pre-registered internal signals
-reg                    new_pixel_cld;
-reg [ADDR_WIDTH-1:0]   center_addr_cld;
 
 // Module Declarations
 reg update_addr;  // Update address
@@ -191,9 +187,6 @@ always @(
 begin : clocked_block_proc
   if (!reset_n) begin
     current_state <= ST_IDLE;
-    // Reset Values
-    new_pixel_cld <= 0;
-    center_addr_cld <= 0;
   end
   else 
   begin
@@ -202,15 +195,6 @@ begin : clocked_block_proc
 end // Clocked Block
 
 // Concurrent Statements
-// Clocked output assignments
-always @(
-  new_pixel_cld, 
-  center_addr_cld
-)
-begin : clocked_output_proc
-  new_pixel = new_pixel_cld;
-  center_addr = center_addr_cld;
-end
 // pre_center_addr
 always @(*) begin : proc_pre_center_addr
   pre_center_addr = 0;
@@ -222,12 +206,12 @@ always @(*) begin : proc_pre_center_addr
   end
 end
 
-// center_addr_cld
+// center_addr
 always @(posedge clk or negedge reset_n) begin : proc_center_addr
   if(~reset_n) begin
-    center_addr_cld <= 0;
+    center_addr <= 0;
   end else begin
-    center_addr_cld <= pre_center_addr;
+    center_addr <= pre_center_addr;
   end
 end
 
@@ -252,12 +236,12 @@ endgenerate
 // check_next
 assign check_next = ((push_positions == 0) & (fifo_empty == {(WINDOW_WIDTH-1){1'b1}}));
 
-// new_pixel_cld
+// new_pixel
 always @(posedge clk or negedge reset_n) begin : proc_new_pixel_cld
   if(~reset_n) begin
-    new_pixel_cld <= 0;
+    new_pixel <= 0;
   end else begin
-    new_pixel_cld <= pre_new_pixel;
+    new_pixel <= pre_new_pixel;
   end
 end
 endmodule // eda_controller
