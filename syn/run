@@ -1,0 +1,4 @@
+reset
+rm -rf reports results
+mkdir reports results
+dc_shell -f dc_scripts/syn.tcl -output_log_file log
