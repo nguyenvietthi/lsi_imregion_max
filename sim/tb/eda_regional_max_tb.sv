@@ -23,7 +23,6 @@ module eda_regional_max_tb ();
   eda_regional_max eda_regional_max_inst (
     .clk           (clk          ),
     .pixel_in      (pixel_in     ),
-    .rd_addr       (rd_addr      ),
     .reset_n       (reset_n      ),
     .start         (start        ),
     .wr_addr       (wr_addr      ),
