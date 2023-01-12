@@ -70,9 +70,37 @@ module eda_regional_max_tb ();
     @(negedge clk);
     start = 0;
 
-    repeat (1000) begin 
+    repeat (300) begin 
       @(negedge clk);
     end
+
+    start_check = 0;
+
+    for (logic[I_WIDTH - 1:0] i = 0; i < M; i++) begin
+      for (logic[J_WIDTH - 1:0] j = 0; j < N; j++) begin
+        @(negedge clk) write_en = 0;
+        @(negedge clk) begin 
+          wr_addr = {i,j};
+          pixel_in = img_memory[i][j];
+          write_en = 1;
+        end
+      end
+    end
+
+    @(negedge clk);
+    @(negedge clk);
+    $display("\nimg_memory after write pixels: %p\n", eda_regional_max_inst.eda_img_ram.img_memory);
+    start_check = 1;
+
+    @(negedge clk);
+    start = 1;
+    @(negedge clk);
+    start = 0;
+
+    repeat (300) begin 
+      @(negedge clk);
+    end
+
     $finish;
   end
 
