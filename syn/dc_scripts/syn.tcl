@@ -22,7 +22,7 @@ set ADDITIONAL_SEARCH_PATH    "/data2/projects/libraries/tsmc28hpcp/7t/dti_tm28h
 
 set TARGET_LIBRARY_FILES       dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db
 set SYMBOL_LIBRARY_FILES       sc.sdb
-set LIB                        dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz
+set LIB                        dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_600MHz
 
 # set TECH_FILE     /data/projects/libraries/tech_file/tsmcn28_10lm5X2Y2RRDL.tf
 # set MW_REF_LIB    /data/projects/libraries/mw_lib/mw_lib_28hpm
@@ -42,7 +42,7 @@ set LIB                        dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev
 #  200 MHz -  5.000
 #  100 MHz - 10.000
 
-set CLOCK_PERIOD_DTI          [expr {1000.0/20.0}]
+set CLOCK_PERIOD_DTI          [expr {1000.0/600.0}]
 set MARGIN_DTI                [expr {$CLOCK_PERIOD_DTI*0.15}]
 
 #set CLOCK_PERIOD_PHY          1.5
