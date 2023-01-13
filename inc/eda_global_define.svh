@@ -1,4 +1,4 @@
-`define CFG_M                 9               
+`define CFG_M                 10               
 `define CFG_N                 10               
 `define CFG_PIXEL_WIDTH       8                
 `define CFG_WINDOW_WIDTH      9                

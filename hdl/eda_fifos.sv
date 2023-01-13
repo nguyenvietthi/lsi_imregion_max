@@ -28,11 +28,11 @@ module eda_fifos #(
 );
 
 //|----------|--------|-----------|
-//| upleft/0 |   up/1 | upright/2 |
+//| upleft/2 |   up/1 | upright/0 |
 //|----------|--------|-----------|
-//| left/3   | center |   right/4 |
+//| left/4   | center |   right/3 |
 //|----------|--------|-----------|
-//|downleft/5| down/6 |downright/7|
+//|downleft/7| down/6 |downright/5|
 //|----------|--------|-----------|
 
 logic                    inv_clk;
@@ -73,53 +73,53 @@ logic [ADDR_WIDTH - 1:0] down_data_out;
 logic [ADDR_WIDTH - 1:0] downright_data_out;
 logic [ADDR_WIDTH - 1:0] pre_data_out;
 
-assign {upleft_read_en  ,   up_read_en, upright_read_en  ,
+assign {upleft_read_en  , up_read_en  , upright_read_en  ,
         left_read_en    ,               right_read_en    ,
-        downleft_read_en, down_read_en, downright_read_en} = read_en;
+        downleft_read_en, down_read_en, downright_read_en } = read_en;
 
-assign {upleft_push_position  ,   up_push_position, upright_push_position  ,
+assign {upleft_push_position  , up_push_position  , upright_push_position  ,
         left_push_position    ,                     right_push_position    ,
-        downleft_push_position, down_push_position, downright_push_position} = push_positions;
+        downleft_push_position, down_push_position, downright_push_position } = push_positions;
 
 assign fifo_empty = {upleft_empty  , up_empty  , upright_empty  ,
                      left_empty    ,             right_empty    ,
                      downleft_empty, down_empty, downright_empty };
 
-assign data_out = (!upleft_empty   ) ? upleft_data_out    : 
-                  (!up_empty       ) ? up_data_out        : 
-                  (!upright_empty  ) ? upright_data_out   :
-                  (!left_empty     ) ? left_data_out      : 
-                  (!right_empty    ) ? right_data_out     : 
-                  (!downleft_empty ) ? downleft_data_out  :
+assign data_out = (!downright_empty) ? downright_data_out : 
                   (!down_empty     ) ? down_data_out      : 
-                  (!downright_empty) ? downright_data_out : 
+                  (!downleft_empty ) ? downleft_data_out  :
+                  (!right_empty    ) ? right_data_out     : 
+                  (!left_empty     ) ? left_data_out      : 
+                  (!upright_empty  ) ? upright_data_out   :
+                  (!up_empty       ) ? up_data_out        : 
+                  (!upleft_empty   ) ? upleft_data_out    : 
                                        pre_data_out        ;
 
 always_comb begin : proc_pre_data_out
   pre_data_out = 0;
-  if (push_positions[WINDOW_WIDTH - 2]) begin
-    pre_data_out = upleft_addr;
+  if (downright_push_position) begin
+    pre_data_out = downright_addr;
   end
-  else if (push_positions[WINDOW_WIDTH - 3]) begin
-    pre_data_out = up_addr;
-  end
-  else if (push_positions[WINDOW_WIDTH - 4]) begin
-    pre_data_out = upright_addr;
-  end
-  else if (push_positions[WINDOW_WIDTH - 5]) begin
-    pre_data_out = left_addr;
-  end
-  else if (push_positions[WINDOW_WIDTH - 6]) begin
-    pre_data_out = right_addr;
-  end
-  else if (push_positions[WINDOW_WIDTH - 7]) begin
-    pre_data_out = downleft_addr;
-  end
-  else if (push_positions[WINDOW_WIDTH - 8]) begin
+  else if (down_push_position) begin
     pre_data_out = down_addr;
   end
-  else if (push_positions[WINDOW_WIDTH - 9]) begin
-    pre_data_out = downright_addr;
+  else if (downleft_push_position) begin
+    pre_data_out = downleft_addr;
+  end
+  else if (right_push_position) begin
+    pre_data_out = right_addr;
+  end
+  else if (left_push_position) begin
+    pre_data_out = left_addr;
+  end
+  else if (upright_push_position) begin
+    pre_data_out = upright_addr;
+  end
+  else if (up_push_position) begin
+    pre_data_out = up_addr;
+  end
+  else if (upleft_push_position) begin
+    pre_data_out = upleft_addr;
   end
 end
 
@@ -156,7 +156,7 @@ sync_fifo #(
   .i_valid_s         (up_push_position                         ), // Request write data into FIFO
   .i_almostfull_lvl  ($clog2(FIFO_DEPTH)'(FIFO_DEPTH-2)        ), // The number of empty memory locations in the FIFO at which the o_almostfull flag is active
   .i_datain          (up_addr                                  ), // Push data in FIFO
-  .i_ready_m         (left_read_en                             ), // Request read data from FIFO
+  .i_ready_m         (up_read_en                               ), // Request read data from FIFO
   .i_almostempty_lvl ($clog2(FIFO_DEPTH)'('b10)                ), // The number of empty memory locations in the FIFO at which the o_almostempty flag is active
   .o_ready_s         (                                         ), // Status write data into FIFO (if FIFO not full then o_ready_s = 1)         
   .o_almostfull      (                                         ), // FIFO almostfull flag (determined by i_almostfull_lvl)

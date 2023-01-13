@@ -90,6 +90,6 @@ module eda_compare #(
   	end
   endgenerate
 
-  assign push_positions = equal_positions & ~iterated_idx & neigh_addr_valid;
+  assign push_positions = equal_positions & (~iterated_idx) & neigh_addr_valid;
 
 endmodule

@@ -11,7 +11,9 @@ module eda_strobe_ram #(
   input                       clk             ,
   input                       reset_n         ,
   input                       update_strb     ,
+  input                       clear           ,
   input                       new_pixel       ,
+  input                       iterated_all    ,
   input  [ADDR_WIDTH - 1:0]   pre_center_addr ,
   input  [ADDR_WIDTH - 1:0]   upleft_addr     ,
   input  [ADDR_WIDTH - 1:0]   up_addr         ,
@@ -80,6 +82,7 @@ module eda_strobe_ram #(
   //   end
   // endgenerate
   // genvar i, j;
+
   generate
     for (genvar i = 0; i < M; i = i + 1) begin
       for (genvar j = 0; j < N; j = j + 1) begin
@@ -99,7 +102,17 @@ module eda_strobe_ram #(
           end
         end
       end
-    end else if (update_strb & new_pixel) begin
+    end else if (clear) begin
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin
+          if ((i == 0) & (j == 0)) begin
+            strb_memory[i][j] <= 1;
+          end else begin
+            strb_memory[i][j] <= 0;
+          end
+        end
+      end
+    end else if (update_strb & new_pixel & (!iterated_all)) begin
       for (int i = 0; i < M; i++) begin
         for (int j = 0; j < N; j++) begin
           if ((i == 0) & (j == 0)) begin
@@ -114,7 +127,7 @@ module eda_strobe_ram #(
           end
         end
       end
-    end else if ((!update_strb) & new_pixel) begin
+    end else if ((!update_strb) & new_pixel & (!iterated_all)) begin
       strb_memory[pre_center_addr[ADDR_WIDTH-1:J_WIDTH]][pre_center_addr[J_WIDTH-1:0]] <= 1;
     end
   end

@@ -20,10 +20,16 @@ module eda_regional_max_tb ();
   logic                        done         ; 
   logic    [M - 1:0][N - 1:0]  matrix_output;
 
+  logic [PIXEL_WIDTH - 1:0] img_memory [0:M - 1] [0:N - 1];
+  logic [0:M - 1] [0:N - 1][PIXEL_WIDTH - 1:0] img_memory_cp;
+  int                   start_check;
+  logic  [M - 1:0][N - 1:0]                     output_image ;
+  logic  [M - 1:0][N - 1:0]                     output_image_model ;
+
+
   eda_regional_max eda_regional_max_inst (
     .clk           (clk          ),
     .pixel_in      (pixel_in     ),
-    .rd_addr       (rd_addr      ),
     .reset_n       (reset_n      ),
     .start         (start        ),
     .wr_addr       (wr_addr      ),
@@ -32,11 +38,23 @@ module eda_regional_max_tb ();
     .matrix_output (matrix_output) 
   );
 
-  logic [PIXEL_WIDTH - 1:0] img_memory [0:M - 1] [0:N - 1];
-  int                   start_check;
+ regional_max_model regional_max_model(
+  .clk         (clk           ) ,
+  .reset_n     (reset_n       ) ,
+  .start       (start         ) ,
+  .img_memory  (img_memory_cp ) ,
+  .output_image(output_image_model  ) 
+);
+
+
   initial begin
     $readmemh("../tb/image_input", img_memory);
     $display("img_memory: %p\n", img_memory);
+    for (int i = 0; i < M; i++) begin
+      for (int j = 0; j < N; j++) begin 
+        img_memory_cp[i][j] = img_memory[i][j];
+      end
+    end
   end
 
   always #10 clk = ~clk;
@@ -71,9 +89,37 @@ module eda_regional_max_tb ();
     @(negedge clk);
     start = 0;
 
-    repeat (1000) begin 
+    repeat (300) begin 
       @(negedge clk);
     end
+
+    start_check = 0;
+
+    for (logic[I_WIDTH - 1:0] i = 0; i < M; i++) begin
+      for (logic[J_WIDTH - 1:0] j = 0; j < N; j++) begin
+        @(negedge clk) write_en = 0;
+        @(negedge clk) begin 
+          wr_addr = {i,j};
+          pixel_in = img_memory[i][j];
+          write_en = 1;
+        end
+      end
+    end
+
+    @(negedge clk);
+    @(negedge clk);
+    $display("\nimg_memory after write pixels: %p\n", eda_regional_max_inst.eda_img_ram.img_memory);
+    start_check = 1;
+
+    @(negedge clk);
+    start = 1;
+    @(negedge clk);
+    start = 0;
+
+    repeat (300) begin 
+      @(negedge clk);
+    end
+
     $finish;
   end
 
@@ -99,8 +145,10 @@ module eda_regional_max_tb ();
     end
   end
 
-  always_comb begin
-    if(done) begin
+logic compare;
+  always @(done) begin
+    compare = 0;
+    if(done & (!start)) begin
       $display("RESULT:");
       for (int i = 0; i < M; i++) begin
         for (int j = 0; j < N; j++) begin
@@ -108,7 +156,30 @@ module eda_regional_max_tb ();
         end
         $write("\n");
       end
-      
+
+      $display("-------------------------------------------------------");
+      $display("MODEL OUTPUT:");
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin
+            $write("%p ", output_image_model[i][j]); 
+            if (eda_regional_max_inst.eda_output_ram.matrix_output[i][j] != output_image_model[i][j]) begin
+              compare = 1;
+            end
+        end
+        $write("\n");
+      end
+      $display("-------------------------------------------------------");
+
+      if (compare) begin
+        $display("-------------------------------------------------------");
+        $display("                      FAIL                             ",);
+        $display("-------------------------------------------------------");
+      end
+      else begin 
+        $display("-------------------------------------------------------");
+        $display("                      PASS                             ",);
+        $display("-------------------------------------------------------");
+      end
     end
   end
 
