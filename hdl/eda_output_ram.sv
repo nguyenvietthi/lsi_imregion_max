@@ -13,7 +13,6 @@ module eda_output_ram #(
   input                       reset_n       ,  // Asynchronous reset active low
   input                       clear         ,  // Synchronous reset active low, use when load new image
   input                       new_pixel     ,  
-  input                       iterated_all  ,
   input                       update_strb   ,
   input                       compare_out   ,
   input        [M-1:0][N-1:0] strb_value    ,
@@ -21,6 +20,7 @@ module eda_output_ram #(
 );
 
   logic compare_out_tmp;
+  // logic iterated_all_reg;
 
   always_ff @(posedge clk or negedge reset_n) begin : proc_compare_out_tmp
     if(~reset_n) begin
@@ -48,12 +48,12 @@ module eda_output_ram #(
               matrix_output[i][j] <= 1'b1;
             end
             // Update pixels which has strb
-            else if (update_strb & new_pixel & (!iterated_all)) begin
+            else if (update_strb & new_pixel) begin
               if (strb_value[i][j]) begin
                 matrix_output[i][j] <= (compare_out & compare_out_tmp);
               end
             end
-            else if (new_pixel & (!iterated_all)) begin
+            else if (new_pixel) begin
               if (strb_value[i][j]) begin
                 matrix_output[i][j] <= compare_out_tmp;
               end

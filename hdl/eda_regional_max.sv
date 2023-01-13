@@ -156,7 +156,6 @@ eda_output_ram eda_output_ram(
   .reset_n       (reset_n), 
   .clear         (clear), 
   .new_pixel     (new_pixel), 
-  .iterated_all  (iterated_all), 
   .update_strb   (update_strb), 
   .compare_out   (compare_out), 
   .strb_value    (strb_value), 

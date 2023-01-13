@@ -263,7 +263,7 @@ function logic [M - 1:0][N - 1:0] regional_max (logic  [0:M - 1][0:N - 1] [PIXEL
       end
     end
 
-    m = M - 1;
+    m = M-1;
     n = N-1;
     max_value = max (input_image[m-1][n-1], input_image[m-1][n  ],                     0,
                      input_image[m  ][n-1],                                            0,
@@ -347,7 +347,7 @@ function logic [M - 1:0][N - 1:0] regional_max (logic  [0:M - 1][0:N - 1] [PIXEL
           end
         end
         if (max_value == input_image[m][n-1]) begin
-          if (output_img[m+1][n+1] == 0) begin
+          if (output_img[m][n-1] == 0) begin
             output_img[m][n] = 0;
           end
         end
