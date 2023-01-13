@@ -1,0 +1,24 @@
+#!/bin/csh -f
+
+############# Modify following parameters ###########################
+#set PRJ_DIR=..
+
+############ Run Spyglass ###########################################
+
+#set TOP=dynamo
+#rm -rf ${TOP}
+
+#sed -i "s|.*set *TOP_MODULE.*|set TOP_MODULE        ${TOP}|g" ./sg_scripts/sg_check.tcl
+#sed -i "s|.*set *PROJECT_DIR.*|set PROJECT_DIR      ${PRJ_DIR}|g" ./sg_scripts/sg_check.tcl
+# sed -i "s|.*current_design.*|current_design ${TOP}|g" ./sg_scripts/tconstraints.sgdc
+# sed -i "s|.*current_design.*|current_design ${TOP}|g" ./sg_scripts/tconstraints_pb.sgdc
+
+
+sg_shell -tcl sg_scripts/sg_check.tcl -tcl_file_continue_on_error
+
+sed -i "s|.*project\=.*|project=${TOP}|g" ./remove_unused
+#./remove_unused
+
+# grep -e "FATAL"   ${TOP}/Run_Summary/*.txt
+# grep -e "ERROR"   ${TOP}/Run_Summary/*.txt
+# grep -e "WARNING" ${TOP}/Run_Summary/*.txt

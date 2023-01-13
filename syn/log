@@ -1,0 +1,1226 @@
+Initializing gui preferences from file  /home/thinv0/.synopsys_dv_prefs.tcl
+################################################################################
+# User-defined Project Path
+################################################################################
+set TOP_LEVEL_MODULE  eda_regional_max
+eda_regional_max
+set PROJECT_DIR       ../../lsi_imregion_max
+../../lsi_imregion_max
+set SCRIPT_DIR        ./dc_scripts
+./dc_scripts
+################################################################################
+# RTL Source code
+################################################################################
+set RTL_SOURCE         ${PROJECT_DIR}/hdl
+../../lsi_imregion_max/hdl
+set LIB_SOURCE         ${PROJECT_DIR}/lib/sync_fifo
+../../lsi_imregion_max/lib/sync_fifo
+set INCLUDE_SOURCE     ${PROJECT_DIR}/inc
+../../lsi_imregion_max/inc
+set TOP_MODULE_FILE    ${RTL_SOURCE}/${TOP_LEVEL_MODULE}.sv
+../../lsi_imregion_max/hdl/eda_regional_max.sv
+################################################################################
+# User-defined variables for logical library setup in dc_setup.tcl
+################################################################################
+set ADDITIONAL_SEARCH_PATH    "/data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db                                $SCRIPT_DIR                                $INCLUDE_SOURCE";
+/data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db                                ./dc_scripts                                ../../lsi_imregion_max/inc
+set TARGET_LIBRARY_FILES       dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db
+dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db
+set SYMBOL_LIBRARY_FILES       sc.sdb
+sc.sdb
+set LIB                        dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz
+dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz
+# set TECH_FILE     /data/projects/libraries/tech_file/tsmcn28_10lm5X2Y2RRDL.tf
+# set MW_REF_LIB    /data/projects/libraries/mw_lib/mw_lib_28hpm
+# set MW_DESIGN_LIB mw_${TOP_LEVEL_MODULE}
+# set TLUPLUS_MAX_FILE /data/projects/libraries/tech_file/RC_TLUplus_cln28hpm_1p10m+alrdl_5x2y2z_rcworst/cln28hpm_1p10m+alrdl_5x2y2z_rcworst.tluplus
+# set TLUPLUS_MIN_FILE /data/projects/libraries/tech_file/RC_TLUplus_cln28hpm_1p10m+alrdl_5x2y2z_rcbest/cln28hpm_1p10m+alrdl_5x2y2z_rcbest.tluplus
+################################################################################
+# Clock Information
+################################################################################
+# 1600 MHz -  0.625
+# 1066 MHz -  0.938
+#  800 MHz -  1.250
+#  700 MHz -  1.428
+#  533 MHz -  1.875
+#  400 MHz -  2.500
+#  200 MHz -  5.000
+#  100 MHz - 10.000
+set CLOCK_PERIOD_DTI          [expr {1000.0/20.0}]
+50.0
+set MARGIN_DTI                [expr {$CLOCK_PERIOD_DTI*0.15}]
+7.5
+#set CLOCK_PERIOD_PHY          1.5
+#set HALF_PERIOD_PHY           [expr {$CLOCK_PERIOD_PHY/2}]
+#set MARGIN_PHY                [expr {$CLOCK_PERIOD_PHY*0.20}]
+################################################################################
+# Input constrain files
+################################################################################
+set DC_CONSTRAINTS_INPUT_FILE     constraints.tcl
+constraints.tcl
+################################################################################
+# Reports
+################################################################################
+set DC_CHECK_LIBRARY_REPORT                           ${TOP_LEVEL_MODULE}_${LIB}_check_library.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_check_library.rpt
+set DC_CONSISTENCY_CHECK_ENV_FILE                     ${TOP_LEVEL_MODULE}_${LIB}_compile_ultra.env
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_compile_ultra.env
+set DC_CHECK_DESIGN_REPORT                            ${TOP_LEVEL_MODULE}_${LIB}_check_design.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_check_design.rpt
+set DC_ELARORATE_REPORT                               ${TOP_LEVEL_MODULE}_${LIB}_elaborate.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_elaborate.rpt
+set DC_FINAL_QOR_REPORT                               ${TOP_LEVEL_MODULE}_${LIB}_final_qor.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_qor.rpt
+set DC_FINAL_TIMING_REPORT                            ${TOP_LEVEL_MODULE}_${LIB}_final_timing.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_timing.rpt
+set DC_FINAL_AREA_REPORT                              ${TOP_LEVEL_MODULE}_${LIB}_final_area.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_area.rpt
+set DC_FINAL_POWER_REPORT                             ${TOP_LEVEL_MODULE}_${LIB}_final_power.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_power.rpt
+set DC_FINAL_CLOCK_GATING_REPORT                      ${TOP_LEVEL_MODULE}_${LIB}_final_clock_gating.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_clock_gating.rpt
+set DC_FINAL_SELF_GATING_REPORT                       ${TOP_LEVEL_MODULE}_${LIB}_final_self_gating.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_self_gating.rpt
+set DC_FINAL_CONSTRAINTS_REPORT                       ${TOP_LEVEL_MODULE}_${LIB}_final_constraints.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_constraints.rpt
+set DC_FINAL_FSM_REPORT                               ${TOP_LEVEL_MODULE}_${LIB}_final_fsm.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_final_fsm.rpt
+set DC_TIMING_MAX_REPORT                              ${TOP_LEVEL_MODULE}_${LIB}_timing_max.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_timing_max.rpt
+set DC_TIMING_MIN_REPORT                              ${TOP_LEVEL_MODULE}_${LIB}_timing_min.rpt
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_timing_min.rpt
+################################################################################
+# Output Files
+################################################################################
+set DC_FINAL_DDC_OUTPUT_FILE                          ${TOP_LEVEL_MODULE}_${LIB}_netlist.ddc
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_netlist.ddc
+set DC_FINAL_VERILOG_OUTPUT_FILE                      ${TOP_LEVEL_MODULE}_${LIB}_netlist.v
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_netlist.v
+set DC_FINAL_SDC_OUTPUT_FILE                          ${TOP_LEVEL_MODULE}_${LIB}_netlist.sdc
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_netlist.sdc
+set DC_FINAL_SDF_OUTPUT_FILE                          ${TOP_LEVEL_MODULE}_${LIB}_netlist.sdf
+eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_netlist.sdf
+######################################################################
+# Report and Result Directories
+######################################################################
+set REPORTS_DIR reports
+reports
+set RESULTS_DIR results
+results
+file mkdir $REPORTS_DIR
+file mkdir $RESULTS_DIR
+######################################################################
+# Logical Library Settings
+######################################################################
+define_design_lib work -path ./work
+1
+set_app_var search_path       "$search_path $ADDITIONAL_SEARCH_PATH"
+. /tools/synopsys/dc/P-2019.03-SP3/libraries/syn /tools/synopsys/dc/P-2019.03-SP3/dw/syn_ver /tools/synopsys/dc/P-2019.03-SP3/dw/sim_ver /data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db                                ./dc_scripts                                ../../lsi_imregion_max/inc
+set_app_var synthetic_library [list dw_foundation.sldb]
+dw_foundation.sldb
+set_app_var target_library    $TARGET_LIBRARY_FILES
+dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db
+set_app_var link_library      "* $target_library $synthetic_library"
+* dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db dw_foundation.sldb
+set_app_var symbol_library    $SYMBOL_LIBRARY_FILES
+sc.sdb
+# set_min_library $MAX_LIBRARY_FILES -min_version $MIN_LIBRARY_FILES
+######################################################################
+# FSM inferring Settings
+######################################################################
+set_app_var fsm_auto_inferring true
+true
+set_app_var hdlin_reporting_level comprehensive+fsm
+comprehensive+fsm
+######################################################################
+# Naming Settings
+######################################################################
+set_app_var hdlin_keep_signal_name all
+all
+set_app_var hdlin_module_name_limit 128
+128
+set_app_var hdlin_shorten_long_module_name true
+true
+set_app_var report_default_significant_digits 5
+5
+set_app_var timing_enable_normalized_slack true
+true
+set compile_timing_high_effort true
+true
+set_app_var compile_advanced_fix_multiple_port_nets true
+true
+set_app_var hdlin_check_no_latch true
+true
+set_host_options -max_core 4
+1
+set_dp_smartgen_options -optimize_for speed
+1
+#-v ${RTL_SOURCE}/freechips.rocketchip.system.DefaultConfig.v
+analyze -vcs "-sverilog               -y $RTL_SOURCE -y $LIB_SOURCE               +libext+.v+.sv" ${TOP_MODULE_FILE}
+Running PRESTO HDLC
+Compiling source file ../../lsi_imregion_max/hdl/eda_regional_max.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_compare.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_controller.v
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Warning:  ../../lsi_imregion_max/hdl/eda_controller.v:56: Parameter keyword used in local parameter declaration. (VER-329)
+Compiling source file ../../lsi_imregion_max/hdl/eda_fifos.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_img_ram.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_iterated_ram.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_output_ram.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_strobe_ram.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_max.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/hdl/eda_one_hot_to_bin.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/lib/sync_fifo/sync_fifo.v
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/lib/sync_fifo/comparator.v
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/lib/sync_fifo/read_control.v
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/lib/sync_fifo/sync_fifo_mem.sv
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Compiling source file ../../lsi_imregion_max/lib/sync_fifo/write_control.v
+Opening include file ../../lsi_imregion_max/inc/eda_global_define.svh
+Presto compilation completed successfully.
+Loading db file '/data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db'
+Loading db file '/tools/synopsys/dc/P-2019.03-SP3/libraries/syn/dw_foundation.sldb'
+1
+elaborate ${TOP_LEVEL_MODULE} -lib work
+Loading db file '/tools/synopsys/dc/P-2019.03-SP3/libraries/syn/gtech.db'
+Loading db file '/tools/synopsys/dc/P-2019.03-SP3/libraries/syn/standard.sldb'
+  Loading link library 'dti_stdcell_ssg_0p81v_neg40c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+Presto compilation completed successfully. (eda_regional_max)
+Elaborated 1 design.
+Current design is now 'eda_regional_max'.
+Information: Building the design 'eda_compare'. (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+|   GT_UNS_OP;8;8;1   |   1   |
+|   EQ_UNS_OP;8;8;1   |   8   |
+| SELECT_OP_2.1_2.1_2 |   8   |
+===============================
+Presto compilation completed successfully. (eda_compare)
+Information: Building the design 'eda_controller'. (HDL-193)
+
+Statistics for case statements in always block at line 67 in file
+        '../../lsi_imregion_max/hdl/eda_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            74            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 119 in file
+        '../../lsi_imregion_max/hdl/eda_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           137            |     no/auto      |
+===============================================
+
+statistics for FSM inference:
+  state register: current_state
+  states
+  ======
+  fsm_state_0:          000
+  fsm_state_1:          001
+  fsm_state_2:          010
+  fsm_state_3:          011
+  fsm_state_4:          100
+
+  total number of states: 5
+
+
+Inferred memory devices in process
+        in routine eda_controller line 183 in file
+                '../../lsi_imregion_max/hdl/eda_controller.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine eda_controller line 210 in file
+                '../../lsi_imregion_max/hdl/eda_controller.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   center_addr_reg   | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine eda_controller line 240 in file
+                '../../lsi_imregion_max/hdl/eda_controller.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    new_pixel_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+|  ADD_UNS_OP;8;1;8   |   1   |
+| SELECT_OP_3.3_3.3_3 |   2   |
+| SELECT_OP_3.2_3.2_3 |   1   |
+| SELECT_OP_6.3_6.3_6 |   1   |
+| SELECT_OP_3.1_3.1_3 |   3   |
+| SELECT_OP_5.1_5.1_5 |   6   |
+| SELECT_OP_3.8_3.8_3 |   1   |
+===============================
+Presto compilation completed successfully. (eda_controller)
+Information: Building the design 'eda_fifos'. (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+| SELECT_OP_9.8_9.8_9 |   2   |
+===============================
+Presto compilation completed successfully. (eda_fifos)
+Information: Building the design 'eda_img_ram'. (HDL-193)
+Warning:  ../../lsi_imregion_max/hdl/eda_img_ram.sv:89: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../lsi_imregion_max/hdl/eda_img_ram.sv:97: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../lsi_imregion_max/hdl/eda_img_ram.sv:94: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../lsi_imregion_max/hdl/eda_img_ram.sv:104: signed to unsigned conversion occurs. (VER-318)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine eda_img_ram line 48 in file
+                '../../lsi_imregion_max/hdl/eda_img_ram.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   img_memory_reg    | Flip-flop |  720  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+==================================
+|       Cell Type        | Count |
+==================================
+|    SUB_UNS_OP;4;1;5    |   2   |
+|    ADD_UNS_OP;4;1;5    |   2   |
+| SELECT_OP_16.1_16.1_16 |  72   |
+| SELECT_OP_2.90_2.90_2  |   1   |
+|  SELECT_OP_3.2_3.2_3   |   2   |
+|  SELECT_OP_5.8_5.8_5   |   1   |
+|  SELECT_OP_2.8_2.8_2   |   9   |
+|  SELECT_OP_9.1_9.1_9   |  720  |
+==================================
+Presto compilation completed successfully. (eda_img_ram)
+Information: Building the design 'eda_iterated_ram'. (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine eda_iterated_ram line 106 in file
+                '../../lsi_imregion_max/hdl/eda_iterated_ram.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    have_done_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine eda_iterated_ram line 119 in file
+                '../../lsi_imregion_max/hdl/eda_iterated_ram.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| iterated_memory_reg | Flip-flop |  90   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+==================================
+|       Cell Type        | Count |
+==================================
+|   ADD_UNS_OP;10;1;10   |   9   |
+|    ADD_UNS_OP;9;1;9    |   1   |
+| SELECT_OP_2.10_2.10_2  |   9   |
+|  SELECT_OP_2.1_2.1_2   |  729  |
+| SELECT_OP_2.90_2.90_2  |  10   |
+|  SELECT_OP_9.1_9.1_9   |  80   |
+| SELECT_OP_10.1_10.1_10 |   8   |
+==================================
+Presto compilation completed successfully. (eda_iterated_ram)
+Information: Building the design 'eda_output_ram'. (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine eda_output_ram line 24 in file
+                '../../lsi_imregion_max/hdl/eda_output_ram.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| compare_out_tmp_reg | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine eda_output_ram line 41 in file
+                '../../lsi_imregion_max/hdl/eda_output_ram.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  matrix_output_reg  | Flip-flop |  90   |  Y  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+| SELECT_OP_3.1_3.1_3 |  91   |
+| SELECT_OP_4.1_4.1_4 |  90   |
+===============================
+Presto compilation completed successfully. (eda_output_ram)
+Information: Building the design 'eda_strobe_ram'. (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine eda_strobe_ram line 93 in file
+                '../../lsi_imregion_max/hdl/eda_strobe_ram.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   strb_memory_reg   | Flip-flop |  89   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   strb_memory_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+=================================
+|       Cell Type       | Count |
+=================================
+| SELECT_OP_4.90_4.90_4 |   1   |
+| SELECT_OP_3.90_3.90_3 |   1   |
+=================================
+Presto compilation completed successfully. (eda_strobe_ram)
+Information: Building the design 'eda_max'. (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+|   GT_UNS_OP;8;8;1   |   1   |
+| SELECT_OP_2.8_2.8_2 |   1   |
+===============================
+Presto compilation completed successfully. (eda_max)
+Information: Building the design 'sync_fifo' instantiated from design 'eda_fifos' with
+        the parameters "FIFO_DEPTH=18,DATA_WIDTH=8,ADDR_WIDTH=5". (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+Presto compilation completed successfully. (sync_fifo_FIFO_DEPTH18_DATA_WIDTH8_ADDR_WIDTH5)
+Information: Building the design 'eda_one_hot_to_bin' instantiated from design 'eda_iterated_ram' with
+        the parameters "ONE_HOT_WIDTH=9,BIN_WIDTH=4". (HDL-193)
+Warning:  ../../lsi_imregion_max/hdl/eda_one_hot_to_bin.sv:16: signed to unsigned assignment occurs. (VER-318)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+| SELECT_OP_2.1_2.1_2 |   1   |
+| SELECT_OP_2.3_2.3_2 |   1   |
+| SELECT_OP_2.4_2.4_2 |   6   |
+===============================
+Presto compilation completed successfully. (eda_one_hot_to_bin_ONE_HOT_WIDTH9_BIN_WIDTH4)
+Information: Building the design 'eda_one_hot_to_bin' instantiated from design 'eda_iterated_ram' with
+        the parameters "ONE_HOT_WIDTH=10,BIN_WIDTH=4". (HDL-193)
+Warning:  ../../lsi_imregion_max/hdl/eda_one_hot_to_bin.sv:16: signed to unsigned assignment occurs. (VER-318)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+| SELECT_OP_2.2_2.2_2 |   2   |
+| SELECT_OP_2.3_2.3_2 |   1   |
+| SELECT_OP_2.4_2.4_2 |   6   |
+===============================
+Presto compilation completed successfully. (eda_one_hot_to_bin_ONE_HOT_WIDTH10_BIN_WIDTH4)
+Information: Building the design 'sync_fifo_mem'. (HDL-193)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine sync_fifo_mem line 36 in file
+                '../../lsi_imregion_max/lib/sync_fifo/sync_fifo_mem.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    fifo_mem_reg     | Flip-flop |  144  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+==================================
+|       Cell Type        | Count |
+==================================
+| SELECT_OP_32.1_32.1_32 |   8   |
+| SELECT_OP_2.18_2.18_2  |   1   |
+==================================
+Presto compilation completed successfully. (sync_fifo_mem)
+Information: Building the design 'write_control'. (HDL-193)
+Warning:  ../../lsi_imregion_max/lib/sync_fifo/write_control.v:26: signed to unsigned conversion occurs. (VER-318)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine write_control line 21 in file
+                '../../lsi_imregion_max/lib/sync_fifo/write_control.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     wr_addr_reg     | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+|  ADD_UNS_OP;6;1;6   |   1   |
+| SELECT_OP_3.1_3.1_3 |   1   |
+| SELECT_OP_2.6_2.6_2 |   1   |
+===============================
+Presto compilation completed successfully. (write_control)
+Information: Building the design 'read_control'. (HDL-193)
+Warning:  ../../lsi_imregion_max/lib/sync_fifo/read_control.v:31: signed to unsigned conversion occurs. (VER-318)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine read_control line 26 in file
+                '../../lsi_imregion_max/lib/sync_fifo/read_control.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     rd_addr_reg     | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+|  ADD_UNS_OP;6;1;6   |   1   |
+| SELECT_OP_3.1_3.1_3 |   1   |
+| SELECT_OP_2.6_2.6_2 |   1   |
+===============================
+Presto compilation completed successfully. (read_control)
+Information: Building the design 'comparator'. (HDL-193)
+Warning:  ../../lsi_imregion_max/lib/sync_fifo/comparator.v:57: signed to unsigned conversion occurs. (VER-318)
+
+statistics for FSM inference:
+
+  no finite state machine inferred.
+
+Inferred memory devices in process
+        in routine comparator line 41 in file
+                '../../lsi_imregion_max/lib/sync_fifo/comparator.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  o_almostfull_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine comparator line 53 in file
+                '../../lsi_imregion_max/lib/sync_fifo/comparator.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    o_ready_s_reg    | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|     o_full_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine comparator line 68 in file
+                '../../lsi_imregion_max/lib/sync_fifo/comparator.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  o_almostempty_reg  | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine comparator line 80 in file
+                '../../lsi_imregion_max/lib/sync_fifo/comparator.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    o_valid_m_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Synthetic Cells Summary
+===============================
+|      Cell Type      | Count |
+===============================
+| ADD_UNS_OP;6;32;32  |   1   |
+|  EQ_UNS_OP;6;32;1   |   1   |
+|   EQ_UNS_OP;6;5;1   |   4   |
+|   EQ_UNS_OP;6;6;1   |   1   |
+|   EQ_UNS_OP;6;1;1   |   3   |
+| ADD_UNS_OP;32;1;32  |   1   |
+|  SUB_UNS_OP;5;1;6   |   1   |
+|  ADD_UNS_OP;5;1;6   |   1   |
+| SELECT_OP_3.1_3.1_3 |   2   |
+===============================
+Presto compilation completed successfully. (comparator)
+1
+# Compile Top module
+current_design ${TOP_LEVEL_MODULE}
+Current design is 'eda_regional_max'.
+{eda_regional_max}
+source -echo -verbose ./dc_scripts/$DC_CONSTRAINTS_INPUT_FILE
+reset_design
+1
+create_clock -period $CLOCK_PERIOD_DTI [get_ports clk]
+1
+set_clock_uncertainty $MARGIN_DTI [get_ports clk]
+1
+# set_clock_transition -max $MAX_TRANSITION_TIME [get_clock clk]
+# set_clock_latency -source -max 1.2 [get_clock clk]
+set_input_delay -max 0.4 -clock clk [get_ports reset_n  ]
+1
+set_input_delay -max 0.4 -clock clk [get_ports pixel_in*]
+1
+set_input_delay -max 0.4 -clock clk [get_ports start    ]
+1
+set_input_delay -max 0.4 -clock clk [get_ports wr_addr* ]
+1
+set_input_delay -max 0.4 -clock clk [get_ports write_en ]
+1
+set_output_delay -max 0.4 -clock clk [get_ports done           ]
+1
+set_output_delay -max 0.4 -clock clk [get_ports matrix_output* ]
+1
+set_fanout_load 1 [get_ports done           ] 
+1
+set_fanout_load 1 [get_ports matrix_output* ]
+1
+1
+set_fix_multiple_port_nets -all [all_designs] -buffer_constants
+1
+set_fsm_encoding_style one_hot
+1
+set_fsm_minimize true
+1
+ungroup -all -flatten
+Information: Updating graph... (UID-83)
+Warning: Design 'eda_regional_max' contains 10 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+1
+check_design > ${REPORTS_DIR}/${TOP_LEVEL_MODULE}_${LIB}_check_design.rpt
+link
+
+  Linking design 'eda_regional_max'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  eda_regional_max            /data5/workspace/thinv0/lsi_design/lsi_imregion_max/syn/eda_regional_max.db
+  dti_stdcell_ssg_0p81v_neg40c (library)
+                              /data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db
+  dw_foundation.sldb (library)
+                              /tools/synopsys/dc/P-2019.03-SP3/libraries/syn/dw_foundation.sldb
+
+1
+write -format verilog -hierarchy -output ${RESULTS_DIR}/${TOP_LEVEL_MODULE}_${LIB}_GTECH.v
+Writing verilog file '/data5/workspace/thinv0/lsi_design/lsi_imregion_max/syn/results/eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_GTECH.v'.
+Warning: Verilog writer has added 212 nets to module eda_regional_max using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Module eda_regional_max contains unmapped components.  The output netlist might not be read back into the system. (VO-12)
+1
+# set_implementation apparch "U1"
+compile_ultra 
+Warning: set compile_timing_high_effort is not supported in WLM mode. Ignoring this setting. (OPT-1346)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 4 cores. (OPT-1500)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | P-2019.03-DWBB_201903.3 |     *     |
+| Licensed DW Building Blocks        | P-2019.03-DWBB_201903.3 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 1083 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'eda_regional_max'
+Information: The register 'eda_fifos/sync_fifo_downright/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_downright/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_downright/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_downright/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_down/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_down/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_down/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_down/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_downleft/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_downleft/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_downleft/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_downleft/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_right/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_right/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_right/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_right/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_left/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_left/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_left/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_left/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upright/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upright/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upright/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upright/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upleft/comparator_inst/o_almostfull_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upleft/comparator_inst/o_ready_s_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upleft/comparator_inst/o_almostempty_reg' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_upleft/comparator_inst/o_valid_m_reg' will be removed. (OPT-1207)
+
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckoptax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckoptax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckoptax1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena10x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena10x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena10x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena01x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena01x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena01x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11optax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11optax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11optax1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10optax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10optax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10optax1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01optax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01optax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01optax1' could not be modeled for sequential mapping. (OPT-1201)
+Loaded alib file './alib-52/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'eda_regional_max'
+Information: Added key list 'DesignWare' to design 'eda_regional_max'. (DDB-72)
+ Implement Synthetic for 'eda_regional_max'.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'dti_28hc_7t_30_tierailx1' in the library 'dti_stdcell_ssg_0p81v_neg40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'dti_28hc_7t_30_tielox1' in the library 'dti_stdcell_ssg_0p81v_neg40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'dti_28hc_7t_30_tiehix1' in the library 'dti_stdcell_ssg_0p81v_neg40c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: The register 'eda_fifos/sync_fifo_upleft/comparator_inst/o_full_reg' is a constant and will be removed. (OPT-1206)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: There is no timing violation in design eda_regional_max. Delay-based auto_ungroup will not be performed. (OPT-780)
+Information: The register 'eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[17][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[16][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[15][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[14][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[13][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[12][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[11][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[10][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[9][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[8][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[7][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[6][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][1]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][0]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][7]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][6]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][5]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][4]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][3]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][2]' will be removed. (OPT-1207)
+Information: The register 'eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][1]' will be removed. (OPT-1207)
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:57    7438.6      0.00       0.0       0.0                            488.2104
+    0:01:57    7438.6      0.00       0.0       0.0                            488.2104
+    0:01:57    7438.6      0.00       0.0       0.0                            488.2104
+    0:02:04    7262.7      0.00       0.0       0.0                            472.2202
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:02:26    6978.9      0.00       0.0       0.0                            433.8605
+    0:02:30    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:02:31    6903.6      0.00       0.0       0.0                            420.2414
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+    0:02:33    7798.7      0.00       0.0       0.0                            555.3972
+    0:02:33    7798.7      0.00       0.0       0.0                            555.3972
+    0:02:33    7798.7      0.00       0.0       0.0                            555.3972
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:02:36    6944.7      0.00       0.0       0.0                            422.5802
+    0:02:39    6931.0      0.00       0.0       0.0                            421.5632
+    0:02:39    6931.0      0.00       0.0       0.0                            421.5632
+    0:02:39    6931.0      0.00       0.0       0.0                            421.5632
+    0:02:41    6928.6      0.00       0.0       0.0                            421.1278
+    0:02:43    6890.7      0.00       0.0       0.0                            417.7420
+    0:02:43    6890.7      0.00       0.0       0.0                            417.7420
+    0:02:43    6890.7      0.00       0.0       0.0                            417.7420
+    0:02:43    6890.7      0.00       0.0       0.0                            417.7420
+Loading db file '/data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'eda_regional_max' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'reset_n': 1101 load(s), 1 driver(s)
+     Net 'n8150': 1203 load(s), 1 driver(s)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckx4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckx2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckx1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckoptax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckoptax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckoptax1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena10x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena10x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena10x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena01x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena01x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbckena01x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11optax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11optax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka11optax1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10optax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10optax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka10optax1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01x4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01x2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01x1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01optax4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01optax2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'dti_28hc_7t_30_sffnqqnbcka01optax1' could not be modeled for sequential mapping. (OPT-1201)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+# compile_ultra -no_autoungroup
+compile_ultra -incremental
+Warning: set compile_timing_high_effort is not supported in WLM mode. Ignoring this setting. (OPT-1346)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 4 cores. (OPT-1500)
+
+Loaded alib file './alib-52/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'dti_28hc_7t_30_tierailx1' in the library 'dti_stdcell_ssg_0p81v_neg40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'dti_28hc_7t_30_tielox1' in the library 'dti_stdcell_ssg_0p81v_neg40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'dti_28hc_7t_30_tiehix1' in the library 'dti_stdcell_ssg_0p81v_neg40c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:12    6890.7      0.00       0.0       0.0                            417.7420
+    0:00:12    6890.7      0.00       0.0       0.0                            417.7420
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:24    6890.7      0.00       0.0       0.0                            417.7420
+    0:00:25    7937.9      0.00       0.0       0.0                            575.6534
+    0:00:31    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:32    6949.8      0.00       0.0       0.0                            415.2725
+    0:00:36    7004.9      0.00       0.0       0.0                            410.3059
+    0:00:36    7004.9      0.00       0.0       0.0                            410.3059
+    0:00:40    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:41    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:45    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7004.9      0.00       0.0       0.0                            410.3051
+    0:00:46    7005.2      0.00       0.0       0.0                            410.3124
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:46    7005.2      0.00       0.0       0.0                            410.3124
+    0:00:51    7005.2      0.00       0.0       0.0                            410.3124
+    0:00:55    6946.0      0.00       0.0       0.0                            405.0430
+    0:00:55    6946.0      0.00       0.0       0.0                            405.0430
+Loading db file '/data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'eda_regional_max' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'reset_n': 1101 load(s), 1 driver(s)
+     Net 'n8150': 1203 load(s), 1 driver(s)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+update_timing
+Information: Updating design information... (UID-85)
+Warning: Design 'eda_regional_max' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+1
+check_timing > ${REPORTS_DIR}/${TOP_LEVEL_MODULE}_${LIB}_check_timing.rpt
+#################################################################################
+# Write out Design
+#################################################################################
+write -format ddc     -hierarchy -output ${RESULTS_DIR}/${DC_FINAL_DDC_OUTPUT_FILE}
+Writing ddc file 'results/eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_netlist.ddc'.
+1
+write -format verilog -hierarchy -output ${RESULTS_DIR}/${DC_FINAL_VERILOG_OUTPUT_FILE}
+Writing verilog file '/data5/workspace/thinv0/lsi_design/lsi_imregion_max/syn/results/eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_netlist.v'.
+1
+write_sdf -significant_digits 5          ${RESULTS_DIR}/${DC_FINAL_SDF_OUTPUT_FILE}
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/data5/workspace/thinv0/lsi_design/lsi_imregion_max/syn/results/eda_regional_max_dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1_20190228_32b_20MHz_netlist.sdf'. (WT-3)
+1
+################################################################################
+# Generate Final Reports
+#################################################################################
+report_timing -nworst 1000 -sort_by slack                    > ${REPORTS_DIR}/${DC_FINAL_TIMING_REPORT}
+report_constraint -all_violators                             > ${REPORTS_DIR}/${DC_FINAL_CONSTRAINTS_REPORT}
+report_qor  -significant_digits 5                            > ${REPORTS_DIR}/${DC_FINAL_QOR_REPORT}
+report_fsm                                                   > ${REPORTS_DIR}/${DC_FINAL_FSM_REPORT}
+report_power -analysis_effort medium                         > ${REPORTS_DIR}/${TOP_LEVEL_MODULE}_${LIB}_final_power.rpt
+report_power -analysis_effort medium -cell -verbose          > ${REPORTS_DIR}/${TOP_LEVEL_MODULE}_${LIB}_final_power_cell.rpt
+report_reference                                             > ${REPORTS_DIR}/${TOP_LEVEL_MODULE}_${LIB}_final_ref.rpt
+if {[shell_is_in_topographical_mode]} {
+  report_area -physical -nosplit > ${REPORTS_DIR}/${DC_FINAL_AREA_REPORT}
+} else {
+  report_area -nosplit > ${REPORTS_DIR}/${DC_FINAL_AREA_REPORT}
+}
+puts "RM-Info: Completed script dc_run.tcl\n"
+RM-Info: Completed script dc_run.tcl
+
+# exit
