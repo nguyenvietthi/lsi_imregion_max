@@ -13,6 +13,7 @@ module eda_iterated_ram  #(
   input                             clear           ,
   input                             new_pixel       ,
   input                             done            ,
+  input        [WINDOW_WIDTH - 2:0] fifo_empty      ,
   input        [ADDR_WIDTH - 1:0]   center_addr     , //{i, j}
   input        [ADDR_WIDTH - 1:0]   upleft_addr     ,
   input        [ADDR_WIDTH - 1:0]   up_addr         ,
@@ -103,7 +104,7 @@ module eda_iterated_ram  #(
     if(~reset_n) begin
       iterated_all <= 0;
     end else begin
-      iterated_all <= ((sel_col == 0) & (sel_row == 0));
+      iterated_all <= ((final_sel_col == 0) & (sel_row == 0)) & (fifo_empty == {(WINDOW_WIDTH-1){1'b1}}) & new_pixel;
     end
   end
 

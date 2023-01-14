@@ -14,6 +14,7 @@ module eda_strobe_ram #(
   input                       clear           ,
   input                       new_pixel       ,
   input                       iterated_all    ,
+  input                       done            ,
   input  [ADDR_WIDTH - 1:0]   pre_center_addr ,
   input  [ADDR_WIDTH - 1:0]   upleft_addr     ,
   input  [ADDR_WIDTH - 1:0]   up_addr         ,
