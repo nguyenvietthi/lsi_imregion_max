@@ -28,11 +28,11 @@ module eda_fifos #(
 );
 
 //|----------|--------|-----------|
-//| upleft/2 |   up/1 | upright/0 |
+//| upleft/7 |   up/6 | upright/5 |
 //|----------|--------|-----------|
 //| left/4   | center |   right/3 |
 //|----------|--------|-----------|
-//|downleft/7| down/6 |downright/5|
+//|downleft/2| down/1 |downright/0|
 //|----------|--------|-----------|
 
 logic                    inv_clk;

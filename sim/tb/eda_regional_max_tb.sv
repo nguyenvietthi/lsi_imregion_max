@@ -20,12 +20,13 @@ module eda_regional_max_tb ();
   logic                        done         ; 
   logic    [M - 1:0][N - 1:0]  matrix_output;
 
-  logic [PIXEL_WIDTH - 1:0] img_memory [0:M - 1] [0:N - 1];
-  logic [0:M - 1] [0:N - 1][PIXEL_WIDTH - 1:0] img_memory_cp;
-  int                   start_check;
+  logic [PIXEL_WIDTH - 1:0]                     img_memory [0:M - 1] [0:N - 1];
+  logic [0:M - 1] [0:N - 1][PIXEL_WIDTH - 1:0]  img_memory_cp;
   logic  [M - 1:0][N - 1:0]                     output_image ;
   logic  [M - 1:0][N - 1:0]                     output_image_model ;
-  logic done_reg;
+  logic                                         done_reg;
+
+  always #10 clk = ~clk;
 
   always_ff @(posedge clk or negedge reset_n) begin : proc_done_reg
     if(~reset_n) begin
@@ -68,7 +69,7 @@ module eda_regional_max_tb ();
     @(negedge clk);
     reset_n = 1;
 
-    for (int matrix_num = 0; matrix_num < 10000; matrix_num++) begin 
+    for (int matrix_num = 0; matrix_num < 10002; matrix_num++) begin 
       $sformat(str, "%0d", matrix_num);
       // $display("%s",str);
       img_name = {"../tb/image_input_", str};      
@@ -118,57 +119,8 @@ module eda_regional_max_tb ();
 
     $finish;
   end
-
-  always #10 clk = ~clk;
-  // initial begin
-    
-
-  //   // for (logic[I_WIDTH - 1:0] i = 0; i < M; i++) begin
-  //   //   for (logic[J_WIDTH - 1:0] j = 0; j < N; j++) begin
-  //   //     @(negedge clk) write_en = 0;
-  //   //     @(negedge clk) begin 
-  //   //       wr_addr = {i,j};
-  //   //       pixel_in = img_memory[i][j];
-  //   //       write_en = 1;
-  //   //     end
-  //   //   end
-  //   // end
-
-  //   // @(negedge clk);
-  //   // @(negedge clk);
-  //   // $display("\nimg_memory after write pixels: %p\n", eda_regional_max_inst.eda_img_ram.img_memory);
-  //   // start_check = 1;
-
-  //   // @(negedge clk);
-  //   // start = 1;
-  //   // @(negedge clk);
-  //   // start = 0;
-
-  // end
-
-  always_comb begin
-    if (start_check == 1) begin
-      $display("iterated_memory @ %4d ns", $realtime());
-      for (int i = 0; i < M; i++) begin
-        for (int j = 0; j < N; j++) begin
-            $write("%p ", eda_regional_max_inst.eda_iterated_ram.iterated_memory[i][j]); 
-        end
-        $write("\n");
-      end
-    end
-  end
-
-  always_comb begin
-    if (start_check == 1) begin
-      $display("addr_arr @ %4d ns", $realtime());
-      for (int i = WINDOW_WIDTH - 2; i >= 0; i--) begin
-        $write("%b ", eda_regional_max_inst.eda_iterated_ram.addr_arr[i]); 
-        $write("\n");
-      end
-    end
-  end
-
-logic compare;
+  
+  logic compare;
   always_comb begin
     compare = 0;
     if(done & (~done_reg)) begin
