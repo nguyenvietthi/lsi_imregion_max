@@ -25,6 +25,15 @@ module eda_regional_max_tb ();
   int                   start_check;
   logic  [M - 1:0][N - 1:0]                     output_image ;
   logic  [M - 1:0][N - 1:0]                     output_image_model ;
+  logic done_reg;
+
+  always_ff @(posedge clk or negedge reset_n) begin : proc_done_reg
+    if(~reset_n) begin
+      done_reg <= 0;
+    end else begin
+      done_reg <= done;
+    end
+  end
 
 
   eda_regional_max eda_regional_max_inst (
@@ -47,74 +56,61 @@ module eda_regional_max_tb ();
 );
 
 
-  initial begin
-    $readmemh("../tb/image_input", img_memory);
-    $display("img_memory: %p\n", img_memory);
-    for (int i = 0; i < M; i++) begin
-      for (int j = 0; j < N; j++) begin 
-        img_memory_cp[i][j] = img_memory[i][j];
-      end
-    end
-  end
-
-  always #10 clk = ~clk;
+ string str;
+ string img_name;
   initial begin
     clk = 0;
     reset_n = 0;
     write_en = 0;
-    start = 0;
     start_check = 0;
+    start = 0;
 
     @(negedge clk);
     reset_n = 1;
 
-    for (logic[I_WIDTH - 1:0] i = 0; i < M; i++) begin
-      for (logic[J_WIDTH - 1:0] j = 0; j < N; j++) begin
-        @(negedge clk) write_en = 0;
-        @(negedge clk) begin 
-          wr_addr = {i,j};
-          pixel_in = img_memory[i][j];
-          write_en = 1;
+    for (int matrix_num = 0; matrix_num < 10000; matrix_num++) begin 
+      $sformat(str, "%0d", matrix_num);
+      // $display("%s",str);
+      img_name = {"../tb/image_input_", str};      
+      $display(" ================================================================== ");
+      $display("%t IMAGE ", $time());
+      $display("%s",img_name);
+      $readmemh(img_name, img_memory);
+      $display("img_memory: %p\n", img_memory);
+      @(negedge clk);
+      @(negedge clk);
+
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin 
+          img_memory_cp[i][j] = img_memory[i][j];
         end
       end
-    end
 
-    @(negedge clk);
-    @(negedge clk);
-    $display("\nimg_memory after write pixels: %p\n", eda_regional_max_inst.eda_img_ram.img_memory);
-    start_check = 1;
+      for (logic[I_WIDTH - 1:0] m = 0; m < M; m++) begin
+        for (logic[J_WIDTH - 1:0] n = 0; n < N; n++) begin
+          @(negedge clk) write_en = 0;
+          @(negedge clk) begin 
+            wr_addr = {m,n};
+            pixel_in = img_memory[m][n];
+            write_en = 1;
+          end
+        end
+      end
 
-    @(negedge clk);
-    start = 1;
-    @(negedge clk);
-    start = 0;
+      @(negedge clk) write_en = 0;
+      $display("\nimg_memory after write pixels: %p\n", eda_regional_max_inst.eda_img_ram.img_memory);
 
-    repeat (300) begin 
+      @(negedge clk);
+      @(negedge clk);
+      @(negedge clk);
+      start = 1;
+      @(negedge clk);
+      start = 0;
+      @(posedge done);
+      @(negedge clk);
+      @(negedge clk);
       @(negedge clk);
     end
-
-    start_check = 0;
-
-    for (logic[I_WIDTH - 1:0] i = 0; i < M; i++) begin
-      for (logic[J_WIDTH - 1:0] j = 0; j < N; j++) begin
-        @(negedge clk) write_en = 0;
-        @(negedge clk) begin 
-          wr_addr = {i,j};
-          pixel_in = img_memory[i][j];
-          write_en = 1;
-        end
-      end
-    end
-
-    @(negedge clk);
-    @(negedge clk);
-    $display("\nimg_memory after write pixels: %p\n", eda_regional_max_inst.eda_img_ram.img_memory);
-    start_check = 1;
-
-    @(negedge clk);
-    start = 1;
-    @(negedge clk);
-    start = 0;
 
     repeat (300) begin 
       @(negedge clk);
@@ -122,6 +118,33 @@ module eda_regional_max_tb ();
 
     $finish;
   end
+
+  always #10 clk = ~clk;
+  // initial begin
+    
+
+  //   // for (logic[I_WIDTH - 1:0] i = 0; i < M; i++) begin
+  //   //   for (logic[J_WIDTH - 1:0] j = 0; j < N; j++) begin
+  //   //     @(negedge clk) write_en = 0;
+  //   //     @(negedge clk) begin 
+  //   //       wr_addr = {i,j};
+  //   //       pixel_in = img_memory[i][j];
+  //   //       write_en = 1;
+  //   //     end
+  //   //   end
+  //   // end
+
+  //   // @(negedge clk);
+  //   // @(negedge clk);
+  //   // $display("\nimg_memory after write pixels: %p\n", eda_regional_max_inst.eda_img_ram.img_memory);
+  //   // start_check = 1;
+
+  //   // @(negedge clk);
+  //   // start = 1;
+  //   // @(negedge clk);
+  //   // start = 0;
+
+  // end
 
   always_comb begin
     if (start_check == 1) begin
@@ -146,23 +169,33 @@ module eda_regional_max_tb ();
   end
 
 logic compare;
-  always @(done) begin
+  always_comb begin
     compare = 0;
-    if(done & (!start)) begin
-      $display("RESULT:");
+    if(done & (~done_reg)) begin
+      $display(" ================================================================== ");
+      $display(" IMAGE ");
+      $display("%s",img_name);
+      $display("%0t IMAGE:", $time());
       for (int i = 0; i < M; i++) begin
         for (int j = 0; j < N; j++) begin
-            $write("%p ", eda_regional_max_inst.eda_output_ram.matrix_output[i][j]); 
+            $write("%p ", img_memory[i][j]); 
+        end
+        $write("\n");
+      end
+      $display("%0t RESULT:", $time());
+      for (int i = 0; i < M; i++) begin
+        for (int j = 0; j < N; j++) begin
+            $write("%p ", matrix_output[i][j]); 
         end
         $write("\n");
       end
 
       $display("-------------------------------------------------------");
-      $display("MODEL OUTPUT:");
+      $display("%0t MODEL OUTPUT:", $time());
       for (int i = 0; i < M; i++) begin
         for (int j = 0; j < N; j++) begin
             $write("%p ", output_image_model[i][j]); 
-            if (eda_regional_max_inst.eda_output_ram.matrix_output[i][j] != output_image_model[i][j]) begin
+            if (matrix_output[i][j] != output_image_model[i][j]) begin
               compare = 1;
             end
         end
@@ -171,13 +204,12 @@ logic compare;
       $display("-------------------------------------------------------");
 
       if (compare) begin
+        $display("%0t                   FAIL                             ", $time());
         $display("-------------------------------------------------------");
-        $display("                      FAIL                             ",);
-        $display("-------------------------------------------------------");
+        $finish();
       end
       else begin 
-        $display("-------------------------------------------------------");
-        $display("                      PASS                             ",);
+        $display("%0t                   PASS                             ", $time());
         $display("-------------------------------------------------------");
       end
     end
