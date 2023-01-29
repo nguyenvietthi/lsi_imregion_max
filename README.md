@@ -8,7 +8,7 @@ Here, we have both software code to describe the new algorithm and hardware code
 .
 ├───doc             # Design specs
 ├───hdl             # HDL code
-├───inc             # Include file which declares all constants
+├───inc             # Include file which declares all constants and parameters
 ├───libs
 │   └───sync_fifo   # Synchronous FIFO code
 |───sim             # Simulation files
