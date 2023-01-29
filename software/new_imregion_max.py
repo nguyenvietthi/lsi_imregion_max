@@ -34,43 +34,55 @@ def cell_neighbors(arr, i, j, d):
     j1 = w.shape[3] - max(0, d - j + jx)
     # print("check: ", ix," ", jx," ", i0," ", j0," ",i1," ", j1," ")
     neight = w[ix, jx][i0:i1,j0:j1]
+    # print(neight)
     max_value = np.max(neight)
     # print(neight, max_value)
-    index = np.argwhere(neight == max_value) +  [ix, jx]
+    index = np.argwhere(neight == arr[i][j]) +  [ix + i0, jx + j0]
     # print(index)
-    return [max_value, index]
+    return [max_value > arr[i][j], index]
 # ####################################################################
+def find_neigh_index(array, i, j):
+    change_output = False
+    neigh_list = []
+    neigh_list.extend(cell_neighbors(array, i, j, 1)[1].tolist())
+    if(cell_neighbors(array, i, j, 1)[0]): 
+        change_output = True
+    # print(neigh_list)
+    for neigh in neigh_list:
+        next_neighs = cell_neighbors(array, neigh[0], neigh[1], 1)[1]
+        if(cell_neighbors(array, neigh[0], neigh[1], 1)[0]): 
+            change_output = True
+        for next_neigh in next_neighs:
+            # print(next_neigh)
+            if(np.any((np.array(neigh_list) == (next_neigh[0], next_neigh[1])).all(axis=1)) == False):
+                neigh_list.append(next_neigh.tolist())
+
+    return neigh_list, change_output        
 
 # Input image
-input_image = np.array([[0, 0, 0, 1, 2, 3],
-                        [0, 1, 0, 2, 3, 3],
-                        [0, 0, 0, 2, 5, 4],
-                        [1, 3, 1, 5, 4, 5],
-                        [0, 0, 0, 3, 2, 4],
-                        [2, 1, 0, 1, 2, 3]])
-# # output result
-# output = np.ones(input_image.shape, dtype=int)
+input_image = np.array([[0,0,0,1,2,3],[0,1,0,2,3,3],[0,0,0,2,3,4],[1,3,1,5,4,5],[0,0,0,3,2,4],[2,1,0,1,2,3]])
+# output result
+output = np.ones(input_image.shape, dtype=int)
 
-# # get unique values from input_image
-# res = np.array(input_image) 
-# unique_res = np.unique(res)
+# get unique values from input_image
+res = np.array(input_image) 
+unique_res = np.unique(res)
 
-# for value in unique_res:
-#     # print(value)
-#     # get index equal value
-#     index_list = np.argwhere(input_image == value)
-#     # print(index_list)
-#     for index in index_list:
-#         # get Pixel neighbors of value
-#         print(index)
-#         neight_value = cell_neighbors(input_image, index[0], index[1], 1)
-#         print(neight_value)
-#         if(np.max(neight_value) > value):
-#             for idx in index_list:
-#                 # update ouput
-#                 output[idx[0]][idx[1]] = 0
-#             break
-# print(input_image)
-# print(output)
+for value in unique_res:
+    # print(value)
+    # get index equal value
+    index_list = np.argwhere(input_image == value)
+    for index in index_list:
+        neigh_list = find_neigh_index(input_image, index[0], index[1])[0]
+        max_check  = find_neigh_index(input_image, index[0], index[1])[1]
+        
+        if(max_check):
+            for neigh in neigh_list:
+                output[neigh[0]][neigh[1]] = 0
 
-# print(cell_neighbors(input_image, 0, 0, 1)[1])
+            # remove index traded in indexlist
+            np.delete(index_list, np.where((index_list == (neigh[0], neigh[1])).all(axis=1)))
+
+
+print("Input image: \n", input_image)
+print("Output: \n",output)
