@@ -1,6 +1,6 @@
 # 26th LSI Design Contests - eda_regional_maxima
-This is our submission for **26th LSI Contest**. The goal is to design the hardware for the Regional Maxima algorithm. </br> </br>
-In this submission, we have proposed an innovative algorithm based on the original algorithm to improve the restrictions of the original algorithm mentioned in our document and design the hardware based on that proposed algorithm.
+This is our submission for **26th LSI Contest**. The goal is to design the hardware for Regional Maxima algorithm. </br> </br>
+In this submission, we have proposed an innovative algorithm based on the original algorithm to improve some restrictions of the original one mentioned in our document. And, the hardware design is based on that proposed algorithm.
 
 # Directory layout
 ```bash
