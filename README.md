@@ -8,7 +8,8 @@
 ├───hdl             # HDL code
 ├───inc             # Include file which declares all constants
 ├───libs
-│   └───sync_fifo   # Synchronous FIFO code|└───sim             # Simulation files
+│   └───sync_fifo   # Synchronous FIFO code
+|───sim             # Simulation files
 │    ├───tb         # Top testbench
 │    ├───libs       # Model which is used to check outputs of design
 |    ├───work       # Where to run simulation
