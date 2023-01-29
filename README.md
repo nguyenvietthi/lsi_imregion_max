@@ -24,7 +24,7 @@
 3. Run the following commands at the terminal
 ```sh
 $ python3 gen_random_matrix.py
-$ source ../qrun_bash
+$ source ../script/qrun_bash
 $ vlb;vlg;vsm
 ```
 or simulate on GUI of Questasim/Modelsim
