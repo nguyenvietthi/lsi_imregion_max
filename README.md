@@ -21,7 +21,7 @@
 ```
 # How to simulate by Questasim/Modelsim
 1. Go to directory sim/work
-2. Open gen_random_matrix.py, you can config the parameters: m - height of image, n - width of image, pixel_width, file_num - number of testcase
+2. Open gen_random_matrix.py, config the parameters: m - height of image, n - width of image, pixel_width, file_num - number of testcase
 3. Run the following commands
 ```sh
 $ source ../qrun_bash
