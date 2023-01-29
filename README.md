@@ -18,7 +18,15 @@
     ├───result      # Result after synthesis
     └───dc_scripts  # Scripts for synthesis
 ```
-# How to simulate by Questasim/Modelsim
+# How to run software simulation by python3 (new algorithm)
+1. Go to directory **software** at the terminal
+2. Run the following commands at the terminal
+```sh
+$ python3 test.py
+```
+3. The results are located in **software/result**
+
+# How to run hardware simulation by Questasim/Modelsim
 1. Go to directory **sim/tb** at the terminal
 2. Open gen_random_matrix.py, config the parameters: m - height of image, n - width of image, pixel_width, file_num - number of testcases
 3. Run the following commands at the terminal
@@ -29,7 +37,7 @@ $ vlb;vlg;vsm
 ```
 or simulate on GUI of Questasim/Modelsim
 
-# How to view results by Questasim/Modelsim
+# How to view hardware simulation results by Questasim/Modelsim
 1. After simulating as above section, standing at directory **sim/tb** and run the following command at the terminal
 ```sh
 $ vsim -view vsim.wlf -do wave.do
