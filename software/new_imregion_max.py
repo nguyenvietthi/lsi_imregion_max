@@ -85,4 +85,4 @@ for value in unique_res:
 
 
 print("Input image: \n", input_image)
-print("Output: \n",output)
+print("\nOutput: \n",output)
