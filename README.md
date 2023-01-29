@@ -28,3 +28,10 @@ $ source ../qrun_bash
 $ vlb;vlg;vsm
 ```
 or simulate on GUI of Questasim/Modelsim
+
+# How to view results by Questasim/Modelsim
+1. After simulating as above section, standing at directory sim/tb and run the following commands
+```sh
+$ vsim -view vsim.wlf -do wave.do
+```
+2. File vsim.log at directory sim/tb is the result that used to be compared to model's result
