@@ -10,7 +10,7 @@ Here, we have both software code to describe the new algorithm and hardware code
 ├───hdl             # HDL code
 ├───inc             # Include file which declares all constants and parameters
 ├───libs
-│   └───sync_fifo   # Synchronous FIFO code
+│   └───sync_fifo   # Our Synchronous FIFO code
 |───sim             # Simulation files
 │    ├───tb         # Top testbench
 │    ├───libs       # Model which is used to check outputs of design
