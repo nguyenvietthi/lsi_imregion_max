@@ -18,7 +18,7 @@
     ├───result      # Result after synthesis
     └───dc_scripts  # Scripts for synthesis
 ```
-# How to run software simulation by python3 (new algorithm)
+# How to run software simulation by python3 (new proposed algorithm)
 1. Go to directory **software** at the terminal
 2. Run the following commands at the terminal
 ```sh
