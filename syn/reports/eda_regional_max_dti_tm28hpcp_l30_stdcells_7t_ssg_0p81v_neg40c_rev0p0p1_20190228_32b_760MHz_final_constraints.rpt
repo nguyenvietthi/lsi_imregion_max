@@ -1,0 +1,1319 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : eda_regional_max
+Version: P-2019.03-SP3
+Date   : Sun Jan 29 14:39:35 2023
+****************************************
+
+
+   min_delay/hold ('clk' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   eda_iterated_ram/iterated_memory_reg[5][0]/D
+                             0.26689        0.07074 r     -0.19615  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[0][4]/D
+                             0.26619        0.07075 r     -0.19545  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[0][5]/D
+                             0.26619        0.07075 r     -0.19545  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[0][1]/D
+                             0.26619        0.07075 r     -0.19544  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[4][4]/D
+                             0.26477        0.07471 r     -0.19005  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[5][0]/D
+                             0.26475        0.07471 r     -0.19004  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[5][5]/D
+                             0.26475        0.07471 r     -0.19004  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[3][4]/D
+                             0.26477        0.07473 r     -0.19004  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[1][5]/D
+                             0.26475        0.07471 r     -0.19004  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[1][2]/D
+                             0.26475        0.07471 r     -0.19004  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[5][4]/D
+                             0.26474        0.07471 r     -0.19003  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[1][0]/D
+                             0.26474        0.07473 r     -0.19001  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[4][0]/D
+                             0.26474        0.07473 r     -0.19001  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[5][3]/D
+                             0.26692        0.07988 r     -0.18704  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[5][1]/D
+                             0.26692        0.08011 r     -0.18681  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[4][5]/D
+                             0.26705        0.08194 r     -0.18511  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[5][4]/D
+                             0.26692        0.08365 r     -0.18327  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[2][3]/D
+                             0.24838        0.06646 r     -0.18191  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[3][1]/D
+                             0.24838        0.06646 r     -0.18191  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[4][1]/D
+                             0.24838        0.06646 r     -0.18191  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[5][1]/D
+                             0.24838        0.06646 r     -0.18191  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[1][5]/D
+                             0.26658        0.08672 r     -0.17986  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[0][5]/D
+                             0.26678        0.08699 r     -0.17979  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[2][1]/D
+                             0.26686        0.09004 r     -0.17681  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[1][3]/D
+                             0.26681        0.09201 r     -0.17480  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[1][3]/D
+                             0.23479        0.06545 r     -0.16934  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[5][2]/D
+                             0.25339        0.08449 r     -0.16890  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[1][4]/D
+                             0.24396        0.07738 r     -0.16658  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.24397        0.07783 r     -0.16614  (VIOLATED)
+   eda_fifos/sync_fifo_right/write_control_inst/wr_addr_reg[3]/D
+                             0.22604        0.06010 f     -0.16594  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[5][5]/D
+                             0.25179        0.08637 r     -0.16542  (VIOLATED)
+   eda_output_ram/matrix_output_reg[5][3]/D
+                             0.23610        0.07085 r     -0.16525  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.23348        0.06913 f     -0.16435  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[1][1]/D
+                             0.23478        0.07045 r     -0.16433  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[4][5]/D
+                             0.23348        0.06956 r     -0.16393  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[1][2]/D
+                             0.25330        0.09069 r     -0.16260  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[1][1]/D
+                             0.25327        0.09150 r     -0.16177  (VIOLATED)
+   eda_output_ram/matrix_output_reg[4][3]/D
+                             0.22601        0.06424 r     -0.16177  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[0][4]/D
+                             0.22259        0.06120 f     -0.16140  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/write_control_inst/wr_addr_reg[3]/D
+                             0.23594        0.07495 r     -0.16099  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[1][0]/D
+                             0.25301        0.09243 r     -0.16059  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[2][2]/D
+                             0.25330        0.09428 r     -0.15903  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.22412        0.06785 r     -0.15627  (VIOLATED)
+   eda_output_ram/matrix_output_reg[2][1]/D
+                             0.22601        0.07175 r     -0.15426  (VIOLATED)
+   eda_output_ram/matrix_output_reg[0][3]/D
+                             0.20782        0.05516 f     -0.15266  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[0][3]/D
+                             0.26677        0.11593 r     -0.15084  (VIOLATED)
+   eda_output_ram/matrix_output_reg[4][5]/D
+                             0.20782        0.05702 f     -0.15080  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[0][3]/D
+                             0.23612        0.08577 r     -0.15036  (VIOLATED)
+   eda_output_ram/matrix_output_reg[0][2]/D
+                             0.20782        0.05831 f     -0.14951  (VIOLATED)
+   eda_output_ram/matrix_output_reg[2][0]/D
+                             0.20782        0.05831 f     -0.14951  (VIOLATED)
+   eda_output_ram/matrix_output_reg[2][4]/D
+                             0.20782        0.05831 f     -0.14951  (VIOLATED)
+   eda_output_ram/matrix_output_reg[2][5]/D
+                             0.20782        0.05831 f     -0.14951  (VIOLATED)
+   eda_output_ram/matrix_output_reg[3][5]/D
+                             0.20782        0.05831 f     -0.14951  (VIOLATED)
+   eda_output_ram/matrix_output_reg[4][2]/D
+                             0.20782        0.05831 f     -0.14951  (VIOLATED)
+   eda_output_ram/matrix_output_reg[5][2]/D
+                             0.20782        0.05831 f     -0.14951  (VIOLATED)
+   eda_output_ram/matrix_output_reg[3][3]/D
+                             0.20768        0.05831 f     -0.14937  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[2][4]/D
+                             0.23605        0.08731 r     -0.14875  (VIOLATED)
+   eda_output_ram/matrix_output_reg[1][3]/D
+                             0.20782        0.05912 f     -0.14870  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[0][0]/D
+                             0.26677        0.11831 r     -0.14845  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[0][2]/D
+                             0.23663        0.08829 r     -0.14834  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[0][4]/D
+                             0.25008        0.10237 r     -0.14770  (VIOLATED)
+   eda_output_ram/matrix_output_reg[2][3]/D
+                             0.20782        0.06021 f     -0.14760  (VIOLATED)
+   eda_output_ram/matrix_output_reg[3][1]/D
+                             0.20782        0.06021 f     -0.14760  (VIOLATED)
+   eda_output_ram/matrix_output_reg[4][1]/D
+                             0.20782        0.06021 f     -0.14760  (VIOLATED)
+   eda_output_ram/matrix_output_reg[5][1]/D
+                             0.20782        0.06021 f     -0.14760  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[2][5]/D
+                             0.23572        0.08895 r     -0.14678  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[3][5]/D
+                             0.23572        0.08895 r     -0.14678  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[3][3]/D
+                             0.23571        0.08896 r     -0.14675  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[5][3]/D
+                             0.23571        0.08896 r     -0.14675  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[4][4]/D
+                             0.26685        0.12029 r     -0.14656  (VIOLATED)
+   eda_fifos/sync_fifo_left/write_control_inst/wr_addr_reg[2]/D
+                             0.24969        0.10316 r     -0.14653  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[4][3]/D
+                             0.23571        0.08978 r     -0.14593  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/write_control_inst/wr_addr_reg[2]/D
+                             0.22703        0.08112 f     -0.14591  (VIOLATED)
+   eda_fifos/sync_fifo_right/write_control_inst/wr_addr_reg[2]/D
+                             0.24958        0.10371 r     -0.14587  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[4][1]/D
+                             0.26685        0.12162 r     -0.14522  (VIOLATED)
+   eda_fifos/sync_fifo_right/write_control_inst/wr_addr_reg[1]/D
+                             0.23613        0.09118 r     -0.14495  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[2][0]/D
+                             0.23624        0.09135 r     -0.14489  (VIOLATED)
+   eda_output_ram/matrix_output_reg[1][5]/D
+                             0.20906        0.06460 f     -0.14445  (VIOLATED)
+   eda_output_ram/matrix_output_reg[5][4]/D
+                             0.20906        0.06460 f     -0.14445  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[2][5]/D
+                             0.23675        0.09307 r     -0.14368  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[2][4]/D
+                             0.23744        0.09404 r     -0.14340  (VIOLATED)
+   eda_output_ram/matrix_output_reg[4][4]/D
+                             0.20782        0.06470 f     -0.14312  (VIOLATED)
+   eda_output_ram/matrix_output_reg[5][0]/D
+                             0.20782        0.06470 f     -0.14312  (VIOLATED)
+   eda_output_ram/matrix_output_reg[5][5]/D
+                             0.20782        0.06470 f     -0.14312  (VIOLATED)
+   eda_output_ram/matrix_output_reg[1][2]/D
+                             0.20768        0.06470 f     -0.14298  (VIOLATED)
+   eda_output_ram/matrix_output_reg[0][1]/D
+                             0.20782        0.06490 f     -0.14292  (VIOLATED)
+   eda_output_ram/matrix_output_reg[0][4]/D
+                             0.20782        0.06490 f     -0.14292  (VIOLATED)
+   eda_output_ram/matrix_output_reg[0][5]/D
+                             0.20782        0.06490 f     -0.14292  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[3][5]/D
+                             0.23732        0.09446 r     -0.14286  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[3][4]/D
+                             0.23747        0.09538 r     -0.14209  (VIOLATED)
+   eda_fifos/sync_fifo_up/write_control_inst/wr_addr_reg[3]/D
+                             0.22476        0.08375 f     -0.14101  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[5][2]/D
+                             0.23557        0.09472 r     -0.14085  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[4][2]/D
+                             0.23661        0.09582 r     -0.14080  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[2][3]/D
+                             0.23677        0.09623 r     -0.14053  (VIOLATED)
+   eda_output_ram/matrix_output_reg[4][0]/D
+                             0.20837        0.06788 f     -0.14049  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[4][2]/D
+                             0.23479        0.09431 r     -0.14048  (VIOLATED)
+   eda_output_ram/matrix_output_reg[1][0]/D
+                             0.20823        0.06788 f     -0.14035  (VIOLATED)
+   eda_output_ram/matrix_output_reg[1][1]/D
+                             0.20837        0.06935 f     -0.13902  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[4][0]/D
+                             0.20901        0.07046 f     -0.13855  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[0][2]/D
+                             0.25332        0.11541 r     -0.13791  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[3][2]/D
+                             0.25329        0.11567 r     -0.13762  (VIOLATED)
+   eda_fifos/sync_fifo_upright/write_control_inst/wr_addr_reg[3]/D
+                             0.22602        0.08888 f     -0.13714  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[3][1]/D
+                             0.23617        0.09929 r     -0.13688  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[1][4]/D
+                             0.26695        0.13077 r     -0.13618  (VIOLATED)
+   eda_fifos/sync_fifo_up/write_control_inst/wr_addr_reg[0]/D
+                             0.20355        0.06870 f     -0.13485  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[4][1]/D
+                             0.20766        0.07368 f     -0.13398  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[4][4]/D
+                             0.20766        0.07368 f     -0.13398  (VIOLATED)
+   eda_output_ram/matrix_output_reg[3][4]/D
+                             0.20505        0.07172 f     -0.13333  (VIOLATED)
+   eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[3]/D
+                             0.19854        0.06533 f     -0.13321  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[4][5]/D
+                             0.20632        0.07368 f     -0.13264  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[4][3]/D
+                             0.20314        0.07129 f     -0.13185  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[4][2]/D
+                             0.20327        0.07145 f     -0.13181  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[3][0]/D
+                             0.25331        0.12307 r     -0.13024  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/write_control_inst/wr_addr_reg[2]/D
+                             0.24526        0.11682 r     -0.12844  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[4][0]/D
+                             0.26689        0.14005 r     -0.12684  (VIOLATED)
+   eda_fifos/sync_fifo_left/write_control_inst/wr_addr_reg[1]/D
+                             0.23573        0.10985 r     -0.12588  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[3][0]/D
+                             0.20817        0.08350 f     -0.12467  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[2][0]/D
+                             0.20817        0.08350 f     -0.12467  (VIOLATED)
+   eda_output_ram/matrix_output_reg[1][4]/D
+                             0.20782        0.08330 f     -0.12452  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/read_control_inst/rd_addr_reg[3]/D
+                             0.20183        0.07736 f     -0.12446  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/comparator_inst/o_full_reg/D
+                             0.21162        0.08801 f     -0.12361  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[2][1]/D
+                             0.20789        0.08668 f     -0.12122  (VIOLATED)
+   eda_fifos/sync_fifo_downright/write_control_inst/wr_addr_reg[3]/D
+                             0.20018        0.08140 f     -0.11878  (VIOLATED)
+   eda_output_ram/compare_out_tmp_reg/D
+                             0.19420        0.07616 r     -0.11805  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/write_control_inst/wr_addr_reg[3]/D
+                             0.20018        0.08219 f     -0.11799  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[3][1]/D
+                             0.20685        0.08997 f     -0.11688  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20685        0.08997 f     -0.11688  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[2][5]/D
+                             0.20786        0.09106 f     -0.11681  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[0][0]/D
+                             0.20783        0.09106 f     -0.11677  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[0][2]/D
+                             0.20783        0.09106 f     -0.11677  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[0][3]/D
+                             0.20783        0.09106 f     -0.11677  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[3][1]/D
+                             0.20779        0.09106 f     -0.11673  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[3][2]/D
+                             0.20779        0.09106 f     -0.11673  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.20779        0.09106 f     -0.11673  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20779        0.09106 f     -0.11673  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20779        0.09106 f     -0.11673  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[4][1]/D
+                             0.20779        0.09106 f     -0.11673  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20777        0.09106 f     -0.11671  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.20777        0.09106 f     -0.11671  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[1][1]/D
+                             0.20774        0.09106 f     -0.11669  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[1][2]/D
+                             0.20774        0.09106 f     -0.11669  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[1][4]/D
+                             0.20774        0.09106 f     -0.11669  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[3][1]/D
+                             0.20774        0.09106 f     -0.11668  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[3][2]/D
+                             0.20774        0.09106 f     -0.11668  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20774        0.09106 f     -0.11668  (VIOLATED)
+   eda_fifos/sync_fifo_right/comparator_inst/o_full_reg/D
+                             0.23539        0.11880 r     -0.11658  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[0][1]/D
+                             0.20755        0.09106 f     -0.11649  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[1][4]/D
+                             0.20752        0.09106 f     -0.11647  (VIOLATED)
+   eda_fifos/sync_fifo_upright/write_control_inst/wr_addr_reg[1]/D
+                             0.22658        0.11016 f     -0.11642  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[4][2]/D
+                             0.20760        0.09190 f     -0.11570  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[4][5]/D
+                             0.20760        0.09190 f     -0.11570  (VIOLATED)
+   eda_fifos/sync_fifo_left/write_control_inst/wr_addr_reg[3]/D
+                             0.20738        0.09236 f     -0.11502  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[4][0]/D
+                             0.20654        0.09190 f     -0.11464  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[4][3]/D
+                             0.20654        0.09190 f     -0.11464  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[4][4]/D
+                             0.20654        0.09190 f     -0.11464  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[4][3]/D
+                             0.23656        0.12194 r     -0.11462  (VIOLATED)
+   eda_fifos/sync_fifo_downright/read_control_inst/rd_addr_reg[3]/D
+                             0.20183        0.08726 f     -0.11457  (VIOLATED)
+   eda_fifos/sync_fifo_downright/write_control_inst/wr_addr_reg[1]/D
+                             0.20092        0.08650 f     -0.11442  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[0][1]/D
+                             0.25692        0.14403 f     -0.11289  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][0]/D
+                             0.19709        0.08471 r     -0.11238  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[3][3]/D
+                             0.23663        0.12471 r     -0.11192  (VIOLATED)
+   eda_fifos/sync_fifo_down/read_control_inst/rd_addr_reg[3]/D
+                             0.20177        0.08993 f     -0.11184  (VIOLATED)
+   eda_fifos/sync_fifo_upright/read_control_inst/rd_addr_reg[3]/D
+                             0.18064        0.06942 f     -0.11122  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][3]/D
+                             0.19592        0.08473 r     -0.11119  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][5]/D
+                             0.19855        0.08747 r     -0.11108  (VIOLATED)
+   eda_output_ram/matrix_output_reg[0][0]/D
+                             0.19828        0.08753 r     -0.11075  (VIOLATED)
+   eda_output_ram/matrix_output_reg[2][2]/D
+                             0.19828        0.08753 r     -0.11075  (VIOLATED)
+   eda_output_ram/matrix_output_reg[3][0]/D
+                             0.19828        0.08753 r     -0.11075  (VIOLATED)
+   eda_output_ram/matrix_output_reg[3][2]/D
+                             0.19828        0.08753 r     -0.11075  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[0][3]/D
+                             0.19592        0.08536 r     -0.11055  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[2][3]/D
+                             0.19591        0.08536 r     -0.11055  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.19850        0.08798 r     -0.11053  (VIOLATED)
+   eda_fifos/sync_fifo_left/read_control_inst/rd_addr_reg[3]/D
+                             0.20237        0.09200 f     -0.11037  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[0][3]/D
+                             0.19694        0.08674 r     -0.11020  (VIOLATED)
+   eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[0]/D
+                             0.20210        0.09249 f     -0.10960  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/read_control_inst/rd_addr_reg[0]/D
+                             0.18219        0.07326 f     -0.10893  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[4][5]/D
+                             0.20631        0.09757 f     -0.10874  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/read_control_inst/rd_addr_reg[3]/D
+                             0.20359        0.09500 f     -0.10859  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[0][4]/D
+                             0.20647        0.09790 f     -0.10857  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[0][5]/D
+                             0.20614        0.09794 f     -0.10820  (VIOLATED)
+   eda_fifos/sync_fifo_right/read_control_inst/rd_addr_reg[3]/D
+                             0.18064        0.07259 f     -0.10804  (VIOLATED)
+   eda_fifos/sync_fifo_down/write_control_inst/wr_addr_reg[2]/D
+                             0.20073        0.09277 f     -0.10796  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.20761        0.09997 f     -0.10764  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/write_control_inst/wr_addr_reg[1]/D
+                             0.20348        0.09608 f     -0.10740  (VIOLATED)
+   eda_fifos/sync_fifo_down/write_control_inst/wr_addr_reg[3]/D
+                             0.20284        0.09551 f     -0.10734  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][1]/D
+                             0.20655        0.09929 f     -0.10726  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[3][1]/D
+                             0.20780        0.10070 f     -0.10710  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[1][4]/D
+                             0.20707        0.10001 f     -0.10705  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.20773        0.10070 f     -0.10702  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[0][2]/D
+                             0.20759        0.10064 f     -0.10696  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[2][5]/D
+                             0.20760        0.10070 f     -0.10690  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.20758        0.10070 f     -0.10688  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.20758        0.10070 f     -0.10688  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[0][3]/D
+                             0.20735        0.10057 f     -0.10677  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[0][5]/D
+                             0.20735        0.10064 f     -0.10671  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20732        0.10064 f     -0.10668  (VIOLATED)
+   eda_fifos/sync_fifo_right/read_control_inst/rd_addr_reg[1]/D
+                             0.20251        0.09585 f     -0.10666  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.20728        0.10064 f     -0.10664  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[0][0]/D
+                             0.19701        0.09069 r     -0.10633  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[0][4]/D
+                             0.19701        0.09069 r     -0.10633  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[0][5]/D
+                             0.19701        0.09069 r     -0.10633  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.19701        0.09071 r     -0.10630  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[2][5]/D
+                             0.19701        0.09071 r     -0.10630  (VIOLATED)
+   eda_fifos/sync_fifo_up/write_control_inst/wr_addr_reg[2]/D
+                             0.20059        0.09448 f     -0.10611  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.20787        0.10185 f     -0.10601  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.20787        0.10185 f     -0.10601  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[4][2]/D
+                             0.20788        0.10192 f     -0.10596  (VIOLATED)
+   eda_controller/new_pixel_cld_reg/D
+                             0.19564        0.09013 r     -0.10551  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20851        0.10318 f     -0.10533  (VIOLATED)
+   eda_fifos/sync_fifo_left/read_control_inst/rd_addr_reg[2]/D
+                             0.20270        0.09756 f     -0.10514  (VIOLATED)
+   eda_fifos/sync_fifo_down/write_control_inst/wr_addr_reg[0]/D
+                             0.20740        0.10246 f     -0.10494  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[2][1]/D
+                             0.20840        0.10353 f     -0.10487  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20857        0.10399 f     -0.10459  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[0][1]/D
+                             0.20914        0.10474 f     -0.10440  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[0][3]/D
+                             0.20914        0.10474 f     -0.10440  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[0][0]/D
+                             0.20675        0.10248 f     -0.10427  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[0][2]/D
+                             0.20669        0.10246 f     -0.10424  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20670        0.10248 f     -0.10422  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.20666        0.10246 f     -0.10421  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.20666        0.10246 f     -0.10421  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.20666        0.10246 f     -0.10421  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20662        0.10246 f     -0.10416  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[4][2]/D
+                             0.20662        0.10248 f     -0.10414  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[4][3]/D
+                             0.20658        0.10246 f     -0.10412  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[0][3]/D
+                             0.20658        0.10248 f     -0.10410  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[0][5]/D
+                             0.20658        0.10248 f     -0.10410  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[2][3]/D
+                             0.20658        0.10248 f     -0.10410  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[3][2]/D
+                             0.20654        0.10246 f     -0.10409  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[0][5]/D
+                             0.20675        0.10267 f     -0.10407  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[0][2]/D
+                             0.20675        0.10270 f     -0.10405  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20649        0.10246 f     -0.10403  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[3][0]/D
+                             0.20674        0.10272 f     -0.10402  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.20674        0.10272 f     -0.10402  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20674        0.10272 f     -0.10402  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20649        0.10248 f     -0.10401  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[2][0]/D
+                             0.20670        0.10270 f     -0.10400  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[3][2]/D
+                             0.20674        0.10275 f     -0.10399  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.20666        0.10272 f     -0.10394  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.20666        0.10272 f     -0.10394  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[4][0]/D
+                             0.20662        0.10270 f     -0.10392  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[4][1]/D
+                             0.20662        0.10270 f     -0.10392  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[4][3]/D
+                             0.20662        0.10270 f     -0.10392  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[4][4]/D
+                             0.20662        0.10270 f     -0.10392  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[4][5]/D
+                             0.20662        0.10270 f     -0.10392  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[1][0]/D
+                             0.20661        0.10270 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[1][2]/D
+                             0.20661        0.10270 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[1][3]/D
+                             0.20661        0.10270 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[1][4]/D
+                             0.20661        0.10270 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20661        0.10270 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[0][0]/D
+                             0.20658        0.10267 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[0][2]/D
+                             0.20658        0.10267 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[0][4]/D
+                             0.20658        0.10267 f     -0.10391  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][0]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][1]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][3]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.20863        0.10473 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[2][0]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[2][1]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[2][3]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.20662        0.10272 f     -0.10390  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[0][1]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[2][0]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[2][1]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[2][5]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[0][1]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[0][5]/D
+                             0.20658        0.10270 f     -0.10388  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.20659        0.10272 f     -0.10387  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.20659        0.10272 f     -0.10387  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.20659        0.10272 f     -0.10387  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.20659        0.10272 f     -0.10387  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.20659        0.10272 f     -0.10387  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.20659        0.10272 f     -0.10387  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[4][1]/D
+                             0.20658        0.10272 f     -0.10386  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[4][0]/D
+                             0.20658        0.10275 f     -0.10383  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[4][2]/D
+                             0.20658        0.10275 f     -0.10383  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[4][4]/D
+                             0.20658        0.10275 f     -0.10383  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[0][5]/D
+                             0.20653        0.10270 f     -0.10383  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[3][0]/D
+                             0.20654        0.10272 f     -0.10382  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[3][1]/D
+                             0.20654        0.10272 f     -0.10382  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20654        0.10272 f     -0.10382  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20654        0.10272 f     -0.10382  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20654        0.10272 f     -0.10381  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[2][3]/D
+                             0.20654        0.10272 f     -0.10381  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.20654        0.10272 f     -0.10381  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[1][0]/D
+                             0.20626        0.10246 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[1][2]/D
+                             0.20626        0.10246 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[2][0]/D
+                             0.20652        0.10272 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[2][3]/D
+                             0.20652        0.10272 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[2][5]/D
+                             0.20652        0.10272 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.20652        0.10272 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.20652        0.10272 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.20652        0.10272 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.20652        0.10272 f     -0.10380  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[1][0]/D
+                             0.20649        0.10270 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[1][3]/D
+                             0.20649        0.10270 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[3][0]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[3][1]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[3][2]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[1][0]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[1][1]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[1][2]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20651        0.10272 f     -0.10379  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.20650        0.10272 f     -0.10378  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.20650        0.10272 f     -0.10378  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.20650        0.10272 f     -0.10378  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.20650        0.10272 f     -0.10378  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.20650        0.10272 f     -0.10378  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[3][0]/D
+                             0.20649        0.10272 f     -0.10377  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.20649        0.10272 f     -0.10377  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[1][3]/D
+                             0.20651        0.10275 f     -0.10376  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[1][4]/D
+                             0.20651        0.10275 f     -0.10376  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/write_control_inst/wr_addr_reg[1]/D
+                             0.19979        0.09604 f     -0.10375  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[0][0]/D
+                             0.20641        0.10270 f     -0.10371  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[0][1]/D
+                             0.20641        0.10270 f     -0.10371  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[0][2]/D
+                             0.20641        0.10270 f     -0.10371  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[0][3]/D
+                             0.20641        0.10270 f     -0.10371  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[0][4]/D
+                             0.20641        0.10270 f     -0.10371  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[0][4]/D
+                             0.20628        0.10267 f     -0.10361  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[0][0]/D
+                             0.20628        0.10270 f     -0.10358  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[0][2]/D
+                             0.20628        0.10270 f     -0.10358  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[1][1]/D
+                             0.20626        0.10270 f     -0.10356  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[1][3]/D
+                             0.20626        0.10270 f     -0.10356  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][5]/D
+                             0.20755        0.10428 f     -0.10327  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.19814        0.09496 r     -0.10318  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.19814        0.09496 r     -0.10318  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[0][0]/D
+                             0.19812        0.09496 r     -0.10317  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[4][3]/D
+                             0.20681        0.10376 f     -0.10305  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.20681        0.10376 f     -0.10304  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[4][3]/D
+                             0.20674        0.10372 f     -0.10302  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][0]/D
+                             0.20675        0.10374 f     -0.10301  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][1]/D
+                             0.20675        0.10374 f     -0.10301  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/read_control_inst/rd_addr_reg[2]/D
+                             0.20284        0.09996 f     -0.10288  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.20681        0.10396 f     -0.10285  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.20681        0.10396 f     -0.10285  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.20684        0.10401 f     -0.10284  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.20684        0.10401 f     -0.10284  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.20684        0.10401 f     -0.10284  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[5][4]/D
+                             0.20684        0.10401 f     -0.10284  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[4][0]/D
+                             0.20681        0.10398 f     -0.10283  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[4][1]/D
+                             0.20681        0.10398 f     -0.10283  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[4][4]/D
+                             0.20681        0.10398 f     -0.10283  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[4][5]/D
+                             0.20681        0.10398 f     -0.10283  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.20681        0.10398 f     -0.10282  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][1]/D
+                             0.20678        0.10396 f     -0.10282  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][2]/D
+                             0.20678        0.10396 f     -0.10282  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20681        0.10401 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.20681        0.10401 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[2][5]/D
+                             0.20681        0.10401 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20678        0.10398 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][0]/D
+                             0.20683        0.10403 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][2]/D
+                             0.20683        0.10403 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][3]/D
+                             0.20683        0.10403 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[4][4]/D
+                             0.20683        0.10403 f     -0.10280  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[4][0]/D
+                             0.20674        0.10396 f     -0.10278  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[4][4]/D
+                             0.20674        0.10396 f     -0.10278  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[4][5]/D
+                             0.20674        0.10396 f     -0.10278  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][2]/D
+                             0.20675        0.10401 f     -0.10274  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.20675        0.10401 f     -0.10274  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[1][0]/D
+                             0.20674        0.10401 f     -0.10274  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[1][1]/D
+                             0.20674        0.10401 f     -0.10274  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[1][3]/D
+                             0.20674        0.10401 f     -0.10274  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[1][4]/D
+                             0.20674        0.10401 f     -0.10274  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20674        0.10401 f     -0.10274  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20675        0.10403 f     -0.10272  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20675        0.10403 f     -0.10272  (VIOLATED)
+   eda_fifos/sync_fifo_downright/write_control_inst/wr_addr_reg[2]/D
+                             0.20830        0.10577 f     -0.10253  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[3][3]/D
+                             0.20745        0.10493 f     -0.10251  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20864        0.10620 f     -0.10244  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[3][5]/D
+                             0.20746        0.10520 f     -0.10226  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[3][0]/D
+                             0.20745        0.10520 f     -0.10224  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[3][2]/D
+                             0.20745        0.10520 f     -0.10224  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[1][1]/D
+                             0.20734        0.10518 f     -0.10216  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[1][2]/D
+                             0.20735        0.10520 f     -0.10214  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[1][0]/D
+                             0.20735        0.10523 f     -0.10212  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[1][1]/D
+                             0.20735        0.10523 f     -0.10212  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[1][3]/D
+                             0.20735        0.10523 f     -0.10212  (VIOLATED)
+   eda_fifos/sync_fifo_right/sync_fifo_mem_inst/fifo_mem_reg[1][5]/D
+                             0.20735        0.10523 f     -0.10212  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[3][2]/D
+                             0.20832        0.10645 f     -0.10187  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/read_control_inst/rd_addr_reg[1]/D
+                             0.20322        0.10155 f     -0.10167  (VIOLATED)
+   eda_fifos/sync_fifo_upright/read_control_inst/rd_addr_reg[0]/D
+                             0.20415        0.10257 f     -0.10158  (VIOLATED)
+   eda_fifos/sync_fifo_down/write_control_inst/wr_addr_reg[1]/D
+                             0.20788        0.10677 f     -0.10111  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[0][1]/D
+                             0.19767        0.09658 r     -0.10109  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][6]/D
+                             0.20134        0.10026 f     -0.10107  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[2][2]/D
+                             0.20751        0.10651 f     -0.10100  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[2][2]/D
+                             0.20832        0.10750 f     -0.10082  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.20756        0.10675 f     -0.10081  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[2][0]/D
+                             0.20751        0.10673 f     -0.10078  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[2][1]/D
+                             0.20751        0.10673 f     -0.10078  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[2][4]/D
+                             0.20751        0.10673 f     -0.10078  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[3][4]/D
+                             0.20751        0.10678 f     -0.10073  (VIOLATED)
+   eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[1]/D
+                             0.20418        0.10397 f     -0.10021  (VIOLATED)
+   eda_fifos/sync_fifo_left/write_control_inst/wr_addr_reg[0]/D
+                             0.20226        0.10208 f     -0.10018  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][6]/D
+                             0.20133        0.10143 f     -0.09991  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][4]/D
+                             0.20133        0.10143 f     -0.09991  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][4]/D
+                             0.20133        0.10150 f     -0.09983  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][4]/D
+                             0.20133        0.10150 f     -0.09983  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][3]/D
+                             0.20133        0.10162 f     -0.09972  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[0][1]/D
+                             0.20759        0.10791 f     -0.09968  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/sync_fifo_mem_inst/fifo_mem_reg[0][4]/D
+                             0.20759        0.10791 f     -0.09968  (VIOLATED)
+   eda_fifos/sync_fifo_left/sync_fifo_mem_inst/fifo_mem_reg[2][1]/D
+                             0.20760        0.10798 f     -0.09962  (VIOLATED)
+   eda_fifos/sync_fifo_down/read_control_inst/rd_addr_reg[2]/D
+                             0.19934        0.10002 f     -0.09932  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][2][1]/D
+                             0.20133        0.10215 f     -0.09919  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][4][1]/D
+                             0.20113        0.10200 f     -0.09913  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][4][6]/D
+                             0.20113        0.10204 f     -0.09909  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][0]/D
+                             0.20133        0.10237 f     -0.09896  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][3]/D
+                             0.20133        0.10248 f     -0.09885  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][4]/D
+                             0.20133        0.10248 f     -0.09885  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][7]/D
+                             0.20133        0.10248 f     -0.09885  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][5]/D
+                             0.20127        0.10249 f     -0.09877  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][0]/D
+                             0.20133        0.10256 f     -0.09877  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][0]/D
+                             0.20203        0.10328 f     -0.09875  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.19803        0.09934 r     -0.09869  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][2]/D
+                             0.20203        0.10335 f     -0.09868  (VIOLATED)
+   eda_fifos/sync_fifo_right/read_control_inst/rd_addr_reg[0]/D
+                             0.18420        0.08588 f     -0.09831  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[2][1]/D
+                             0.20667        0.10859 f     -0.09809  (VIOLATED)
+   eda_fifos/sync_fifo_right/write_control_inst/wr_addr_reg[0]/D
+                             0.20250        0.10504 f     -0.09746  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][1][2]/D
+                             0.20216        0.10536 f     -0.09680  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][1][7]/D
+                             0.20216        0.10549 f     -0.09667  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][3][5]/D
+                             0.20202        0.10536 f     -0.09666  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/read_control_inst/rd_addr_reg[2]/D
+                             0.18219        0.08556 f     -0.09663  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][6]/D
+                             0.20202        0.10562 f     -0.09640  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][3]/D
+                             0.20202        0.10562 f     -0.09640  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][0]/D
+                             0.20202        0.10576 f     -0.09627  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][1]/D
+                             0.20202        0.10576 f     -0.09627  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][6]/D
+                             0.20202        0.10576 f     -0.09627  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][3][5]/D
+                             0.20190        0.10564 f     -0.09626  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][5]/D
+                             0.20202        0.10621 f     -0.09581  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][5]/D
+                             0.20202        0.10621 f     -0.09581  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][1]/D
+                             0.20192        0.10651 f     -0.09541  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][2][5]/D
+                             0.20202        0.10680 f     -0.09522  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][4]/D
+                             0.20195        0.10694 f     -0.09502  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][2][5]/D
+                             0.20202        0.10706 f     -0.09496  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][1]/D
+                             0.20202        0.10706 f     -0.09496  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][2][7]/D
+                             0.20132        0.10645 f     -0.09487  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][1]/D
+                             0.20202        0.10719 f     -0.09483  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/write_control_inst/wr_addr_reg[0]/D
+                             0.20443        0.10971 f     -0.09472  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][2][1]/D
+                             0.20132        0.10664 f     -0.09468  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][6]/D
+                             0.20202        0.10738 f     -0.09464  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][3]/D
+                             0.20202        0.10738 f     -0.09464  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][2]/D
+                             0.20202        0.10745 f     -0.09457  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[3][0]/D
+                             0.20839        0.11385 f     -0.09454  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][5]/D
+                             0.20202        0.10803 f     -0.09398  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][1][4]/D
+                             0.20183        0.10832 f     -0.09351  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][1][1]/D
+                             0.20146        0.10871 f     -0.09275  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][4]/D
+                             0.20195        0.10924 f     -0.09271  (VIOLATED)
+   eda_fifos/sync_fifo_downright/read_control_inst/rd_addr_reg[0]/D
+                             0.18359        0.09090 f     -0.09269  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][7]/D
+                             0.20201        0.10940 f     -0.09261  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][3]/D
+                             0.20201        0.10966 f     -0.09235  (VIOLATED)
+   eda_fifos/sync_fifo_upright/read_control_inst/rd_addr_reg[1]/D
+                             0.20251        0.11031 f     -0.09219  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][2]/D
+                             0.20191        0.11003 f     -0.09188  (VIOLATED)
+   eda_fifos/sync_fifo_left/read_control_inst/rd_addr_reg[0]/D
+                             0.18448        0.09277 f     -0.09171  (VIOLATED)
+   eda_fifos/sync_fifo_upright/read_control_inst/rd_addr_reg[2]/D
+                             0.20269        0.11121 f     -0.09148  (VIOLATED)
+   eda_fifos/sync_fifo_down/read_control_inst/rd_addr_reg[0]/D
+                             0.20374        0.11295 f     -0.09079  (VIOLATED)
+   eda_fifos/sync_fifo_downright/read_control_inst/rd_addr_reg[1]/D
+                             0.18204        0.09158 f     -0.09046  (VIOLATED)
+   eda_fifos/sync_fifo_left/read_control_inst/rd_addr_reg[1]/D
+                             0.18355        0.09400 f     -0.08954  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.21155        0.12201 f     -0.08954  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[5][3]/D
+                             0.21155        0.12201 f     -0.08954  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[5][5]/D
+                             0.21155        0.12201 f     -0.08954  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][5]/D
+                             0.20190        0.11267 f     -0.08923  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/write_control_inst/wr_addr_reg[0]/D
+                             0.18399        0.09504 f     -0.08895  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][2][6]/D
+                             0.20190        0.11302 f     -0.08888  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][2][4]/D
+                             0.20180        0.11403 f     -0.08777  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][7]/D
+                             0.20200        0.11433 f     -0.08767  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][7]/D
+                             0.20200        0.11433 f     -0.08767  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][4][4]/D
+                             0.20241        0.11476 f     -0.08765  (VIOLATED)
+   eda_fifos/sync_fifo_right/read_control_inst/rd_addr_reg[2]/D
+                             0.18222        0.09470 f     -0.08752  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][2]/D
+                             0.20190        0.11455 f     -0.08735  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][0]/D
+                             0.20200        0.11466 f     -0.08734  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][4]/D
+                             0.20190        0.11462 f     -0.08728  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[1][0]/CE
+                             0.19930        0.11205 r     -0.08725  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[1][1]/CE
+                             0.19930        0.11205 r     -0.08725  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[1][2]/CE
+                             0.19930        0.11205 r     -0.08725  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[1][3]/CE
+                             0.19930        0.11205 r     -0.08725  (VIOLATED)
+   eda_fifos/sync_fifo_upright/sync_fifo_mem_inst/fifo_mem_reg[1][4]/CE
+                             0.19930        0.11205 r     -0.08725  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][6]/D
+                             0.20190        0.11476 f     -0.08714  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][1][4]/D
+                             0.20216        0.11511 f     -0.08706  (VIOLATED)
+   eda_fifos/sync_fifo_downright/read_control_inst/rd_addr_reg[2]/D
+                             0.18151        0.09528 f     -0.08622  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][1][5]/D
+                             0.20189        0.11633 f     -0.08556  (VIOLATED)
+   eda_fifos/sync_fifo_left/comparator_inst/o_full_reg/D
+                             0.19581        0.11050 r     -0.08530  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/read_control_inst/rd_addr_reg[1]/D
+                             0.17589        0.09071 r     -0.08518  (VIOLATED)
+   eda_iterated_ram/iterated_memory_reg[2][0]/D
+                             0.20611        0.12145 f     -0.08466  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[1][2]/D
+                             0.19965        0.11598 r     -0.08367  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[4][2]/D
+                             0.19965        0.11598 r     -0.08367  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][6]/D
+                             0.20199        0.11839 f     -0.08360  (VIOLATED)
+   eda_fifos/sync_fifo_down/comparator_inst/o_full_reg/D
+                             0.21126        0.12816 f     -0.08310  (VIOLATED)
+   eda_fifos/sync_fifo_upright/write_control_inst/wr_addr_reg[2]/D
+                             0.19596        0.11302 r     -0.08294  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][0]/D
+                             0.19963        0.11840 r     -0.08123  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][1]/D
+                             0.19963        0.11840 r     -0.08123  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[5][2]/D
+                             0.19963        0.11840 r     -0.08123  (VIOLATED)
+   eda_fifos/sync_fifo_down/read_control_inst/rd_addr_reg[1]/D
+                             0.18226        0.10125 f     -0.08101  (VIOLATED)
+   eda_fifos/sync_fifo_upright/write_control_inst/wr_addr_reg[0]/D
+                             0.20328        0.12478 f     -0.07850  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][1][7]/D
+                             0.20183        0.12336 f     -0.07847  (VIOLATED)
+   eda_iterated_ram/have_done_reg/D
+                             0.20361        0.13067 f     -0.07294  (VIOLATED)
+   eda_fifos/sync_fifo_downright/write_control_inst/wr_addr_reg[0]/D
+                             0.20181        0.13004 f     -0.07177  (VIOLATED)
+   eda_fifos/sync_fifo_up/write_control_inst/wr_addr_reg[1]/D
+                             0.19571        0.12623 r     -0.06948  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][5][3]/D
+                             0.20940        0.14152 f     -0.06788  (VIOLATED)
+   eda_fifos/sync_fifo_up/read_control_inst/rd_addr_reg[2]/D
+                             0.18202        0.11447 f     -0.06755  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][7]/D
+                             0.20881        0.14152 f     -0.06730  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][4][5]/D
+                             0.20954        0.14251 f     -0.06704  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/comparator_inst/o_full_reg/D
+                             0.21167        0.14468 f     -0.06700  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][5][6]/D
+                             0.20954        0.14262 f     -0.06693  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][2][2]/D
+                             0.20881        0.14207 f     -0.06675  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][5]/D
+                             0.20875        0.14236 f     -0.06639  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][3][3]/D
+                             0.20881        0.14262 f     -0.06619  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][5][0]/D
+                             0.20940        0.14482 f     -0.06458  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][4][3]/D
+                             0.20923        0.14471 f     -0.06451  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][5][4]/D
+                             0.20940        0.14537 f     -0.06403  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][2][7]/D
+                             0.20881        0.14482 f     -0.06398  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][4][0]/D
+                             0.20954        0.14571 f     -0.06384  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][4][6]/D
+                             0.20923        0.14582 f     -0.06341  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][1][0]/D
+                             0.20898        0.14582 f     -0.06316  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][3][1]/D
+                             0.20868        0.14578 f     -0.06291  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][4][3]/D
+                             0.20868        0.14578 f     -0.06291  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][4][2]/D
+                             0.20868        0.14600 f     -0.06269  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][2]/D
+                             0.20880        0.14670 f     -0.06210  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][3]/D
+                             0.20880        0.14681 f     -0.06199  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][2][3]/D
+                             0.20880        0.14692 f     -0.06188  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][4][6]/D
+                             0.20877        0.14754 f     -0.06123  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][0][3]/D
+                             0.20862        0.14776 f     -0.06086  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][3][6]/D
+                             0.20868        0.14809 f     -0.06059  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][3][4]/D
+                             0.20845        0.14820 f     -0.06025  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][2][4]/D
+                             0.20869        0.14853 f     -0.06016  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][5][5]/D
+                             0.20940        0.14936 f     -0.06004  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][7]/D
+                             0.20869        0.14888 f     -0.05981  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][5]/D
+                             0.20869        0.14900 f     -0.05969  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][5][3]/D
+                             0.20954        0.14994 f     -0.05960  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][5][7]/D
+                             0.20954        0.14994 f     -0.05960  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][7]/D
+                             0.20880        0.14920 f     -0.05960  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][7]/D
+                             0.20879        0.14930 f     -0.05949  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][4][5]/D
+                             0.20923        0.14983 f     -0.05940  (VIOLATED)
+   eda_fifos/sync_fifo_upleft/read_control_inst/rd_addr_reg[0]/D
+                             0.20366        0.14426 f     -0.05939  (VIOLATED)
+   eda_fifos/sync_fifo_upright/comparator_inst/o_full_reg/D
+                             0.20801        0.14877 f     -0.05924  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][4][0]/D
+                             0.20923        0.15006 f     -0.05916  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][3][0]/D
+                             0.20873        0.14959 f     -0.05914  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][6]/D
+                             0.20869        0.14959 f     -0.05910  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][2]/D
+                             0.20869        0.14959 f     -0.05910  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][4]/D
+                             0.20869        0.14959 f     -0.05910  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][3]/D
+                             0.20869        0.14971 f     -0.05898  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][0][2]/D
+                             0.20869        0.14971 f     -0.05898  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][1][7]/D
+                             0.20869        0.14971 f     -0.05898  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][4]/D
+                             0.20869        0.14971 f     -0.05898  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][0]/D
+                             0.20869        0.14971 f     -0.05898  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][6]/D
+                             0.20869        0.14971 f     -0.05898  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][3][6]/D
+                             0.20873        0.14983 f     -0.05890  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][1]/D
+                             0.20869        0.14983 f     -0.05886  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][1]/D
+                             0.20869        0.14983 f     -0.05886  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][0][7]/D
+                             0.20857        0.14977 f     -0.05880  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][3][7]/D
+                             0.20873        0.14994 f     -0.05879  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][2][2]/D
+                             0.20869        0.14994 f     -0.05875  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][5]/D
+                             0.20869        0.14994 f     -0.05874  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][0][0]/D
+                             0.20869        0.14994 f     -0.05874  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][5]/D
+                             0.20869        0.15006 f     -0.05863  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][0]/D
+                             0.20869        0.15006 f     -0.05863  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][3][1]/D
+                             0.20871        0.15036 f     -0.05835  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][2][0]/D
+                             0.20874        0.15060 f     -0.05815  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][3][4]/D
+                             0.20879        0.15067 f     -0.05812  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][4][4]/D
+                             0.20877        0.15072 f     -0.05805  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][0][5]/D
+                             0.20862        0.15060 f     -0.05803  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][2][2]/D
+                             0.20861        0.15072 f     -0.05790  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][5][2]/D
+                             0.20845        0.15058 f     -0.05787  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][3][5]/D
+                             0.20867        0.15083 f     -0.05784  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][4][4]/D
+                             0.20864        0.15083 f     -0.05781  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][5][3]/D
+                             0.20873        0.15095 f     -0.05778  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][0][5]/D
+                             0.20857        0.15083 f     -0.05774  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][4][5]/D
+                             0.20868        0.15095 f     -0.05773  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][3][3]/D
+                             0.20867        0.15095 f     -0.05772  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][0][1]/D
+                             0.20862        0.15095 f     -0.05767  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][0][6]/D
+                             0.20857        0.15095 f     -0.05762  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][5][3]/D
+                             0.20868        0.15107 f     -0.05761  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][3][7]/D
+                             0.20867        0.15107 f     -0.05760  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][4][7]/D
+                             0.20864        0.15107 f     -0.05757  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][2][5]/D
+                             0.20861        0.15107 f     -0.05754  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][3][6]/D
+                             0.20836        0.15083 f     -0.05753  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][3][2]/D
+                             0.20868        0.15119 f     -0.05750  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][3][0]/D
+                             0.20868        0.15119 f     -0.05749  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][3][5]/D
+                             0.20836        0.15095 f     -0.05741  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][3][0]/D
+                             0.20836        0.15107 f     -0.05729  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][3][3]/D
+                             0.20836        0.15107 f     -0.05729  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][2][6]/D
+                             0.20873        0.15206 f     -0.05666  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][3]/D
+                             0.20868        0.15242 f     -0.05627  (VIOLATED)
+   eda_fifos/sync_fifo_up/comparator_inst/o_full_reg/D
+                             0.22637        0.17020 r     -0.05617  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][5][5]/D
+                             0.20868        0.15295 f     -0.05572  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][4][7]/D
+                             0.20954        0.15383 f     -0.05571  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][3][3]/D
+                             0.20868        0.15331 f     -0.05537  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][5][7]/D
+                             0.20836        0.15354 f     -0.05481  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][0][1]/D
+                             0.20868        0.15407 f     -0.05461  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][0][2]/D
+                             0.20868        0.15418 f     -0.05450  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][2][4]/D
+                             0.20873        0.15430 f     -0.05443  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][1][2]/D
+                             0.20868        0.15430 f     -0.05438  (VIOLATED)
+   eda_controller/current_state_reg[2]/D
+                             0.21193        0.15760 f     -0.05432  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][2][3]/D
+                             0.20869        0.15442 f     -0.05427  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][0]/D
+                             0.20868        0.15442 f     -0.05426  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][3][1]/D
+                             0.20873        0.15454 f     -0.05419  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][3][1]/D
+                             0.20868        0.15460 f     -0.05407  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][4][5]/D
+                             0.20864        0.15484 f     -0.05380  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][1][1]/D
+                             0.20868        0.15489 f     -0.05379  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][2][1]/D
+                             0.20868        0.15501 f     -0.05367  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][2][0]/D
+                             0.20861        0.15531 f     -0.05330  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][5][3]/D
+                             0.20876        0.15555 f     -0.05322  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][2][6]/D
+                             0.20861        0.15543 f     -0.05318  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][5][7]/D
+                             0.20868        0.15567 f     -0.05301  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][4][7]/D
+                             0.20874        0.15578 f     -0.05295  (VIOLATED)
+   eda_fifos/sync_fifo_downleft/sync_fifo_mem_inst/fifo_mem_reg[4][1]/CE
+                             0.19981        0.14687 r     -0.05294  (VIOLATED)
+   eda_img_ram/img_memory_reg[2][3][5]/D
+                             0.20868        0.15578 f     -0.05290  (VIOLATED)
+   eda_img_ram/img_memory_reg[4][3][7]/D
+                             0.20835        0.15567 f     -0.05269  (VIOLATED)
+   eda_controller/current_state_reg[1]/D
+                             0.19789        0.14599 r     -0.05190  (VIOLATED)
+   eda_img_ram/img_memory_reg[5][1][6]/D
+                             0.20898        0.15713 f     -0.05185  (VIOLATED)
+   eda_fifos/sync_fifo_up/sync_fifo_mem_inst/fifo_mem_reg[1][4]/CE
+                             0.18311        0.13147 f     -0.05164  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[0][0]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[0][1]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[0][2]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[0][3]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[0][4]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[0][5]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[4][0]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[4][1]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[4][2]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[4][3]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[4][4]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[4][5]/CE
+                             0.18331        0.13181 f     -0.05151  (VIOLATED)
+   eda_img_ram/img_memory_reg[3][2][3]/D
+                             0.20867        0.15724 f     -0.05143  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][2][1]/D
+                             0.20874        0.15802 f     -0.05072  (VIOLATED)
+   eda_iterated_ram/iterated_all_reg/D
+                             0.21133        0.16070 f     -0.05064  (VIOLATED)
+   eda_img_ram/img_memory_reg[1][1][1]/D
+                             0.20863        0.15814 f     -0.05049  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][5][4]/D
+                             0.20835        0.15848 f     -0.04986  (VIOLATED)
+   eda_img_ram/img_memory_reg[0][0][4]/D
+                             0.20857        0.15926 f     -0.04931  (VIOLATED)
+   eda_controller/done_cld_reg/CE
+                             0.19925        0.15372 r     -0.04554  (VIOLATED)
+   eda_strobe_ram/strb_memory_reg[0][0]/D
+                             0.19793        0.15401 r     -0.04392  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[3][0]/CE
+                             0.18315        0.14032 f     -0.04283  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[3][1]/CE
+                             0.18315        0.14032 f     -0.04283  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[3][2]/CE
+                             0.18315        0.14032 f     -0.04283  (VIOLATED)
+   eda_controller/current_state_reg[0]/D
+                             0.21102        0.17173 f     -0.03929  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[2][3]/CE
+                             0.20028        0.16128 r     -0.03900  (VIOLATED)
+   eda_fifos/sync_fifo_downright/sync_fifo_mem_inst/fifo_mem_reg[2][5]/CE
+                             0.20028        0.16128 r     -0.03900  (VIOLATED)
+   eda_controller/center_addr_reg[4]/D
+                             0.17980        0.14782 f     -0.03198  (VIOLATED)
+   eda_controller/center_addr_reg[3]/D
+                             0.17445        0.14533 r     -0.02911  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[2][0]/CE
+                             0.18335        0.15581 f     -0.02754  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[2][1]/CE
+                             0.18335        0.15581 f     -0.02754  (VIOLATED)
+   eda_fifos/sync_fifo_down/sync_fifo_mem_inst/fifo_mem_reg[2][3]/CE
+                             0.18335        0.15581 f     -0.02754  (VIOLATED)
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   eda_regional_max          0.00000       340.30304      -340.30304
+                                                                    (VIOLATED)
+
+
+1

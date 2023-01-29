@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : eda_regional_max
+Version: P-2019.03-SP3
+Date   : Sun Jan 29 14:39:37 2023
+****************************************
+
+Library(s) Used:
+
+    dti_stdcell_ssg_0p81v_neg40c (File: /data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db)
+
+Number of ports:                           55
+Number of nets:                          5626
+Number of cells:                         5523
+Number of combinational cells:           4754
+Number of sequential cells:               769
+Number of macros/black boxes:               0
+Number of buf/inv:                       1001
+Number of references:                     351
+
+Combinational area:               2719.597994
+Buf/Inv area:                      302.231997
+Noncombinational area:            1796.046017
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                  4515.644011
+Total area:                 undefined
+1

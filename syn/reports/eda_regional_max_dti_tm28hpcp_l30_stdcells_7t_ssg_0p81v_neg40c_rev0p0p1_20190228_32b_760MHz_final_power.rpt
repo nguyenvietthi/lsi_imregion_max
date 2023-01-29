@@ -1,0 +1,53 @@
+Information: Propagating switching activity (medium effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort medium
+Design : eda_regional_max
+Version: P-2019.03-SP3
+Date   : Sun Jan 29 14:39:36 2023
+****************************************
+
+
+Library(s) Used:
+
+    dti_stdcell_ssg_0p81v_neg40c (File: /data2/projects/libraries/tsmc28hpcp/7t/dti_tm28hpcp_l30_stdcells_7t_rev1p0p1/db/dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev0p0p1.db)
+
+
+Operating Conditions: slowg   Library: dti_stdcell_ssg_0p81v_neg40c
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 0.81 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =  1.86347 mW   (89%)
+  Net Switching Power  = 223.70761 uW   (11%)
+                         ---------
+Total Dynamic Power    =  2.08717 mW  (100%)
+
+Cell Leakage Power     = 313.1223 nW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad            0.00000           0.00000           0.00000           0.00000  (   0.00%)
+memory            0.00000           0.00000           0.00000           0.00000  (   0.00%)
+black_box         0.00000           0.00000           0.00000           0.00000  (   0.00%)
+clock_network  2.85897e-04           0.10587        1.26545e-02           0.10615
+                                                                                 (   5.09%)
+register          1.77283        5.46510e-03         129.11559           1.77842 (  85.19%)
+sequential        0.00000           0.00000           0.00000           0.00000  (   0.00%)
+combinational  9.03533e-02           0.11238         183.98682           0.20291 (   9.72%)
+--------------------------------------------------------------------------------------------------
+Total             1.86347 mW        0.22371 mW      313.11505 nW        2.08749 mW
+1
