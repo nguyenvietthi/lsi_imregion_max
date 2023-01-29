@@ -1,10 +1,67 @@
 import numpy as np
-import global_params
-import base_functions
+from numpy.lib.stride_tricks import as_strided
 
-f = open("test_result/error_case_6x6.txt", "w")
-f_r = open("test_result/correct_case_6x6.txt", "w")
-for i in range(0,int(10e100)):
+f = open("test_result/error_case_16x16.txt", "w")
+f_r = open("test_result/correct_case_16x16.txt", "w")
+
+def sliding_window(arr, window_size):
+    """ Construct a sliding window view of the array"""
+    arr = np.asarray(arr)
+    window_size = int(window_size)
+    if arr.ndim != 2:
+        raise ValueError("need 2-D input")
+    if not (window_size > 0):
+        raise ValueError("need a positive window size")
+    shape = (arr.shape[0] - window_size + 1,
+             arr.shape[1] - window_size + 1,
+             window_size, window_size)
+    if shape[0] <= 0:
+        shape = (1, shape[1], arr.shape[0], shape[3])
+    if shape[1] <= 0:
+        shape = (shape[0], 1, shape[2], arr.shape[1])
+    strides = (arr.shape[1]*arr.itemsize, arr.itemsize,
+               arr.shape[1]*arr.itemsize, arr.itemsize)
+    return as_strided(arr, shape=shape, strides=strides)
+
+def cell_neighbors(arr, i, j, d):
+    """Return d-th neighbors of cell (i, j)"""
+    w = sliding_window(arr, 2*d+1)
+
+    ix = np.clip(i - d, 0, w.shape[0]-1)
+    jx = np.clip(j - d, 0, w.shape[1]-1)
+    
+    i0 = max(0, i - d - ix)
+    j0 = max(0, j - d - jx)
+    i1 = w.shape[2] - max(0, d - i + ix)
+    j1 = w.shape[3] - max(0, d - j + jx)
+    # print("check: ", ix," ", jx," ", i0," ", j0," ",i1," ", j1," ")
+    neight = w[ix, jx][i0:i1,j0:j1]
+    # print(neight)
+    max_value = np.max(neight)
+    # print(neight, max_value)
+    index = np.argwhere(neight == arr[i][j]) +  [ix + i0, jx + j0]
+    # print(index)
+    return [max_value > arr[i][j], index]
+# ####################################################################
+def find_neigh_index(array, i, j):
+    change_output = False
+    neigh_list = []
+    neigh_list.extend(cell_neighbors(array, i, j, 1)[1].tolist())
+    if(cell_neighbors(array, i, j, 1)[0]): 
+        change_output = True
+    # print(neigh_list)
+    for neigh in neigh_list:
+        next_neighs = cell_neighbors(array, neigh[0], neigh[1], 1)[1]
+        if(cell_neighbors(array, neigh[0], neigh[1], 1)[0]): 
+            change_output = True
+        for next_neigh in next_neighs:
+            # print(next_neigh)
+            if(np.any((np.array(neigh_list) == (next_neigh[0], next_neigh[1])).all(axis=1)) == False):
+                neigh_list.append(next_neigh.tolist())
+
+    return neigh_list, change_output        
+
+for i in range(0,int(2000)):
     # Input image
     # input_image = np.array([[0, 0, 0, 1, 2, 3],
     #                         [0, 1, 0, 2, 3, 3],
@@ -12,7 +69,7 @@ for i in range(0,int(10e100)):
     #                         [1, 3, 1, 5, 4, 5],
     #                         [0, 0, 0, 3, 2, 4],
     #                         [2, 1, 0, 1, 2, 3]])
-    input_image = np.random.randint(30000, size=(6,6))
+    input_image = np.random.randint(5, size=(16,16))
 
     # ORIGINAL
     size_input_x = input_image.shape[0]
@@ -203,73 +260,32 @@ for i in range(0,int(10e100)):
         # print(output_cp)
 
 
-    # print('Input\n' % ())
-    # print(input_image)
-    # print('Output\n' % ())
-    # print(output)
+    # output result
+    new_output = np.ones(input_image.shape, dtype=int)
 
-    # new algorithm
+    # get unique values from input_image
+    res = np.array(input_image) 
+    unique_res = np.unique(res)
 
-    # size_input_x = input_image.shape[0] # Height of image
-    # size_input_y = input_image.shape[1] # Width of image
-    max_size     = size_input_x * size_input_y # Max size
+    for value in unique_res:
+        # print(value)
+        # get index equal value
+        index_list = np.argwhere(input_image == value)
+        for index in index_list:
+            neigh_list = find_neigh_index(input_image, index[0], index[1])[0]
+            max_check  = find_neigh_index(input_image, index[0], index[1])[1]
+            
+            if(max_check):
+                for neigh in neigh_list:
+                    new_output[neigh[0]][neigh[1]] = 0
 
-    input_image_flatten = np.copy(input_image.flatten())
-    mark_iter = np.zeros((max_size,), dtype=np.uint8)
-    strobe = np.zeros((max_size,), dtype=np.uint8)
+                # remove index traded in indexlist
+                np.delete(index_list, np.where((index_list == (neigh[0], neigh[1])).all(axis=1)))
 
-    strobe = base_functions.update_strobe(last_iter = -1, strobe = strobe)
-    new_algorithm_output = np.ones_like(input_image_flatten)
-    extend_idx = []
-    # print("---------------------------------------------------------")
-    # print("\t\t\t Initial Parameters")
-    # print("---------------------------------------------------------")
 
-    # print("\n1. input_image: \n", input_image)
-    # print("\n2. input_image_flatten: \n", input_image_flatten)
-    # print("\n3. mark_iter: \n", mark_iter)
-    strobe_reshape = np.reshape(np.copy(strobe), (size_input_x, size_input_y))
-    # print("\n4. strobe: \n", strobe_reshape)
-    new_algorithm_output_reshape = np.copy(new_algorithm_output.reshape((size_input_x, size_input_y)))
-    # print("\n5. new_algorithm_output: \n", new_algorithm_output_reshape)
-
-    # print("\n===================================================================")
-
-    for i in range(size_input_x * size_input_y):
-        str = "-" if i < 10 else ""
-        # print("\n\t---------------------------------------------------------")
-        # print("\t-------------------|      STEP ",i,"   |------------------", str)
-        # print("\t---------------------------------------------------------\n")
-        # print ()
-        if (mark_iter[i] == 0):
-            extend, extend_idx, reg_max, mark_iter = base_functions.compare(iter = i, input_image_flatten = input_image_flatten, strobe = strobe, last_extend_idx = extend_idx, mark_iter = mark_iter)
-            while (extend):
-                strobe = base_functions.update_strobe_extend(strobe = strobe, extend_idx = extend_idx)
-                strobe_reshape = np.reshape(np.copy(strobe), (size_input_x, size_input_y))
-                # print("\n2 strobe: \n", strobe_reshape)
-                extend, extend_idx, reg_max, mark_iter = base_functions.compare(iter = i, input_image_flatten = input_image_flatten, strobe = strobe, last_extend_idx = extend_idx, mark_iter = mark_iter)
-            for j in range(len(extend_idx)):
-                new_algorithm_output[extend_idx[j]] = int(reg_max)
-            new_algorithm_output[i] = int(reg_max)
-        
-        extend_idx = []
-        mark_iter[i] = 1
-        
-        strobe =  base_functions.update_strobe(last_iter = i     ,
-                                            strobe    = strobe )
-        # print("\n1. Input image: \n", input_image)
-        strobe_reshape = np.reshape(np.copy(strobe), (size_input_x, size_input_y))
-        # print("\n2. New strobe: \n", strobe_reshape)
-        mark_iter_reshape = np.reshape(np.copy(mark_iter), (size_input_x, size_input_y))
-        # print("\n3. mark_iter: \n", mark_iter_reshape)
-        new_algorithm_output_reshape = np.reshape(np.copy(new_algorithm_output), (size_input_x, size_input_y))
-        # print("\n4. New new_algorithm_output: \n", new_algorithm_output_reshape)  
-        # 
-        # 
-
-    # print(new_algorithm_output_reshape)   
-    # print(output)
-    comparison = output == new_algorithm_output_reshape
+    # print("Input image: \n", input_image)
+    # print("\nOutput: \n",new_output)
+    comparison = output == new_output
     equal_arrays = comparison.all()
     
     print(equal_arrays)
@@ -280,7 +296,7 @@ for i in range(0,int(10e100)):
         f.write("\nOriginal algorithm output: \n")
         f.write(np.array2string(output))
         f.write("\nNew algorithm output: \n")
-        f.write(np.array2string(new_algorithm_output_reshape))
+        f.write(np.array2string(new_output))
         f.write("\n================================================\n\n")
     else:
         f_r.write("Input: \n")
@@ -288,7 +304,7 @@ for i in range(0,int(10e100)):
         f_r.write("\nOriginal algorithm output: \n")
         f_r.write(np.array2string(output))
         f_r.write("\nNew algorithm output: \n")
-        f_r.write(np.array2string(new_algorithm_output_reshape))
+        f_r.write(np.array2string(new_output))
         f_r.write("\n================================================\n\n")
 
 f.close()        
