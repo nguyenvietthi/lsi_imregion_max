@@ -42,7 +42,7 @@ set LIB                        dti_tm28hpcp_l30_stdcells_7t_ssg_0p81v_neg40c_rev
 #  200 MHz -  5.000
 #  100 MHz - 10.000
 
-set CLOCK_PERIOD_DTI          [expr {1000.0/600.0}]
+set CLOCK_PERIOD_DTI          [expr {1000.0/760.0}]
 set MARGIN_DTI                [expr {$CLOCK_PERIOD_DTI*0.15}]
 
 #set CLOCK_PERIOD_PHY          1.5
