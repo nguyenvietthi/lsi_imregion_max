@@ -19,7 +19,7 @@
     └───dc_scripts  # Scripts for synthesis
 ```
 # How to simulate by Questasim/Modelsim
-1. Go to directory sim/tb at the terminal
+1. Go to directory **sim/tb** at the terminal
 2. Open gen_random_matrix.py, config the parameters: m - height of image, n - width of image, pixel_width, file_num - number of testcases
 3. Run the following commands at the terminal
 ```sh
@@ -30,7 +30,7 @@ $ vlb;vlg;vsm
 or simulate on GUI of Questasim/Modelsim
 
 # How to view results by Questasim/Modelsim
-1. After simulating as above section, standing at directory sim/tb and run the following command at the terminal
+1. After simulating as above section, standing at directory **sim/tb** and run the following command at the terminal
 ```sh
 $ vsim -view vsim.wlf -do wave.do
 ```
