@@ -30,7 +30,7 @@ $ vlb;vlg;vsm
 or simulate on GUI of Questasim/Modelsim
 
 # How to view results by Questasim/Modelsim
-1. After simulating as above section, standing at directory sim/tb and run the following commands at the terminal
+1. After simulating as above section, standing at directory sim/tb and run the following command at the terminal
 ```sh
 $ vsim -view vsim.wlf -do wave.do
 ```
