@@ -23,6 +23,7 @@
 2. Open gen_random_matrix.py, config the parameters: m - height of image, n - width of image, pixel_width, file_num - number of testcase
 3. Run the following commands
 ```sh
+$ python3 gen_random_matrix.py
 $ source ../qrun_bash
 $ vlb;vlg;vsm
 ```
